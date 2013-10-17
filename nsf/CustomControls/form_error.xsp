@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xc="http://www.ibm.com/xsp/custom">
+	<h1>Error logs</h1>
+	<div class="lotusSection">
+		<h2>Settings</h2>
+		<div class="lotusSectionBody">
+			Filename:
+			<xp:comboBox id="filename" value="#{viewScope.filename}"
+				defaultValue="error-log-0.xml">
+				<xp:selectItems>
+					<xp:this.value><![CDATA[${javascript:Reader.getFiles("xml","error*.xml" )}]]></xp:this.value>
+				</xp:selectItems>
+				<xp:eventHandler event="onchange" submit="true"
+					refreshMode="partial" refreshId="content" execMode="partial">
+				</xp:eventHandler>
+			</xp:comboBox>
+		</div>
+	</div>
+	<div class="viewer">
+		<xp:text escape="false" id="content">
+			<xp:this.value><![CDATA[#{javascript:Reader.readXML("error",getComponent("filename").value);
+
+}]]></xp:this.value>
+		</xp:text>
+	</div>
+
+	<xc:standby></xc:standby>
+</xp:view>

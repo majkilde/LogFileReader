@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+
+	<xp:panel id="lotusFrame" styleClass="lotusFrame">
+
+		<!-- lotusBanner-->
+		<xp:panel id="lotusBanner" styleClass="lotusBanner">
+			<div class="lotusRightCorner">
+				<div class="lotusInner">
+
+					<div class="lotusLogo"></div>
+
+					<!-- Utility menu -->
+					<xp:tabbedPanel id="lotusUtility" styleClass="lotusInlinelist lotusUtility"
+						disableTheme="true">
+						<xp:tabPanel id="tabserverName" startTabStyleClass="lotusFirst">
+							<xp:this.label><![CDATA[${javascript:"On " + @Name("[CN]",database.getServer());}]]></xp:this.label>
+							<xp:this.loaded><![CDATA[${javascript:@ClientType()=="Notes"}]]></xp:this.loaded>
+						</xp:tabPanel>
+						<xp:tabPanel id="userName" startTabStyleClass="lotusFirst"
+							styleClass="lotusUser">
+							<xp:this.label><![CDATA[#{javascript:@Name("[CN]",session.getEffectiveUserName());}]]></xp:this.label>
+							<xp:this.loaded><![CDATA[${javascript:@ClientType()=="Web"}]]></xp:this.loaded>
+						</xp:tabPanel>
+						<xp:tabPanel label="Log in" id="login">
+							<xp:this.rendered><![CDATA[${javascript:@ClientType()=="Web" && session.getEffectiveUserName()=="Anonymous"}]]></xp:this.rendered>
+							<xp:this.href><![CDATA[?Open&login]]></xp:this.href>
+						</xp:tabPanel>
+						<xp:tabPanel label="Log out" id="logout">
+							<xp:this.rendered><![CDATA[${javascript:@ClientType()=="Web" && session.getEffectiveUserName()!="Anonymous"}]]></xp:this.rendered>
+							<xp:this.href><![CDATA[${javascript:"/names.nsf?logout&RedirectTo="+context.getUrl().toString()}]]></xp:this.href>
+						</xp:tabPanel>
+					</xp:tabbedPanel>
+					<!-- END Utility menu -->
+
+
+					<!-- Global navigation -->
+					<ul class="lotusInlinelist lotusLinks">
+						<li class="lotusFirst lotusSelected">
+							<xp:link escape="true" text="Home" id="link1">
+								<xp:eventHandler event="onclick" submit="true"
+									refreshMode="complete">
+									<xp:this.action>
+										<xp:openPage name="$$HomePage">
+										</xp:openPage>
+									</xp:this.action>
+								</xp:eventHandler>
+							</xp:link>
+						</li>
+					</ul>
+					<!-- END Global navigation -->
+
+				</div>
+			</div>
+		</xp:panel>
+		<!-- END lotusBanner-->
+
+
+		<!-- Titlebar -->
+		<xp:panel id="lotusTitleBar" styleClass="lotusTitleBar">
+			<div class="lotusRightCorner">
+				<div class="lotusInner">
+					<xp:text escape="true" id="computedField2" value="#{javascript:@DbTitle()}"
+						tagName="h2">
+					</xp:text>
+
+					<!-- Tabs -->
+					<xp:tabbedPanel id="tabs" styleClass="lotusTabs lotusTabsIndented">
+						<xp:this.selectedTab><![CDATA[#{javascript:context.getUrlParameter("tab")}]]></xp:this.selectedTab>
+						<xp:tabPanel label="Console" id="console" styleClass="lotusSelected">
+							<xp:this.href><![CDATA[?tab=console]]></xp:this.href>
+						</xp:tabPanel>
+						<xp:tabPanel label="XPages log" id="xpages"
+							href="/Reader.xsp?tab=xpages"></xp:tabPanel>
+						<xp:tabPanel label="Error logs" id="error"
+							href="/Reader.xsp?tab=error"></xp:tabPanel>
+						<xp:tabPanel label="Trace logs" id="trace"
+							href="/Reader.xsp?tab=trace"></xp:tabPanel>
+						<xp:tabPanel label="Startup.log" id="startup"
+							href="/Reader.xsp?tab=startup"></xp:tabPanel>
+						<xp:tabPanel label="Log.nsf" id="log" href="/Reader.xsp?tab=log"></xp:tabPanel>
+						<xp:tabPanel label="Settings" id="settings"
+							href="/Reader.xsp?tab=settings"></xp:tabPanel>
+						<xp:tabPanel label="About" id="about" href="/Reader.xsp?tab=about"></xp:tabPanel>
+												<xp:tabPanel label="Setup" id="setup" href="/Reader.xsp?tab=setup"></xp:tabPanel>
+					</xp:tabbedPanel>
+					<!-- END Tabs -->
+
+				</div>
+
+
+
+			</div>
+		</xp:panel>
+		<!-- END titleBar-->
+
+		<!--  Placebar -->
+		<xp:panel id="lotusPlaceBar" styleClass="lotusPlaceBar">
+			<div class="lotusRightCorner">
+				<div class="lotusInner">
+					<xp:text escape="true" id="computedField1" value="#{javascript:@Now()}"
+						tagName="h2">
+					</xp:text>
+				</div>
+			</div>
+		</xp:panel>
+		<!--  END Placebar -->
+
+		<xp:panel id="lotusMain" styleClass="lotusMain">
+			<xp:panel id="lotusColLeft" styleClass="lotusColLeft">
+
+				<!-- Menu -->
+				<xp:panel id="menu" styleClass="lotusMenu">
+
+					<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("tab")=="settings"}]]></xp:this.rendered>
+					<div id="bottomcorner" class="lotusBottomCorner">
+						<div id="inner" class="lotusInner">
+
+							<!-- Navigation sample -->
+							<ul>
+								<xp:panel tagName="li">
+									<xp:this.styleClass><![CDATA[#{javascript:if (context.getUrlParameter("menu")=="ini" || context.getUrlParameter("menu")=="" ) "lotusSelected"}]]></xp:this.styleClass>
+									<xp:link escape="true" text="notes.ini">
+										<xp:this.value><![CDATA[/Reader.xsp?tab=settings&menu=ini]]></xp:this.value>
+									</xp:link>
+								</xp:panel>
+								<xp:panel tagName="li">
+									<xp:this.styleClass><![CDATA[#{javascript:if (context.getUrlParameter("menu")=="xsp" ) "lotusSelected"}]]></xp:this.styleClass>
+									<xp:link escape="true" text="xsp.properties">
+										<xp:this.value><![CDATA[/Reader.xsp?tab=settings&menu=xsp]]></xp:this.value>
+									</xp:link>
+								</xp:panel>
+								<xp:panel tagName="li" loaded="false">
+									<xp:this.styleClass><![CDATA[#{javascript:if (context.getUrlParameter("menu")=="jvm" ) "lotusSelected"}]]></xp:this.styleClass>
+									<xp:link escape="true"
+										text="jvm.properties">
+										<xp:this.value><![CDATA[/Reader.xsp?tab=settings&menu=jvm]]></xp:this.value>
+									</xp:link>
+								</xp:panel>
+								<xp:panel tagName="li">
+									<xp:this.styleClass><![CDATA[#{javascript:if (context.getUrlParameter("menu")=="javapolicy" ) "lotusSelected"}]]></xp:this.styleClass>
+									<xp:link escape="true" text="java.policy">
+										<xp:this.value><![CDATA[/Reader.xsp?tab=settings&menu=javapolicy]]></xp:this.value>
+									</xp:link>
+								</xp:panel>
+								<xp:panel tagName="li">
+									<xp:this.styleClass><![CDATA[#{javascript:if (context.getUrlParameter("menu")=="rcpinstall" ) "lotusSelected"}]]></xp:this.styleClass>
+									<xp:link escape="true" text="rcpinstall.properties">
+										<xp:this.value><![CDATA[/Reader.xsp?tab=settings&menu=rcpinstall]]></xp:this.value>
+									</xp:link>
+								</xp:panel>
+							</ul>
+							<!-- END Navigation -->
+
+						</div>
+					</div>
+				</xp:panel>
+				<!-- END Menu -->
+
+			</xp:panel>
+			<xp:panel id="lotusColRight" styleClass="lotusColRight">
+
+				<!-- Section -->
+				<div class="lotusSection">
+					<h2>
+						<a class="lotusSprite lotusArrow lotusTwistyOpen" href="javascript:;"
+							title="click to collapse section">
+							<span class="lotusAltText">&#x25bc;</span>
+						</a>
+						<span class="lotusLeft">English Resources</span>
+
+					</h2>
+					<div class="lotusSectionBody">
+						<div class="lotusChunk">
+							<ul>
+								<li>
+									<xp:link text="OpenNTF.org" value="http://openntf.org"
+										target="_blank">
+									</xp:link>
+								</li>
+								<li>
+									<xp:link text="XSnippets" value="http://openntf.org/xsnippets"
+										target="_blank">
+									</xp:link>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+				</div><!--END section-->
+
+				<!-- Section -->
+				<div class="lotusSection">
+					<h2>
+						<a class="lotusSprite lotusArrow lotusTwistyOpen" href="javascript:;"
+							title="click to collapse section">
+							<span class="lotusAltText">&#x25bc;</span>
+						</a>
+						<span class="lotusLeft">Danish Resources</span>
+
+					</h2>
+					<div class="lotusSectionBody">
+						<div class="lotusChunk">
+							<ul>
+								<li>
+									<xp:link text="XPages.dk" value="http://xpages.dk"
+										target="_blank">
+									</xp:link>
+								</li>
+								<li>
+									<xp:link text="Majkilde.dk" value="http://majkilde.dk"
+										target="_blank">
+									</xp:link>
+								</li>
+								<li>
+									<xp:link text="Notesnet.dk" value="http://notesnet.dk"
+										target="_blank">
+									</xp:link>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+				</div><!--END section-->
+
+			</xp:panel>
+
+			<!--  Contemt -->
+			<xp:panel id="lotusContent" styleClass="lotusContent">
+				<xp:callback facetName="facet_1" id="callback1"></xp:callback>
+			</xp:panel>
+			<!-- END Content -->
+
+		</xp:panel>
+
+		<!-- Footer -->
+		<xp:panel id="lotusFooter" styleClass="lotusFooter">
+			<!-- Place your footer here -->
+
+			&#160;
+		</xp:panel>
+		<!-- END Footer -->
+
+		<!-- Legal -->
+		<xp:panel id="lotusLegal" styleClass="lotusLegal">
+			<span class="lotusLicense"></span>
+		</xp:panel>
+		<!-- END Legal -->
+	</xp:panel>
+	<xc:ccDebugToolbar load="true" defaultCollapsed="false"
+		collapseTo="left">
+		<xc:this.rendered><![CDATA[#{javascript:context.getUrlParameter("debug")=="1" }]]></xc:this.rendered>
+	</xc:ccDebugToolbar>
+
+</xp:view>

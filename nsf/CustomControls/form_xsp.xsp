@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<h1>XSP.PROPERTIES</h1>
+	<div class="viewer">
+	
+	<table><tr>
+	<th>Property</th>
+	<th>Value</th>
+	</tr>
+	<xp:repeat rows="100" var="xspname" disableTheme="true">
+		<xp:this.value><![CDATA[#{javascript:new Array("xsp.theme","xsp.theme.web","xsp.theme.notes","xsp.resources.aggregate","xsp.application.timeout","xsp.session.timeout","xsp.session.transient","xsp.error.page","xsp.error.page.default","xsp.upload.maximumsize","xsp.upload.directory","xsp.html.page.encoding","xsp.compress.mode","xsp.client.validation","xsp.user.timezone","xsp.persistence.mode","xsp.persistence.file.gzip","xsp.partial.update.timeout","xsp.library.depends","xsp.min.version","xsp.auto.upgrade.version","xsp.ajax.renderwholetree","xsp.client.script.dojo.djConfig","xsp.client.script.dojo.version","xsp.expires.global","xsp.html.preferredcontenttypexhtml","xsp.htmlfilter.acf.config","xsp.persistence.dir.xsppers","xsp.persistence.dir.xspstate","xsp.persistence.dir.xspupload","xsp.persistence.discardjs","xsp.persistence.file.async","xsp.persistence.file.maxviews","xsp.persistence.tree.maxviews","xsp.persistence.viewstate","xsp.redirect","xsp.repeat.allowZeroRowsPerPage","xsp.richtext.default.htmlfilter","xsp.richtext.default.htmlfilterin","xsp.theme.preventCompositeDataStyles","xsp.user.timezone.roundtrip","xsp.html.meta.contenttype","ibm.jscript.cachesize","ibm.xpath.cachesize").sort();}]]></xp:this.value>
+		<tr><td>
+		<xp:text escape="true" id="computedField1"
+			value="#{javascript:xspname}">
+
+		</xp:text>
+</td>
+<td>
+	<xp:text escape="true" id="property">
+		<xp:this.value><![CDATA[#{javascript:var value = facesContext.getApplication().getProperty(xspname, "");
+var appvalue = facesContext.getApplication().getApplicationProperty(xspname, "");
+if(value!=appvalue) {
+	value + " ("+appvalue+")"
+} else {
+	value
+}}]]></xp:this.value>
+	</xp:text>
+</td>
+
+</tr>
+	</xp:repeat>
+</table>
+	</div>
+</xp:view>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<h1>About</h1>
+	<div class="viewer">
+		<table>
+			<tr>
+				<th>
+					<xp:text escape="true" id="dbTitle"
+						value="#{javascript:session.getCurrentDatabase().getTitle();}">
+					</xp:text>
+				</th>
+				<th>Value</th>
+			</tr>
+			<tr>
+				<td>Version</td>
+				<td><xp:text escape="true" id="version"
+						value="#{javascript:Reader.getVersion();}">
+					</xp:text></td>
+			</tr>
+			<tr>
+				<td>Project Link</td>
+				<td>
+					<xp:link escape="true" text="OpenNTF"
+						target="_blank" id="downloadlink">
+						<xp:this.value><![CDATA[http://www.openntf.org/internal/home.nsf/project.xsp?action=openDocument&name=XPages%20Log%20File%20Reader]]></xp:this.value>
+					</xp:link>
+				</td>
+			</tr>
+			<tr>
+				<th>Server info</th>
+				<th>Value</th>
+			</tr>
+			<tr>
+				<td>Name</td>
+				<td>
+					<xp:text escape="true" id="computedField1">
+						<xp:this.value><![CDATA[#{javascript:@Name( "[Abbreviate]",session.getServerName());}]]></xp:this.value>
+					</xp:text>
+				</td>
+			</tr>
+			<tr>
+				<td>Version</td>
+				<td>
+					<xp:text escape="true" id="computedField2"
+						value="#{javascript:session.getNotesVersion()}">
+					</xp:text>
+				</td>
+			</tr>
+			<tr>
+				<td>Platform</td>
+				<td>
+					<xp:text escape="true" id="computedField3"
+						value="#{javascript:session.getPlatform()}">
+					</xp:text>
+				</td>
+			</tr>
+			<tr>
+				<td>International</td>
+				<td>
+					<xp:text escape="false" id="computedField4">
+
+						<xp:this.value><![CDATA[#{javascript:var intl:NotesInternational = session.getInternational();
+"Currency: " + intl.getCurrencySymbol() + 
+"<br>Date seperator: " + intl.getDateSep() + 
+"<br>Time seperator: " + intl.getTimeSep() + 
+"<br>Timezone: " + intl.getTimeZone()}]]></xp:this.value>
+					</xp:text>
+				</td>
+			</tr>
+			<tr>
+				<td>Username list:</td>
+				<td>
+					<xp:text escape="true" id="computedField5"
+						value="#{javascript:session.getUserNameList()}">
+					</xp:text>
+				</td>
+			</tr>
+
+
+			<!--
+				<tr> <th>Extension library</th> <th>Value</th> </tr> <tr>
+				<td>Version</td> <td> <xp:text escape="true" id="computedField6">
+				<xp:this.value><![CDATA[#{javascript:try { var v =
+				com.ibm.xsp.extlib.util.ExtLibUtil.getExtLibVersion(); return v; }
+				catch (e) { return "Error reading version or not installed"; }
+				}]]></xp:this.value> </xp:text></td> </tr>
+			-->
+		</table>
+	</div>
+</xp:view>

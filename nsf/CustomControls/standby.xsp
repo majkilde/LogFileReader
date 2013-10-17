@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+  <xp:this.resources>
+    <xp:dojoModule name="dojox.widget.Standby"></xp:dojoModule>
+  </xp:this.resources>
+  <xp:scriptBlock id="scriptBlock1">
+    <xp:this.value><![CDATA[
+                //Standby Dialog V.2
+    //Code Compile by Fredrik Norling www.xpagedeveloper.com
+    //used with permission from the authors of the original code
+    //http://dontpanic82.blogspot.com/2010/01/xpages-hijackingpublishing-partial.html 
+    //http://lotusnotus.com/lotusnotus_en.nsf/dx/xpages-tip-a-modal-waiting-dialog-for-background-processes..htm
+ 
+    function hijackAndPublishPartialRefresh(){
+ // Hijack the partial refresh 
+ XSP._inheritedPartialRefresh = XSP._partialRefresh;
+ XSP._partialRefresh = function( method, form, refreshId, options ){  
+     // Publish init
+     dojo.publish( 'partialrefresh-init', [ method, form, refreshId, options ]);
+     this._inheritedPartialRefresh( method, form, refreshId, options );
+ }
+  
+ // Publish start, complete and error states 
+ dojo.subscribe( 'partialrefresh-init', function( method, form, refreshId, options ){
+   
+  if( options ){ // Store original event handlers
+   var eventOnStart = options.onStart; 
+   var eventOnComplete = options.onComplete;
+   var eventOnError = options.onError;
+  }
+ 
+  options = options || {};  
+  options.onStart = function(){
+   dojo.publish( 'partialrefresh-start', [ method, form, refreshId, options ]);
+   if( eventOnStart ){
+    if( typeof eventOnStart === 'string' ){
+     eval(eventOnStart)
+    } else {
+     eventOnStart();
+    }
+   }
+  };
+   
+  options.onComplete = function(){
+   dojo.publish( 'partialrefresh-complete', [ method, form, refreshId, options ]);
+   if( eventOnComplete ){
+    if( typeof eventOnComplete === 'string' ){
+     eval( eventOnComplete );
+    } else {
+     eventOnComplete();
+    }
+   }
+  };
+   
+  options.onError = function(){
+   dojo.publish( 'partialrefresh-error', [ method, form, refreshId, options ]);
+   if( eventOnError ){
+    if( typeof eventOnError === 'string' ){
+     eval( eventOnError );
+    } else {
+     eventOnError();
+    }
+   }
+  };
+ });
+}
+ 
+   
+  var fullStandbyDo;
+function scoringStarted() { 
+      if(fullStandbyDo==true){
+          if(this.fullStandby==null) { 
+                  this.fullStandby = new dojox.widget.Standby({ 
+                          target: document.forms[0] 
+                  }); 
+                 document.forms[0].appendChild(fullStandby.domNode); 
+                  fullStandby.startup(); 
+          } 
+          fullStandby.show(); 
+      }
+  }  
+  function scoringCompleted() { 
+   
+    fullStandbyDo=false
+          if(this.fullStandby!=null) fullStandby.hide(); 
+  }
+  function EnableDialog(){
+    dojo.subscribe( 'partialrefresh-start', null, function( method, form, refreshId ){
+ 
+    fullStandbyDo=true
+    setTimeout("scoringStarted()",200)
+    } );
+    dojo.subscribe( 'partialrefresh-complete', null, function( method, form, refreshId ){
+      scoringCompleted()
+    } );
+    dojo.subscribe( 'partialrefresh-error', null, function( method, form, refreshId ){
+      scoringCompleted()
+    } );
+  }
+ 
+hijackAndPublishPartialRefresh()
+EnableDialog()]]></xp:this.value>
+  </xp:scriptBlock>
+ 
+</xp:view>

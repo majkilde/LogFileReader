@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.data>
+		<xp:dominoDocument var="document1" formName="TextFile"></xp:dominoDocument>
+	</xp:this.data>
+	<h1>Text file definition</h1>
+
+	<xp:table>
+		<xp:tr>
+			<xp:td>
+				<xp:label value="Tab:" id="tab_Label1" for="tab1"></xp:label>
+			</xp:td>
+			<xp:td>
+				<xp:inputText value="#{document1.tab}" id="tab1"></xp:inputText>
+			</xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td>
+				<xp:label value="Menu:" id="menu_Label1" for="menu1"></xp:label>
+			</xp:td>
+			<xp:td>
+				<xp:inputText value="#{document1.menu}" id="menu1"></xp:inputText>
+			</xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td>
+				<xp:label value="Path:" id="path_Label1" for="path1"></xp:label>
+			</xp:td>
+			<xp:td>
+				<xp:inputText value="#{document1.path}" id="path1"></xp:inputText>
+			</xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td>
+				<xp:label value="Filename:" id="filename_Label1"
+					for="filename1">
+				</xp:label>
+			</xp:td>
+			<xp:td>
+				<xp:inputText value="#{document1.filename}"
+					id="filename1">
+				</xp:inputText>
+			</xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td>
+				<xp:label value="Filetype:" id="filetype_Label1"
+					for="filetype1">
+				</xp:label>
+			</xp:td>
+			<xp:td>
+				<xp:inputText value="#{document1.filetype}"
+					id="filetype1">
+				</xp:inputText>
+			</xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td>
+				<xp:label value="[Xsl]:" id="xsl_Label1" for="xsl1"></xp:label>
+			</xp:td>
+			<xp:td>
+				<xp:inputText value="#{document1.xsl}" id="xsl1"></xp:inputText>
+			</xp:td>
+		</xp:tr>
+
+		<xp:tr>
+			<xp:td>
+				<xp:label value="[Filter]:" id="filter_Label1"
+					for="filter1">
+				</xp:label>
+			</xp:td>
+			<xp:td>
+				<xp:inputText value="#{document1.filter}"
+					id="filter1">
+				</xp:inputText>
+			</xp:td>
+		</xp:tr>
+	</xp:table>
+
+</xp:view>

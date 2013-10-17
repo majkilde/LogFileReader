@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config>
+  <faces-config-extension>
+    <namespace-uri>http://www.ibm.com/xsp/custom</namespace-uri>
+    <default-prefix>xc</default-prefix>
+  </faces-config-extension>
+  <composite-component>
+    <component-type>ccDebugToolbar</component-type>
+    <composite-name>ccDebugToolbar</composite-name>
+    <composite-file>/ccDebugToolbar.xsp</composite-file>
+    <composite-extension>
+      <designer-extension>
+        <in-palette>true</in-palette>
+        <render-markup>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&#xd;
+&lt;xp:view xmlns:xp="http://www.ibm.com/xsp/core"&#xd;
+  xmlns:xc="http://www.ibm.com/xsp/custom"&gt;&#xd;
+&lt;xp:div style="background-color:#000000; color: #ffffff; padding:3px;"&gt;XPage Debug Toolbar by Mark Leusink&lt;/xp:div&gt;&#xd;
+&lt;/xp:view&gt;&#xd;
+</render-markup>
+      </designer-extension>
+    </composite-extension>
+    <property>
+      <property-name>load</property-name>
+      <property-class>boolean</property-class>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.std.Boolean</editor>
+          <default-value>true</default-value>
+        </designer-extension>
+        <required>true</required>
+      </property-extension>
+      <description>Determines if the toolbar should be loaded at all. This way you can always include the toolbar custom control and the message-calls won't throw an error.</description>
+    </property>
+    <property>
+      <property-name>defaultCollapsed</property-name>
+      <property-class>boolean</property-class>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.std.Boolean</editor>
+          <default-value>false</default-value>
+        </designer-extension>
+        <required>true</required>
+      </property-extension>
+      <description>Determine if the toolbar will be shown collapsed or expanded by default.</description>
+    </property>
+    <property>
+      <property-name>collapseTo</property-name>
+      <property-class>string</property-class>
+      <property-extension>
+        <designer-extension>
+          <editor>com.ibm.workplace.designer.property.editors.comboParameterEditor</editor>
+          <editor-parameter>left&#xd;
+right</editor-parameter>
+          <default-value>left</default-value>
+        </designer-extension>
+      </property-extension>
+      <description>Set the toolbar to be collapsed at the left or right of the screen. Defaults to left.</description>
+    </property>
+    <description>XPage Debug Toolbar</description>
+    <icon>
+      <small-icon>/icons/bug.png</small-icon>
+      <large-icon>/icons/bug.png</large-icon>
+    </icon>
+  </composite-component>
+</faces-config>

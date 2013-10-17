@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<h1>Startup log</h1>
+	<div class="viewer">
+	<xp:inputTextarea id="content">
+			<xp:this.value><![CDATA[#{javascript:Reader.readStartup();
+}]]></xp:this.value>
+</xp:inputTextarea>
+	</div>
+</xp:view>

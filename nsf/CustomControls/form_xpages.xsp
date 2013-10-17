@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+	<h1>IBM TECHNICAL SUPPORT (All files)</h1>
+	<div class="lotusSection">
+		<h2>Settings</h2>
+		<div class="lotusSectionBody">
+			Filename:&#160;
+			<xp:comboBox id="filename" value="#{viewScope.filename}">
+				<xp:selectItems>
+					<xp:this.value><![CDATA[${javascript:Reader.getFiles("tech", "*.log")}]]></xp:this.value>
+				</xp:selectItems>
+				<xp:eventHandler event="onchange" submit="true"
+					refreshMode="partial" refreshId="content" execMode="partial">
+				</xp:eventHandler>
+			</xp:comboBox>
+			<br />
+		</div>
+	</div>
+	<div class="viewer">
+		<xp:inputTextarea id="content">
+			<xp:this.value><![CDATA[#{javascript:Reader.readXPages(getComponent("filename").value);
+}]]></xp:this.value>
+		</xp:inputTextarea>
+	</div>
+
+	<xc:standby></xc:standby>
+</xp:view>

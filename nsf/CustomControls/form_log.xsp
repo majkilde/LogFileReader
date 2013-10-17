@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<h1>LOG.NSF</h1>
+		<div class="lotusSection"><h2>Settings</h2><div class="lotusSectionBody">
+	<xp:checkBox text="Show only HTTP events" id="filter"
+		value="#{viewScope.filter}" checkedValue="HTTP" uncheckedValue=""
+		defaultChecked="true">
+		<xp:eventHandler event="onchange" submit="true"
+			refreshMode="partial" refreshId="content" execMode="partial">
+		</xp:eventHandler>
+	</xp:checkBox>
+&#160;&#160;|&#160;&#160;Navigation:&#160;
+	<xp:link escape="true" text="Prev page" id="prev">
+		<xp:this.value><![CDATA[#{javascript:"/Reader.xsp?tab=log&unid="+sessionScope.prevUnid;}]]></xp:this.value>
+		<xp:this.loaded><![CDATA[${javascript:sessionScope.prevUnid!="";}]]></xp:this.loaded>
+	</xp:link>
+
+	&#160;&#160;
+	<xp:link escape="true" text="Next page" id="Next">
+		<xp:this.value><![CDATA[#{javascript:"/Reader.xsp?tab=log&unid="+sessionScope.nextUnid;}]]></xp:this.value>
+		<xp:this.loaded><![CDATA[${javascript:sessionScope.nextUnid!="";}]]></xp:this.loaded>
+	</xp:link>
+</div></div>
+	<div class="viewer">
+	<xp:inputTextarea id="content" loaded="true">
+
+		<xp:this.value><![CDATA[#{javascript:Reader.readLog(viewScope.filter, context.getUrlParameter("unid"))}]]></xp:this.value>
+	</xp:inputTextarea>
+	</div>
+	
+	
+</xp:view>

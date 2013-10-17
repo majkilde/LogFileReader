@@ -1,0 +1,44 @@
+/* OneUI 2.1 bug fix */
+.lotusSection h2 {
+	margin: 0px;
+}
+
+.lotusTitleBar h2 {
+	margin: 0px;
+	font-weight: bold;
+}
+
+.lotusPlaceBar h2 {
+	margin: 0px;
+}
+
+/* Move the debug toolbar to the bottom */
+div.debugToolbar {
+	position: relative !important;
+}
+
+/* add the xpages logo */
+.lotusLogo {
+	background-image: url("xpages.png");
+	width: 100px;
+	height: 35px;
+	margin-left: 10px !important;
+}
+
+/* Form layout */
+.lotusContent h1 {
+	margin-bottom: 20px;
+	text-transform:uppercase;
+}
+
+.lotusContent .viewer {
+	height: 500px;
+	overflow: auto;
+	font-family: courier;
+}
+
+.lotusContent .viewer th {
+	text-align: left;
+	background: #444;
+	color: white;
+}

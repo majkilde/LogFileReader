@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+
+	<xc:layout>
+		<xp:this.facets>
+
+			<xp:include id="include1" xp:key="facet_1">
+				<xp:this.pageName><![CDATA[${javascript:section = context.getUrlParameter("tab");
+switch (section) {
+	case "": 
+		return "form_console.xsp";
+		break;
+	case "setup": 
+		form = context.getUrlParameter("form");
+		if( form=="") {
+			return "view_settings.xsp";
+		} else {
+			return "form_inputfile.xsp";
+		}
+	case "settings":
+		var menu = context.getUrlParameter("menu");
+		if (menu=="") menu="ini";
+		return  "form_"+menu+".xsp";
+	default:
+		return "form_"+section+".xsp"
+}
+//(section=="") ? "form_console.xsp" : "form_"+section+".xsp";}]]></xp:this.pageName>
+			</xp:include>
+
+		</xp:this.facets>
+	</xc:layout>
+</xp:view>

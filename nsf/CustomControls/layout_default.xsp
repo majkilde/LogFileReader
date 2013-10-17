@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+
+<!--
+Sample OneUI Application Layout Custom Control. 
+Installation:
+1. Copy all into a new Custom Control
+2. Delete or hide (loaded=false) elements you don't want to use
+3. Use a OneUI theme, e.g. oneuiv2.1_blue
+4. Add these css settings to your stylesheet
+	.lotusSection h2 {margin:0px;}
+	.lotusTitleBar h2 {	margin:0px;	font-weight: bold;}
+	.lotusPlaceBar h2 {	margin:0px;}
+5. OneUI 2.1 documentation: http://infolib.lotus.com/resources/oneui/2.1/docPublic/index.htm
+-->
+
+	<xp:panel id="lotusFrame" styleClass="lotusFrame">
+
+		<!-- lotusBanner-->
+		<xp:panel id="lotusBanner" styleClass="lotusBanner">
+			<div class="lotusRightCorner">
+				<div class="lotusInner">
+
+					<div class="lotusLogo">
+					</div>
+
+					<!-- Utility menu -->
+					<xp:tabbedPanel id="lotusUtility" styleClass="lotusInlinelist lotusUtility"
+						disableTheme="true">
+						<xp:tabPanel id="tabserverName" startTabStyleClass="lotusFirst">
+							<xp:this.label><![CDATA[${javascript:"On " + @Name("[CN]",database.getServer());}]]></xp:this.label>
+							<xp:this.loaded><![CDATA[${javascript:@ClientType()=="Notes"}]]></xp:this.loaded>
+						</xp:tabPanel>
+						<xp:tabPanel id="userName" startTabStyleClass="lotusFirst"
+							styleClass="lotusUser">
+							<xp:this.label><![CDATA[#{javascript:@Name("[CN]",session.getEffectiveUserName());}]]></xp:this.label>
+							<xp:this.loaded><![CDATA[${javascript:@ClientType()=="Web"}]]></xp:this.loaded>
+						</xp:tabPanel>
+						<xp:tabPanel label="Log in" id="login">
+							<xp:this.rendered><![CDATA[${javascript:@ClientType()=="Web" && session.getEffectiveUserName()=="Anonymous"}]]></xp:this.rendered>
+							<xp:this.href><![CDATA[?Open&login]]></xp:this.href>
+						</xp:tabPanel>
+						<xp:tabPanel label="Log out" id="logout">
+							<xp:this.rendered><![CDATA[${javascript:@ClientType()=="Web" && session.getEffectiveUserName()!="Anonymous"}]]></xp:this.rendered>
+							<xp:this.href><![CDATA[${javascript:"/names.nsf?logout&RedirectTo="+context.getUrl().toString()}]]></xp:this.href>
+						</xp:tabPanel>
+					</xp:tabbedPanel>
+					<!-- END Utility menu -->
+
+
+					<!-- Global navigation -->
+					<ul class="lotusInlinelist lotusLinks">
+						<li class="lotusFirst lotusSelected">
+							<xp:link escape="true" text="Home" id="link1">
+								<xp:eventHandler event="onclick" submit="true"
+									refreshMode="complete">
+									<xp:this.action>
+										<xp:openPage name="$$HomePage"></xp:openPage>
+									</xp:this.action>
+								</xp:eventHandler>
+							</xp:link>
+						</li>
+					</ul>
+					<!-- END Global navigation -->
+
+				</div>
+			</div>
+		</xp:panel>
+		<!-- END lotusBanner-->
+
+
+		<!-- Titlebar -->
+		<xp:panel id="lotusTitleBar" styleClass="lotusTitleBar">
+			<div class="lotusRightCorner">
+				<div class="lotusInner">
+					<h2 title="Application Name">Application Name
+					</h2>
+
+					<!-- Tabs -->
+					<xp:tabbedPanel id="tabs" styleClass="lotusTabs lotusTabsIndented">
+						<xp:tabPanel label="Tab1" id="tabPanel1"></xp:tabPanel>
+						<xp:tabPanel label="Tab2" id="tabPanel2" styleClass="lotusSelected"></xp:tabPanel>
+					</xp:tabbedPanel>
+					<!-- END Tabs -->
+					
+				</div>
+
+				<!-- Search -->
+				<xp:panel styleClass="lotusSearch" id="search"
+					loaded="${javascript:database.isFTIndexed()}">
+					<xp:inputText id="searchText" value="#{viewScope.searchValue}"
+						defaultValue="Search..." styleClass="lotusText lotusInactive"
+						style="width:200px">
+					</xp:inputText>
+				</xp:panel>
+				<!-- END Search -->
+				
+			</div>
+		</xp:panel>
+		<!-- END titleBar-->
+
+		<!--  Placebar -->
+		<xp:panel id="lotusPlaceBar" styleClass="lotusPlaceBar">
+			<div class="lotusRightCorner">
+				<div class="lotusInner">
+					<xp:text escape="true" id="computedField1" value="#{javascript:@DbTitle()}"
+						tagName="h2">
+					</xp:text>
+					<div class="lotusBtnContainer">
+						<span class="lotusBtn">
+							<a href="javascript:;">Action button</a>
+						</span>
+					</div><!--end bntContainer-->
+				</div>
+			</div>
+		</xp:panel>
+		<!--  END Placebar -->
+
+		<xp:panel id="lotusMain" styleClass="lotusMain">
+			<xp:panel id="lotusColLeft" styleClass="lotusColLeft">
+
+				<!-- Menu -->
+				<xp:panel id="menu" styleClass="lotusMenu">
+					<div id="bottomcorner" class="lotusBottomCorner">
+						<div id="inner" class="lotusInner">
+
+							<!-- Navigation sample -->
+							<ul>
+								<xp:panel tagName="li" styleClass="lotusSelected">
+									<xp:link escape="true" text="Menu 1">
+									</xp:link>
+								</xp:panel>
+								<xp:panel tagName="li">
+									<xp:link escape="true" text="Menu 2">
+									</xp:link>
+								</xp:panel>
+							</ul>
+							<!-- END Navigation -->
+
+						</div>
+					</div>
+				</xp:panel>
+				<!-- END Menu -->
+
+			</xp:panel>
+			<xp:panel id="lotusColRight" styleClass="lotusColRight">
+
+				<!-- Section -->
+				<div class="lotusSection">
+					<h2>
+						<a class="lotusSprite lotusArrow lotusTwistyOpen" href="javascript:;"
+							title="click to collapse section">
+							<span class="lotusAltText">&#x25bc;</span>
+						</a>
+						<span class="lotusLeft">Section Header</span>
+
+					</h2>
+					<div class="lotusSectionBody">
+						<div class="lotusChunk">Data goes here....</div>
+					</div>
+				</div><!--END section-->
+
+			</xp:panel>
+
+			<!--  Contemt -->
+			<xp:panel id="lotusContent" styleClass="lotusContent">
+				<xp:callback facetName="facet_1" id="callback1"></xp:callback>
+			</xp:panel>
+			<!-- END Content -->
+
+		</xp:panel>
+
+		<!-- Footer -->
+		<xp:panel id="lotusFooter" styleClass="lotusFooter">
+			<!-- Place your footer here -->
+			
+			&#160;
+		</xp:panel>
+		<!-- END Footer -->
+
+		<!-- Legal -->
+		<xp:panel id="lotusLegal" styleClass="lotusLegal">
+			<span class="lotusLicense"></span>
+		</xp:panel>
+		<!-- END Legal -->
+	</xp:panel>
+</xp:view>
