@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" replicaid="C1257B8B006B3B8D" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="272" sequence="12" unid="C1257B8B006B3B8DC1257BFE004EDC7F">
+<created><datetime dst="true">20131008T162122,55+02</datetime></created>
+<modified><datetime dst="true">20131017T092356,63+02</datetime></modified>
+<revised><datetime dst="true">20131017T092356,62+02</datetime></revised>
+<lastaccessed><datetime dst="true">20131017T092356,63+02</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20131017T092356,61+02</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
+<wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
+<item name="$FlagsExt" sign="true"><text>D</text></item>
+<item name="$ImagesHigh" sign="true"><number>1</number></item>
+<item name="$ImagesColorize" sign="true"><number>0</number></item>
+<item name="$WebBrowserCompatible" sign="true"><number>1</number></item>
+<item name="$TITLE" sign="true"><textlist><text>notes.menu.bullet</text><text>menu.bullet</text></textlist></item>
+<item name="$ImagesWide"><number>3</number></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+
+
+
+<item name="$MimeType" sign="true"><text>image/gif</text></item>
+<item name="$FileModDT" sign="true"><datetime dst="true">20131008T163141,09+02</datetime></item>
+<item name="$Flags"><text>34CiQv</text></item>
+<item name="$ImageNames" sign="true"><text>bullet.gif</text></item>
+<item name="$palmVersion"><datetime dst="true">20131008T163153,00+02</datetime></item>
+<item name="$palmDate"><datetime dst="true">20131017T092356,00+02</datetime></item>
+<item name="$palmUser"><text>CN=Jakob Majkilde/O=MAJKILDE</text></item>
+<item name="$comment"><text>MVC Database</text></item>
+<item name="$palmSource"><text>title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;</text></item></note>

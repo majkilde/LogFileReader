@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<note class='form' xmlns='http://www.lotus.com/dxl' version='9.0' replicaid='C1257B8B006B3B8D'>
+<noteinfo noteid='286' unid='C1257B8B006B3B8DC1257BFE00467C28' sequence='20'>
+<created><datetime dst='true'>20131008T144953,04+02</datetime></created>
+<modified><datetime dst='true'>20131017T092356,88+02</datetime></modified>
+<revised><datetime dst='true'>20131017T092356,87+02</datetime></revised>
+<lastaccessed><datetime dst='true'>20131017T092356,88+02</datetime></lastaccessed>
+<addedtofile><datetime dst='true'>20131017T092356,86+02</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
+<wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
+<item name='$comment' sign='true'><text>MVC Database</text></item>
+<item name='$HTMLCode' sign='true'>
+<rawitemdata type='1'>
+X/8QAAIADwAHAAAAAAAAAA==
+</rawitemdata></item>
+<item name='$TITLE'><text>menu</text></item>
+<item name='$Info' sign='true'>
+<rawitemdata type='1'>
+hhgAAIAAAAAAgAAAAAABAAAAAAAQAAAA
+</rawitemdata></item>
+<item name='$Flags'><text>C34WQ</text></item>
+<item name='$DesignerVersion'><text>8.5.3</text></item>
+<item name='$Fonts'>
+<rawitemdata type='1'>
+i/8oAAEABTVDb25zb2xhcwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+</rawitemdata></item>
+<item name='$$ScriptName' summary='false' sign='true'><text>menu</text></item>
+<item name='$Body' sign='true'>
+<rawitemdata type='1'>
+gQKC/1oAAQAAAAAAAAAAAKAFAACgBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAACBAAAAAJSHAAAAAAAAAAAAAAAAAQAAAAQAAACDBAEAhf8IAAEAAAqBAoL/WgACAAAA
+AAAAAAAAOAQAADgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA
+AAAAFIQ4BAAAOAQAAAAAZAABAAAABAAAAIMEAgDdBgEA+//7/ywAQQAAAAEBAAAAAAAAAAAAANEB
+AAAAAAAAAAAAAAEAAAAAAAAAAAAAAFz/PgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAOAAAAAAAAAAEAAAoAAAAAAQAAAAAA3gYBAPv/ow44BCgAPAAAAAAAAwCkEgAAOAStQ4Bw
+VQMREQEBAACBAoL/WgADAAAAAAAAAAAARwStQ0cEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAhgEAAAAAVIcAAAAAAAAAAAAAAAABAAAABAAAAIMEAwCF/wgAAQAACuIE
+0QHTCAEAAAAAAKUGAAAAAIECgwQBAIX/CAABAAAKgQKDBAEAhf8IAAEAAASBAoL/WgAEAAAAAAAA
+AAAAoAUAAKAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA
+lISgBQkAoAUGAAAAAAABAAAABAAAAIMEBADdBgEA+//7/ywAAAAAAAEBAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAEAAAAAAAAAAAAAAFz/PgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAOAAAAAAAAAAEAAAoAAAAAAQAAAAAA3gYBAPv/ow6gBSgAPAAAAAAAAgCkEgAAoAWzEAAAVQIR
+EQEBAACBAoL/WgAFAAAAAAAAAAAArwWzEK8FAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAhgEAAAAAVIcAAAAAAAAAAAAAAAABAAAABAAAAIMEBQCF/wgAAQAACt0GAACt
+/3H/MQAAAAAAAwAWAA8AAAAAAAAAAAAAAAAAAAAAAAAAAABtYWluLm5hdmlnYXRvcgAArf8bABsA
+CAAAAA8AbWFpbi5uYXZpZ2F0b3IAAN0GAADq/+r/PgAbAAlEAABkAKAFBQEACwAAAAAAAAAABQEA
+CwUAAAsAAAUA////AAEA////AAAAAAAAAAAAAAAAAAAA7P8OAQACIQAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAOQAAAAAAAAABAAAKAQAACgEAAAoBAAAKAQAACgEAAAoAAAAAAAAA
+AAAAGwEAAAAAAAAFAP///wAFAP///wAFAP///wAFAP///wAFAP///wAFAP///wAFAP///wAFAP//
+/wAFAP///wAFAP///wABAP///wABAP///wABAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAQD///8AAQD///8AAQD///8AAQD///8AAQD///8AAQD///8AAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAA9v8pAAAAAAADABMABwAAAAAAAAAAAAAAAAAAAAAAAAAAAHR3aXN0
+aWUA3gYAAOr/rgLeBgAArgCF/wgAAQAACqUGAAAAAIECgv9aAAYAAAAAAAAAAACgBQAAoAUAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAACUhwAAAAAAAAAAAAAA
+AAEAAAAEAAAAgwQGAIX/CAABAAAK
+</rawitemdata></item>
+<item name='$palmVersion'><datetime dst='true'>20131008T163231,00+02</datetime></item>
+<item name='$palmDate'><datetime dst='true'>20131017T092356,00+02</datetime></item>
+<item name='$palmUser'><text>CN=Jakob Majkilde/O=MAJKILDE</text></item>
+<item name='$palmSource'><text>title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;</text></item></note>
+

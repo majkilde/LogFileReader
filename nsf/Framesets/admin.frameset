@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<note class='form' xmlns='http://www.lotus.com/dxl' version='9.0' replicaid='C1257B8B006B3B8D'>
+<noteinfo noteid='26a' unid='C1257B8B006B3B8DC1257BFE00466477' sequence='23'>
+<created><datetime dst='true'>20131008T144852,39+02</datetime></created>
+<modified><datetime dst='true'>20131017T092356,53+02</datetime></modified>
+<revised><datetime dst='true'>20131017T092356,52+02</datetime></revised>
+<lastaccessed><datetime dst='true'>20131017T092356,53+02</datetime></lastaccessed>
+<addedtofile><datetime dst='true'>20131017T092356,51+02</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
+<wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
+<item name='$TITLE' sign='true'><text>admin</text></item>
+<item name='$comment' sign='true'><text>MVC Database</text></item>
+<item name='$FrameSet' sign='true'>
+<rawitemdata type='1'>
+7/8YAAIABwAAAAAAAAAAAAAAAAAAAAAA8P8+AAQAAAABAAAAAAAAAAAAAAAAAAUAAAAAAAUAAAAA
+AAIAAQAAAAAABQAAAAAAAAABADcAAwABAAMAAQDx/zQAEAAAAABAAQECAAEAAQAAAAAAAAAAAAAA
+AQAAAAAAAAABAP///wABAAAKAQAAAAAA9v8oAAAAAAADAAcABgAAAAAAAAAAAAAAAAAAAAAAAAAA
+AGhlYWRlcvD/PgAAAAAAAQAAAAAAAAAAAAAAAAAFAAAAAAAFAAAAAAABAAIAAAAAAAUAAAAAAAAA
+AwABAAEA3AADAAEA8P8+AAAAAAABAAAAAAAAAAAAAAAAAAUAAAAAAAUAAAAAAAIAAQAAAAAABQAA
+AAAAAAADAAEAAQARAAMAAQDx/z0AEAAAAABAAQECAAEAAQAAAAAAAAAAAAkAAQAAAAAAAABOb3Rl
+c1ZpZXcBAP///wABAAAKAQAAAAAAP/b/JgAAAAAAAwAHAAQAAAAAAAAAAAAAAAAAAAAAAAAAAABt
+ZW518f80ABAAAAAAQAEBAgABAAEAAAAAAAAAAAAAAAEAAAAAAAAAAQD///8AAQAACgEAAAAAAPb/
+KAAAAAAAAwAHAAYAAAAAAAAAAAAAAAAAAAAAAAAAAABjb3JuZXLx/z0AEQEAAABAAAADAAEAAQAA
+AAAACQAAAAAAAQAAAAAAAABOb3Rlc1ZpZXcBAP///wABAAAKAQAAAAAAP/b/JgAAAAAAAwACAAQA
+AAAAAAAAAAAAAAAAAAAAAAAAAABNYWlu
+</rawitemdata></item>
+<item name='$Flags'><text>#34CQ</text></item>
+<item name='$DesignerVersion'><text>8.5.3</text></item>
+<item name='$palmVersion'><datetime dst='true'>20131008T170644,00+02</datetime></item>
+<item name='$palmDate'><datetime dst='true'>20131017T092356,00+02</datetime></item>
+<item name='$palmUser'><text>CN=Jakob Majkilde/O=MAJKILDE</text></item>
+<item name='$palmSource'><text>title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;</text></item></note>
+

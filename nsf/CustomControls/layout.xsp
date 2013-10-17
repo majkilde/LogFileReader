@@ -247,9 +247,6 @@
 		</xp:panel>
 		<!-- END Legal -->
 	</xp:panel>
-	<xc:ccDebugToolbar load="true" defaultCollapsed="false"
-		collapseTo="left">
-		<xc:this.rendered><![CDATA[#{javascript:context.getUrlParameter("debug")=="1" }]]></xc:this.rendered>
-	</xc:ccDebugToolbar>
+	
 
 </xp:view>

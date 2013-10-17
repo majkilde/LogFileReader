@@ -1,36 +1,37 @@
 package majkilde.log;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections; //xml/xsl transform
+import java.util.Collections;
 import java.util.Map;
 
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
-import javax.xml.transform.*;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
+import lotus.domino.Database;
+import lotus.domino.Document;
 import lotus.domino.NotesException;
 import lotus.domino.Session;
-import lotus.domino.Database;
 import lotus.domino.View;
-import lotus.domino.Document;
 
-import com.debug.*; // XPages Debug toolbar
 import com.ibm.domino.xsp.module.nsf.NotesContext;
 
-
 public class Reader implements Serializable {
-	private String version="1.2";
+	private final String version = "1.2";
 	private static final long serialVersionUID = 1L;
-	private DebugToolbar debug = null;
 
 	// Constructor
 	public Reader() {
-		debug = new DebugToolbar(); // initialize the debug toolbar
 	}
 
 	// Often used functions
@@ -38,7 +39,6 @@ public class Reader implements Serializable {
 		NotesContext nc = NotesContext.getCurrentUnchecked();
 		// return (null != nc) ? nc.getCurrentSession() : null;
 		return (null != nc) ? nc.getSessionAsSignerFullAdmin() : null;
-		
 
 	}
 
@@ -46,7 +46,7 @@ public class Reader implements Serializable {
 	public static Map getCurrentSessionScope() {
 		FacesContext context = FacesContext.getCurrentInstance();
 		return (Map) context.getApplication().getVariableResolver().resolveVariable(context, "sessionScope");
-		}
+	}
 
 	private String getNotesini(String paramname, Boolean system) {
 		Session session = getCurrentSession();
@@ -54,7 +54,6 @@ public class Reader implements Serializable {
 		try {
 			value = session.getEnvironmentString(paramname, system);
 		} catch (NotesException e) {
-			debug.error(e.toString());
 		}
 		return value;
 	}
@@ -63,7 +62,8 @@ public class Reader implements Serializable {
 		String filename = "";
 		filename = getNotesini("Directory", true);
 		filename = filename.replace("\\", "/");
-		if (!filename.endsWith("/")) filename+="/";
+		if (!filename.endsWith("/"))
+			filename += "/";
 		return filename;
 	}
 
@@ -71,7 +71,8 @@ public class Reader implements Serializable {
 		String filename = "";
 		filename = getNotesini("NotesProgram", true);
 		filename = filename.replace("\\", "/");
-		if (!filename.endsWith("/")) filename+="/";
+		if (!filename.endsWith("/"))
+			filename += "/";
 		return filename;
 	}
 
@@ -110,8 +111,9 @@ public class Reader implements Serializable {
 	public static boolean wildCardMatch(String text, String pattern) {
 		// Create the cards by splitting using a RegEx. If more speed
 		// is desired, a simpler character based splitting can be done.
-		if (pattern==null) return true;
-		
+		if (pattern == null)
+			return true;
+
 		String[] cards = pattern.split("\\*");
 
 		// Iterate over the cards.
@@ -129,20 +131,20 @@ public class Reader implements Serializable {
 
 		return true;
 	}
-	
+
 	public static String readableFileSize(long size) {
-	    if(size <= 0) return "0 bytes";
-	    final String[] units = new String[] { "bytes", "Kbytes", "Mb", "Gb", "Tb" };
-	    int digitGroups = (int) (Math.log10(size)/Math.log10(1024));
-	    return new DecimalFormat("#,##0.#").format(size/Math.pow(1024, digitGroups)) + " " + units[digitGroups];
+		if (size <= 0)
+			return "0 bytes";
+		final String[] units = new String[] { "bytes", "Kbytes", "Mb", "Gb", "Tb" };
+		int digitGroups = (int) (Math.log10(size) / Math.log10(1024));
+		return new DecimalFormat("#,##0.#").format(size / Math.pow(1024, digitGroups)) + " " + units[digitGroups];
 	}
-	
+
 	public static String readableDate(long date) {
 		String DATE_FORMAT = "dd. MM yyyy";
-	    SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
-		return sdf.format( date );
+		SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
+		return sdf.format(date);
 	}
-	
 
 	/*
 	 * Retrieves a list of files in the specified folder - matching the optional
@@ -180,7 +182,6 @@ public class Reader implements Serializable {
 
 	public String readFileFast(String filename, String filter) {
 		StringBuilder result = new StringBuilder();
-		debug.info( "Reading from file: " + filename + " (filter: "+filter+")");
 		File file = new File(filename);
 		FileReader fileReader;
 		try {
@@ -200,7 +201,6 @@ public class Reader implements Serializable {
 				}
 			}
 		} catch (Exception e) {
-			debug.error(e.toString());
 		}
 
 		return result.toString();
@@ -220,30 +220,25 @@ public class Reader implements Serializable {
 			Database db = session.getDatabase("", "log.nsf");
 			View view = db.getView("MiscEvents");
 			Document doc = null;
-			if (unid == null || unid=="") {
+			if (unid == null || unid == "") {
 				doc = view.getLastDocument();
 			} else {
 				doc = db.getDocumentByUNID(unid);
 			}
-			
-			debug.info( "Current document:" + doc.getUniversalID());
-			
+
 			//update sessionScope with links to prev/next log document
 			try {
 				Document prev = view.getPrevDocument(doc);
 				Document next = view.getNextDocument(doc);
-			
+
 				Map sessionScope = getCurrentSessionScope();
-				String tmpUnid = (next==null) ? "" : next.getUniversalID();
+				String tmpUnid = (next == null) ? "" : next.getUniversalID();
 				sessionScope.put("nextUnid", tmpUnid);
-				debug.info( "Next document:" + tmpUnid);
-				
-				tmpUnid = (prev==null) ? "" : prev.getUniversalID();
+
+				tmpUnid = (prev == null) ? "" : prev.getUniversalID();
 				sessionScope.put("prevUnid", tmpUnid);
-				debug.info( "Prev document:" + tmpUnid);
-				
+
 			} catch (Exception e) {
-				debug.error( e.toString());
 			}
 			ArrayList<String> list = new ArrayList<String>(doc.getItemValue("EventList"));
 			StringBuilder sb = new StringBuilder();
@@ -259,7 +254,6 @@ public class Reader implements Serializable {
 			}
 			result = sb.toString();
 		} catch (Exception e) {
-			debug.error(e.toString());
 		}
 		return result;
 	}
@@ -301,21 +295,21 @@ public class Reader implements Serializable {
 		html = readFileFast(filename);
 		return html;
 	}
-	
+
 	public String readJVM() {
 		String html = "";
 		String filename = getFolder("jvm") + "jvm.properties";
 		html = readFileFast(filename);
 		return html;
 	}
-	
+
 	public String readJavaPolicy() {
 		String html = "";
 		String filename = getFolder("javapolicy") + "java.policy";
 		html = readFileFast(filename);
 		return html;
 	}
-	
+
 	public String readRCP() {
 		String html = "";
 		String filename = getFolder("rcp") + "rcpinstall.properties";
@@ -334,20 +328,16 @@ public class Reader implements Serializable {
 		if (filename == null) {
 			return "Please select a file";
 		}
-		
+
 		String path = getFolder("xml");
-		String xsl = getFullyQualifiedDatabaseURL()+ "/transform.xsl";
-		
-		debug.info("Reading: " + getFolder("xml") + filename);
-		debug.info("Tranform with: " + xsl);
-		
+		String xsl = getFullyQualifiedDatabaseURL() + "/transform.xsl";
+
 		// Get the number of bytes in the file
 		File file = new File(getFolder("xml") + filename);
-		if ( file.length()==0) {
-			debug.info( "File is empty - return a blank page ...");
+		if (file.length() == 0) {
 			return "";
 		}
-		
+
 		// XSL transform
 		if (true) {
 			TransformerFactory tFactory = TransformerFactory.newInstance();
@@ -358,8 +348,7 @@ public class Reader implements Serializable {
 				// prepare the output/result
 				// TODO Use an String instead of creating temp file on disk
 				String tmpFile = path + "log.html";
-				StreamResult result = new StreamResult(new FileOutputStream(
-						tmpFile));
+				StreamResult result = new StreamResult(new FileOutputStream(tmpFile));
 
 				// read the log file
 				StreamSource inputStream = new StreamSource(path + filename);
@@ -368,7 +357,6 @@ public class Reader implements Serializable {
 				transformer.transform(inputStream, result);
 				return readFileFast(tmpFile);
 			} catch (Exception e) {
-				debug.error(e.toString());
 			}
 		}
 		// If transformation fails - just display the xml file
@@ -401,20 +389,18 @@ public class Reader implements Serializable {
 		}
 		return html;
 	}
-	
-	private static String getFullyQualifiedDatabaseURL(){
+
+	private static String getFullyQualifiedDatabaseURL() {
 		FacesContext context = FacesContext.getCurrentInstance();
 		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
-		
+
 		String scheme = request.getScheme();
 		String serverName = request.getServerName();
 		int serverPort = request.getServerPort();
 		String contextPath = request.getContextPath();
-		
-		return scheme+"://"+serverName+ ((serverPort==80) ? "" : ":"+serverPort) +contextPath;
-	}
 
-	
+		return scheme + "://" + serverName + ((serverPort == 80) ? "" : ":" + serverPort) + contextPath;
+	}
 
 	public String getVersion() {
 		return version;

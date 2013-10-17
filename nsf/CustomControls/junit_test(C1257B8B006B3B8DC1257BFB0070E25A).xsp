@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.resources>
+		<xp:styleSheet href="/xpfw.css"></xp:styleSheet>
+	</xp:this.resources>
+	<xp:text escape="false" id="computedField1">
+		<xp:this.value><![CDATA[#{javascript:runner = new dk.xpages.utils.JUnitRunner();
+//Run test or TestSuite
+runner.runTest( "test.dk.xpages.TestSuite" ); 
+
+runner.getHtml();
+}]]></xp:this.value>
+	</xp:text>
+	
+</xp:view>

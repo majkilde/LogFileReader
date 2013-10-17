@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='utf-8'?>
+<note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' replicaid='C1257B8B006B3B8D'>
+<noteinfo noteid='296' unid='C1257B8B006B3B8DC1257BFC0056C310' sequence='34'>
+<created><datetime dst='true'>20131006T174740,32+02</datetime></created>
+<modified><datetime dst='true'>20131017T092357,09+02</datetime></modified>
+<revised><datetime dst='true'>20131017T092357,08+02</datetime></revised>
+<lastaccessed><datetime dst='true'>20131017T092444,52+02</datetime></lastaccessed>
+<addedtofile><datetime dst='true'>20131017T092357,07+02</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
+<wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
+<item name='$FormulaClass' sign='true'><text>1</text></item>
+<item name='$Index' sign='true'><text/></item>
+<item name='$Formula' summary='true' sign='true'><formula compiled='true'>
+EgECABQABABwYWdlBQAEAHBhZ2UDAAIADAACACQwpAADAAIAGgACACQzBQAJAGxldmVsVGV4dABj
+AQMAAgAcAAcAZWxhcHNlZAAFAAcAZWxhcHNlZAADAAIALAAQAHVzZWRNZW1vcnlCZWZvcmUFABAA
+dXNlZE1lbW9yeUJlZm9yZQMAAgAcAAcAbWVzc2FnZQAFAAcAbWVzc2FnZQADAAUATABHAAgABAAC
+AAIABwAQAAcACQAEAHBhZ2UkMCQzZWxhcHNlZHVzZWRNZW1vcnlCZWZvcmVtZXNzYWdlJENvbmZs
+aWN0JFJFRgAEAAQAAAAYAAUABABmb3JtAQADAGxvZwAKAgMABwAKAAQACUwxUw==
+</formula></item>
+<item name='$Collation' summary='true'>
+<rawitemdata type='2'>
+GgACAABECGYHAAAEAAFmAAQAAgBwYWdlJDA=
+</rawitemdata></item>
+<item name='$Fonts'><textlist><text>5</text><text>53</text><text>Consolas</text><text
+>6</text><text>53</text><text>Consolas</text><text>7</text><text>53</text><text
+>Consolas</text><text>8</text><text>53</text><text>Consolas</text><text>9</text><text
+>53</text><text>Consolas</text><text>10</text><text>53</text><text>Consolas</text><text
+>11</text><text>53</text><text>Consolas</text><text>12</text><text>53</text><text
+>Consolas</text><text>13</text><text>53</text><text>Consolas</text><text>14</text><text
+>53</text><text>Consolas</text><text>15</text><text>53</text><text>Consolas</text><text
+>16</text><text>53</text><text>Consolas</text><text>17</text><text>53</text><text
+>Consolas</text><text>18</text><text>53</text><text>Consolas</text></textlist></item>
+<item name='$comment' sign='true'><text>MVC Database</text></item>
+<item name='$Flags'><text>PY</text></item>
+<item name='$ViewFormat' sign='true'>
+<rawitemdata type='5'>
+AQAHAAcACQQAAFZDAwQEAAQAFgAAAC0ABQEBCwABAAAIAAAAAAICAAAAVkMFAAIABAAOAAAAogAG
+AAELAAAAAAgAAAAAAgIAAABWQwAAAgAFACYAAABDAAcAAQsAAAAACAAAAAACAgAAAFZDAAAHAAkA
+HgAAAEkACAABC0EAAAAJAAAAAAICAAAAVkMAABAADwAuAAAAfQAJAAELQQAAAQEAAAAAAgIAAABW
+QwAAAgAAABAABgAIAAoAAQsAAAAACAAAAAACAgAAAFZDAAAHAAwAHgAAAAABCwABCwAAAAAIAAAA
+AAICAAAAcGFnZXBhZ2UWAAIAFAAEAHBhZ2UFAAQAcGFnZQMAJDBkYXRlDgACAAwAAgAkMKQAAwAk
+M2xldmVsJgACABoAAgAkMwUACQBsZXZlbFRleHQAYwEDAAcACgADAAkyUwBlbGFwc2VkdGltZSBb
+bXNdHgACABwABwBlbGFwc2VkAAUABwBlbGFwc2VkAAMAdXNlZE1lbW9yeUJlZm9yZXVzZWQgbWVt
+IGJlZm9yZS4AAgAsABAAdXNlZE1lbW9yeUJlZm9yZQUAEAB1c2VkTWVtb3J5QmVmb3JlAwAkNBAA
+AgAOAAIAJDQBAAAAAwABBQEAAABtZXNzYWdlbGFzdCBtZXNzYWdlHgACABwABwBtZXNzYWdlAAUA
+BwBtZXNzYWdlAAMAJgACAAAAAQEACQEAAAoBAQAKAAABAK0rAQC/AAEAAAAAAAAAAABXQwwBAQsA
+AAAAAAAAAAAAAAAAAAAAAAAQAAAAKgD//wAAAAAAAAAAAAAAAAAAV0MNAQELAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAAAFdDDgEBCwAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA
+AP//AAAAAAAAAAAAAAAAAABXQw8BAQsAAAAAAAAAAAAAAAAAAAAAAACEAAAAAAD//wAAAAAAAAAA
+AAAAAAAAV0MQAQELAAAAAAAAAAAAAAAAAAAAAAAAhAAAAAAA//8AAAAAAAAAAAAAAAAAAFdDEQEB
+CwAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAP//AAAAAAAAAAAAAAAAAABXQxIBAQsAAAAAAAAAAAAA
+AAAAAAAAAAAEgAAAAAD//wAAAAAAAAAAAAAAAAAAQgAAAAAAAQBfX18ABQD///8AAQAAAAAAAAAA
+AAAAAAABAP///wABAF9fXwAAAAEAAAAAAAEAAAAAAAEAAAAAAAAA9v8pAAAAAAADABMABwAAAAAA
+AAAAAAAAAAAAAAAAAAAAAHR3aXN0aWU/CAAAAAAAAQBZQwAACQAAAAEAAAABAAAAAAAAAAAAAAAA
+AAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAALC5rci5ZQwABAQAAAAEAAAABAAAAAAAAAAAAAAAA
+AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAALC5rcmFDVAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAA=
+</rawitemdata></item>
+<item name='$V5ACTIONS' sign='true'>
+<rawitemdata type='1'>
+i/8oAAEABTVDb25zb2xhcwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL0cAAAAAAEAAAAAABEAAAAA
+AAAABQEBCwgAAQB5/2wAAQAAAAAAAQAAAAAAAQD///8AAQDw8PAAAgAfAAAAAAAAAAAAAwAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAD2/zEAAAAAAAMAEwAPAAAAAAAAAAAAAAAAAAAAAAAAAAAAYWN0aW9uQmFyQnV0dG9uP/z/
+OgAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAC+
+/z4AAAABAAAAnwEAAAgAAAAAAAAAIFNlYXJjaCAgAAAAEgACAJAXAAAAAAAA7QEDAAcADAAFAAkw
+UzBFAA==
+</rawitemdata></item>
+<item name='$ACTIONS' sign='true'>
+<rawitemdata type='1'>
+vRwAAAAAAQAAAAAAEQAAAAAAAABUAQELCAABAL7/PgAAAAEAAACfAQAACAAAAAAAAAAgU2VhcmNo
+ICAAAAASAAIAkBcAAAAAAADtAQMABwAMAAUACTBTMEUA
+</rawitemdata></item>
+<item name='$TITLE' sign='true'><text>($Logs)|$logs</text></item>
+<item name='$DesignerVersion' sign='true'><text>8.5.3</text></item>
+<item name='$palmVersion'><datetime dst='true'>20131009T071027,00+02</datetime></item>
+<item name='$palmDate'><datetime dst='true'>20131017T092356,00+02</datetime></item>
+<item name='$palmUser'><text>CN=Jakob Majkilde/O=MAJKILDE</text></item>
+<item name='$palmSource'><text>title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;</text></item></note>
+

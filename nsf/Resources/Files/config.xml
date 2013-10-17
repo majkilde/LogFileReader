@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>;
+<config>
+	<logfiles>
+		<file type="XML">
+			<title>Error files</title>
+			<filename>[data]\domino\workplace\logs\error-log-*.xml</filename>
+		</file>
+		<file type="XML">
+			<title>Trace</title>
+			<filename>[data]\domino\workplace\logs\trace-log-*.xml</filename>
+		</file>
+		<file type="TXT">
+			<title>Console</title>
+			<filename>[data]\IBM_TECHNICAL_SUPPORT\console*.log</filename>
+			<filter>HTTP JVM:</filter>
+		</file>
+	</logfiles>
+	<setupfiles>
+		<file type="TXT">
+			<title>notes.ini</title>
+			<filename>[program]\notes.ini</filename>
+		</file>
+		<file type="TXT">
+			<title>java.policy</title>
+			<filename>[program]\jvm\lib\security\java.policy</filename>
+		</file>
+		<file type="TXT">
+			<title>java.policy</title>
+			<filename>[program]\jvm\lib\security\java.pol</filename>
+		</file>
+		<file type="TXT">
+			<title>rcpinstall.properties</title>
+			<filename>[data]\domino\workspace\.config\rcpinstall.properties</filename>
+		</file>
+	</setupfiles>
+</config>
+		

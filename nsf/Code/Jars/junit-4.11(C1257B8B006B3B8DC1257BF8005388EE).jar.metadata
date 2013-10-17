@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" replicaid="C1257B8B006B3B8D" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="2ba" sequence="4" unid="C1257B8B006B3B8DC1257BF8005388EE">
+<created><datetime dst="true">20131002T171225,42+02</datetime></created>
+<modified><datetime dst="true">20131017T093205,97+02</datetime></modified>
+<revised><datetime dst="true">20131017T093205,96+02</datetime></revised>
+<lastaccessed><datetime dst="true">20131017T093205,97+02</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20131017T093205,95+02</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
+<wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
+<item name="$TITLE"><text>junit-4.11.jar</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+<item name="$Flags"><text>34567Cg~,</text></item>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<item name="$FileNames" sign="true"><text>junit-4.11.jar</text></item>
+<item name="$palmVersion"><datetime dst="true">20131005T171436,00+02</datetime></item>
+<item name="$palmDate"><datetime dst="true">20131017T093205,00+02</datetime></item>
+<item name="$palmUser"><text>CN=Jakob Majkilde/O=MAJKILDE</text></item>
+<item name="$comment"><text>MVC Database</text></item>
+<item name="$palmSource"><text>title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;</text></item></note>

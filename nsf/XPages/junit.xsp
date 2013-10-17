@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+
+	<xc:layout><xp:this.facets>
+	<xc:junit_test xp:key="facet_1"></xc:junit_test></xp:this.facets></xc:layout></xp:view>
