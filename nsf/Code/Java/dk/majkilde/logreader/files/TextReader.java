@@ -36,7 +36,8 @@ public class TextReader {
 			}
 		}
 
-		log.debug("File '{0}' read in {1}ms", file.getName(), watch.getTime());
+		watch.stop();
+		log.debug("File {0} read in {1} ms", file.getAbsolutePath(), watch.getTime());
 
 		return result;
 	}

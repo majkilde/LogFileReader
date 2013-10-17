@@ -4,7 +4,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
-@Suite.SuiteClasses( { test.dk.xpages.config.XMLFileTest.class, test.dk.xpages.utils.XMLTest.class })
+@Suite.SuiteClasses( { test.dk.majkilde.logreader.ConfigTest.class, test.dk.xpages.utils.XMLTest.class })
 public final class TestSuite {
 
 }

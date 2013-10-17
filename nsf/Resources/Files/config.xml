@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>;
 <config>
 	<logfiles>
 		<file type="XML">
@@ -18,15 +17,11 @@
 	<setupfiles>
 		<file type="TXT">
 			<title>notes.ini</title>
-			<filename>[program]\notes.ini</filename>
+			<filename>[config]\notes.ini</filename>
 		</file>
 		<file type="TXT">
 			<title>java.policy</title>
-			<filename>[program]\jvm\lib\security\java.policy</filename>
-		</file>
-		<file type="TXT">
-			<title>java.policy</title>
-			<filename>[program]\jvm\lib\security\java.pol</filename>
+			<filename>[program]\jvm\lib\security\java.pol*</filename>
 		</file>
 		<file type="TXT">
 			<title>rcpinstall.properties</title>
@@ -34,4 +29,3 @@
 		</file>
 	</setupfiles>
 </config>
-		

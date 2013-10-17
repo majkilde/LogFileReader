@@ -38,6 +38,8 @@ public class XML {
 	private final Map<String, ArrayList<XML>> nameChildren = new HashMap<String, ArrayList<XML>>();
 
 	public XML(InputStream inputStream, String rootName) {
+		//		DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+		//		builderFactory.createXMLEventReader(
 		this(rootElement(inputStream, rootName));
 	}
 

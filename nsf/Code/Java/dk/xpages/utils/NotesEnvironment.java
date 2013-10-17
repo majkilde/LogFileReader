@@ -1,5 +1,7 @@
 package dk.xpages.utils;
 
+import java.io.File;
+
 import lotus.domino.NotesException;
 import lotus.domino.Session;
 import dk.xpages.log.LogManager;
@@ -46,8 +48,19 @@ public class NotesEnvironment {
 	 * 
 	 * @return the path & filename for the notes.ini file. As @ConfigFile()
 	 */
-	public static String getConfigFile() {
+	public static String getConfigFilename() {
 		return NotesUtils.evaluateString("@ConfigFile");
 	}
 
+	/**
+	 * 
+	 * @return a File hande to notes.ini
+	 */
+	public static File getConfigFile() {
+		String filename = getConfigFilename();
+		log.debug("Config file: {0}", filename);
+		File file = new File(filename);
+		return file;
+
+	}
 }

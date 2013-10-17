@@ -41,11 +41,10 @@ public class NotesUtils {
 	@SuppressWarnings("unchecked")
 	public static String evaluateString(String formula, Document doc) {
 		List result = evaluate(formula, doc);
-		return NotesStrings.join(";", result );
+		return NotesStrings.join(";", result);
 	}
-	
+
 	public static String evaluateString(String formula) {
 		return evaluateString(formula, null);
-	}
 	}
 }
