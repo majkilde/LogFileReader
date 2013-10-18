@@ -2,7 +2,7 @@ package dk.majkilde.logreader.files;
 
 import java.util.Date;
 
-public interface IFile {
+public interface IFile extends Comparable<IFile> {
 	public String getHtml();
 
 	public String getFilename();
