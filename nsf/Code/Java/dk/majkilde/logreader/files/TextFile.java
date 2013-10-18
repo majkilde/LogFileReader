@@ -53,7 +53,11 @@ public class TextFile implements IFile, Serializable {
 	}
 
 	public int compareTo(IFile compareFile) {
-		return this.getDate().compareTo(compareFile.getDate());
+		return (-1) * this.getDate().compareTo(compareFile.getDate());
+	}
+
+	public String getPath() {
+		return file.getPath();
 	}
 
 }

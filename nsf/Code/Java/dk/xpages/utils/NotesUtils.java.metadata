@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?><note class="form" replicaid="C1257B8B006B3B8D" version="9.0" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="2f2" sequence="3" unid="990E1C65A35042A7C1257C07003A96E1">
-<created><datetime dst="true">20131017T123957,13+02</datetime></created>
-<modified><datetime dst="true">20131017T124513,62+02</datetime></modified>
-<revised><datetime dst="true">20131017T124513,61+02</datetime></revised>
-<lastaccessed><datetime dst="true">20131017T124513,62+02</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20131017T123957,15+02</datetime></addedtofile></noteinfo>
+<noteinfo noteid="32e" sequence="11" unid="C1257B8B006B3B8DC1257C07003B339C">
+<created><datetime dst="true">20131017T124638,36+02</datetime></created>
+<modified><datetime dst="true">20131018T121545,06+02</datetime></modified>
+<revised><datetime dst="true">20131018T121545,05+02</datetime></revised>
+<lastaccessed><datetime dst="true">20131018T121545,06+02</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20131018T121417,47+02</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
 <wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
 <item name="$Flags"><text>34567Cg~[</text></item>
+
+<item name="$palmVersion"><datetime dst="true">20131017T131409,00+02</datetime></item>
+<item name="$palmDate"><datetime dst="true">20131018T121417,00+02</datetime></item>
+<item name="$palmUser"><text>CN=Jakob Majkilde/O=MAJKILDE</text></item>
+<item name="$comment"><text>MVC Database</text></item>
+<item name="$palmSource"><text>title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;</text></item>
 <item name="$TITLE"><text>dk/xpages/utils/NotesUtils.java</text></item>
 <item name="$DesignerVersion"><text>8.5.3</text></item>
 
 
-<item name="$FileNames" sign="true"><text>dk/xpages/utils/NotesUtils.java</text></item></note>
+<item name="$FileNames" sign="true"><text>dk/xpages/utils/NotesUtils.java</text></item>
+
+</note>

@@ -13,6 +13,14 @@
 			<filename>[data]\IBM_TECHNICAL_SUPPORT\console*.log</filename>
 			<filter>HTTP JVM:</filter>
 		</file>
+		<file type="TXT">
+			<title>System info</title>
+			<filename>[data]\IBM_TECHNICAL_SUPPORT\sysinfo*.log</filename>
+		</file>
+		<file type="TXT">
+			<title>XPages</title>
+			<filename>[data]\IBM_TECHNICAL_SUPPORT\xpages*.log</filename>
+		</file>
 	</logfiles>
 	<setupfiles>
 		<file type="TXT">

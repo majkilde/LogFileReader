@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom" dojoParseOnLoad="true" dojoTheme="true">
 
 	<xc:layout>
 		<xp:this.facets>
@@ -7,8 +7,9 @@
 			<xp:include id="include1" xp:key="facet_1">
 				<xp:this.pageName><![CDATA[${javascript:section = context.getUrlParameter("tab");
 switch (section) {
+	case "logs":
 	case "": 
-		return "form_console.xsp";
+		return "form_logs.xsp";
 		break;
 	case "setup": 
 		form = context.getUrlParameter("form");

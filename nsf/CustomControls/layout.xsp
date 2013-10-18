@@ -67,11 +67,13 @@
 					<!-- Tabs -->
 					<xp:tabbedPanel id="tabs" styleClass="lotusTabs lotusTabsIndented">
 						<xp:this.selectedTab><![CDATA[#{javascript:context.getUrlParameter("tab")}]]></xp:this.selectedTab>
-						<xp:tabPanel label="Console" id="console" styleClass="lotusSelected">
-							<xp:this.href><![CDATA[?tab=console]]></xp:this.href>
+						<xp:tabPanel label="Logs" id="Logs" styleClass="lotusSelected">
+							<xp:this.href><![CDATA[?tab=logs]]></xp:this.href>
 						</xp:tabPanel>
 						<xp:tabPanel label="XPages log" id="xpages"
 							href="/Reader.xsp?tab=xpages"></xp:tabPanel>
+						<xp:tabPanel label="Console" id="console"
+							href="/Reader.xsp?tab=console"></xp:tabPanel>
 						<xp:tabPanel label="Error logs" id="error"
 							href="/Reader.xsp?tab=error"></xp:tabPanel>
 						<xp:tabPanel label="Trace logs" id="trace"
@@ -208,7 +210,7 @@
 									</xp:link>
 								</li>
 								<li>
-									<xp:link text="Majkilde.dk" value="http://majkilde.dk"
+									<xp:link text="LotusScript.dk" value="http://lotusscript.dk"
 										target="_blank">
 									</xp:link>
 								</li>

@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?><note class="form" replicaid="C1257B8B006B3B8D" version="9.0" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="24a" sequence="3" unid="78EA42D68FCCD744C1257C070027B048">
-<created><datetime dst="true">20131017T091330,32+02</datetime></created>
-<modified><datetime dst="true">20131017T091803,32+02</datetime></modified>
-<revised><datetime dst="true">20131017T091803,31+02</datetime></revised>
-<lastaccessed><datetime dst="true">20131017T091803,32+02</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20131017T091330,36+02</datetime></addedtofile></noteinfo>
+<noteinfo noteid="32a" sequence="33" unid="C1257B8B006B3B8DC1257BFB004F1A14">
+<created><datetime dst="true">20131005T162400,20+02</datetime></created>
+<modified><datetime dst="true">20131018T121545,08+02</datetime></modified>
+<revised><datetime dst="true">20131018T121545,07+02</datetime></revised>
+<lastaccessed><datetime dst="true">20131018T121545,08+02</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20131018T121417,40+02</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
 <wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
 <item name="$Flags"><text>34567Cg~[</text></item>
-<item name="$TITLE"><text>dk/xpages/utils/NotesStrings.java</text></item>
 
+<item name="$palmVersion"><datetime dst="true">20131018T121204,00+02</datetime></item>
+<item name="$palmDate"><datetime dst="true">20131018T121417,00+02</datetime></item>
+<item name="$palmUser"><text>CN=Jakob Majkilde/O=MAJKILDE</text></item>
+<item name="$comment"><text>MVC Database</text></item>
+<item name="$palmSource"><text>title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;</text></item>
+<item name="$TITLE"><text>dk/xpages/utils/NotesStrings.java</text></item>
 <item name="$DesignerVersion"><text>8.5.3</text></item>
 
 

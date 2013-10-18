@@ -19,14 +19,14 @@ public class Directory {
 
 	public static List<String> getFileNames(final String filePattern) {
 
-		String pattern = cleanupPattern(filePattern);
+		String pattern = getCleanPattern(filePattern);
 		String folder = NotesStrings.strLeftBack(pattern, File.separator) + File.separator;
 		String filename = NotesStrings.strRightBack(pattern, File.separator);
 
 		return getFiles(folder, filename);
 	}
 
-	private static String cleanupPattern(final String filePattern) {
+	public static String getCleanPattern(final String filePattern) {
 		String pattern = filePattern;
 
 		if (NotesStrings.startsWithIgnoreCase(pattern, NOTES_PROGRAM)) {
@@ -65,10 +65,10 @@ public class Directory {
 			File d = new File(folder + entries[i]);
 			if (d.isFile()) {
 				if (pattern == null) {
-					files.add(entries[i]);
+					files.add(folder + entries[i]);
 				} else {
 					if (wildCardMatch(entries[i], pattern)) {
-						files.add(entries[i]);
+						files.add(folder + entries[i]);
 					}
 				}
 			}

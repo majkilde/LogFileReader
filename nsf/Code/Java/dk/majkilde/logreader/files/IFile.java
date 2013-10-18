@@ -7,6 +7,8 @@ public interface IFile extends Comparable<IFile> {
 
 	public String getFilename();
 
+	public String getPath();
+
 	public Date getDate();
 
 	public long getSize();
