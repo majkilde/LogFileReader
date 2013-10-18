@@ -2,7 +2,10 @@
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xe="http://www.ibm.com/xsp/coreex">
 
 	<xp:this.data>
-		<xe:objectData var="pageBean" createObject="#{javascript:new dk.majkilde.logreader.beans.LogFilesBean()}"></xe:objectData>
+		<xe:objectData var="filelist">
+			<xe:this.createObject><![CDATA[#{javascript:manager = new dk.majkilde.logreader.beans.LogFilesBean();
+manager.getCurrentFilelist();}]]></xe:this.createObject>
+		</xe:objectData>
 	</xp:this.data>
 
 	<xp:this.resources>
@@ -10,93 +13,86 @@
 		<xp:dojoModule name="dijit.Tooltip"></xp:dojoModule>
 	</xp:this.resources>
 
+	<h1>
+		<xp:text escape="true" id="computedField2" value="#{javascript:filelist.getTitle()}" disableTheme="true"></xp:text>
+		:&#160;
+		<xp:text escape="true" id="computedField9" value="#{javascript:filelist.getCurrent().getDate();}" disableTheme="true">
+			<xp:this.converter>
+				<xp:convertDateTime type="both"></xp:convertDateTime>
+			</xp:this.converter>
+		</xp:text>
+	</h1>
 
-
-
-	<xp:repeat id="filemanager" rows="30" value="#{javascript:pageBean.getFilelists()}" var="filelist" removeRepeat="true">
-		<xp:panel tagName="div" styleClass="fileSection">
-			<xp:this.rendered><![CDATA[#{javascript:filelist.getCount()!=0;}]]></xp:this.rendered>
-
-			<xp:text escape="true" id="computedField2" value="#{javascript:filelist.getTitle()}" tagName="h1"></xp:text>
-
-			<xp:panel tagName="div" styleClass="infobox"></xp:panel>
-
-
-			<xp:text escape="true" id="computedField5" tagName="p">
-				<xp:this.value><![CDATA[#{javascript:"Note: there are " + filelist.getCount() + " files in the directory - but we are only showing the lastest 10"}]]></xp:this.value>
-				<xp:this.rendered><![CDATA[#{javascript:filelist.getCount()>10}]]></xp:this.rendered>
+	<div class="lotusSection">
+		<h2>
+			Current file:&#160;
+			<xp:text escape="true" id="computedField4" value="#{javascript:filelist.getCurrent().getFilename();}"></xp:text>
+			, &#160;
+			<xp:text escape="true" id="computedField6" value="#{javascript:dk.xpages.utils.NotesStrings.readableFileSize( filelist.getCurrent().getSize());}">
 			</xp:text>
+		</h2>
+		<div class="lotusSectionBody">
+			Other files found in "
+			<xp:text escape="true" id="computedField5" value="#{javascript:filelist.getPath()}"></xp:text>
+			":
 
+			<div class="fileSelector">
+				<xp:pager partialRefresh="true" id="filesPager" for="files" layout="Previous Next"></xp:pager>
+				<ul>
+					<xp:repeat id="files" rows="5" var="file" removeRepeat="true">
+						<xp:this.value><![CDATA[#{javascript:filelist.getFiles();}]]></xp:this.value>
+						<li>
+							<xp:link escape="true" id="tip">
+								<xp:this.styleClass><![CDATA[#{javascript:if( filelist.getCurrent()==file) {"current"}}]]></xp:this.styleClass>
+								<xp:text escape="true" id="computedField3" value="#{javascript:file.getDate();}">
+									<xp:this.converter>
+										<xp:convertDateTime type="both" dateStyle="short" timeStyle="short"></xp:convertDateTime>
+									</xp:this.converter>
+								</xp:text>
+								<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
+									<xp:this.action><![CDATA[#{javascript:filelist.setCurrent( file );}]]></xp:this.action>
+								</xp:eventHandler>
+							</xp:link>
 
-			<xp:repeat id="files" rows="10" var="file" removeRepeat="true">
-
-				<xp:this.value><![CDATA[#{javascript:filelist.getFiles();}]]></xp:this.value>
-
-				<xp:this.facets>
-					<!-- Header -->
-					<xp:text disableTheme="true" xp:key="header" escape="false">
-						<xp:this.value><![CDATA[#{javascript:'<table class="fileTable">'}]]></xp:this.value>
-					</xp:text>
-
-					<!-- Footer -->
-					<xp:text disableTheme="true" xp:key="footer" escape="false">
-						<xp:this.value><![CDATA[#{javascript:'</table>'}]]></xp:this.value>
-					</xp:text>
-				</xp:this.facets>
-				<tr>
-
-					<td>
-						<div dojoType="dijit.Tooltip" connectId="#{id:tip}" position="below" showDelay="0" style="display:none;">
-							<table class="tip">
-								<tr>
-									<th>Filename:</th>
-									<td>
-										<xp:text escape="true" id="computedField7" value="#{javascript:file.getFilename();}"></xp:text>
-									</td>
-								</tr>
-								<tr>
-									<th>Path: </th>
-									<td>
-										<xp:text escape="true" id="computedField8" value="#{javascript:file.getPath();}"></xp:text>
-									</td>
-								</tr>
-								<tr>
-									<th>Size: </th>
-									<td>
-										<xp:text escape="true" id="computedField1" value="#{javascript:pageBean.readableFileSize( file.getSize());}"></xp:text>
-									</td>
-								</tr>
-							</table>
-						</div>
-
-
-						<xp:label value="I" id="tip"></xp:label>
-					</td>
-					<td>
-
-						<xp:link escape="true"  id="link1">
-						<xp:text escape="true" id="computedField3" value="#{javascript:file.getDate();}">
-							<xp:this.converter>
-								<xp:convertDateTime type="both"></xp:convertDateTime>
-							</xp:this.converter>
-						</xp:text>
-						<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
-							<xp:this.action><![CDATA[#{javascript:viewScope.currentFile=file;}]]></xp:this.action>
-						</xp:eventHandler></xp:link>
-					</td>
-
-
-				</tr>
-			</xp:repeat>
+							<div dojoType="dijit.Tooltip" connectId="#{id:tip}" position="below" showDelay="0" style="display:none;">
+								<table class="tip">
+									<tr>
+										<th>Filename:</th>
+										<td>
+											<xp:text escape="true" id="computedField7" value="#{javascript:file.getFilename();}"></xp:text>
+										</td>
+									</tr>
+									<tr>
+										<th>Size: </th>
+										<td>
+											<xp:text escape="true" id="computedField1" value="#{javascript:dk.xpages.utils.NotesStrings.readableFileSize( file.getSize());}"></xp:text>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</li>
+					</xp:repeat>
+				</ul>
+			</div>
+		</div>
+	</div>
 
 
 
-		</xp:panel>
-	</xp:repeat>
-	<xp:text escape="false" id="computedField4">
-		<xp:this.value><![CDATA[#{javascript:file=viewScope.currentFile;
+
+
+
+	<div class="lotusSection">
+		<h2>Content</h2>
+		<div class="lotusSectionBody">
+			<div class="fileViewer">
+				<xp:text escape="false" id="fileContent" disableTheme="true">
+					<xp:this.value><![CDATA[#{javascript:file=filelist.getCurrent();
 if( file!=null){
-file.getHtml();
+	file.getHtml();
 }}]]></xp:this.value>
-	</xp:text>
+				</xp:text>
+			</div>
+		</div>
+	</div>
 </xp:view>

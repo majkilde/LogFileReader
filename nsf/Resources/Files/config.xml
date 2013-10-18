@@ -11,7 +11,9 @@
 		<file type="TXT">
 			<title>Console</title>
 			<filename>[data]\IBM_TECHNICAL_SUPPORT\console*.log</filename>
-			<filter>HTTP JVM:</filter>
+			<filter>HTTP</filter>
+			<filter>JVM</filter>
+			<filter>XSP</filter>
 		</file>
 		<file type="TXT">
 			<title>System info</title>

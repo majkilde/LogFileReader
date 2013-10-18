@@ -112,50 +112,14 @@
 			<xp:panel id="lotusColLeft" styleClass="lotusColLeft">
 
 				<!-- Menu -->
-				<xp:panel id="menu" styleClass="lotusMenu">
-
+				<xp:panel id="menu_settings" styleClass="lotusMenu">
 					<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("tab")=="settings"}]]></xp:this.rendered>
-					<div id="bottomcorner" class="lotusBottomCorner">
-						<div id="inner" class="lotusInner">
-
-							<!-- Navigation sample -->
-							<ul>
-								<xp:panel tagName="li">
-									<xp:this.styleClass><![CDATA[#{javascript:if (context.getUrlParameter("menu")=="ini" || context.getUrlParameter("menu")=="" ) "lotusSelected"}]]></xp:this.styleClass>
-									<xp:link escape="true" text="notes.ini">
-										<xp:this.value><![CDATA[/Reader.xsp?tab=settings&menu=ini]]></xp:this.value>
-									</xp:link>
-								</xp:panel>
-								<xp:panel tagName="li">
-									<xp:this.styleClass><![CDATA[#{javascript:if (context.getUrlParameter("menu")=="xsp" ) "lotusSelected"}]]></xp:this.styleClass>
-									<xp:link escape="true" text="xsp.properties">
-										<xp:this.value><![CDATA[/Reader.xsp?tab=settings&menu=xsp]]></xp:this.value>
-									</xp:link>
-								</xp:panel>
-								<xp:panel tagName="li" loaded="false">
-									<xp:this.styleClass><![CDATA[#{javascript:if (context.getUrlParameter("menu")=="jvm" ) "lotusSelected"}]]></xp:this.styleClass>
-									<xp:link escape="true"
-										text="jvm.properties">
-										<xp:this.value><![CDATA[/Reader.xsp?tab=settings&menu=jvm]]></xp:this.value>
-									</xp:link>
-								</xp:panel>
-								<xp:panel tagName="li">
-									<xp:this.styleClass><![CDATA[#{javascript:if (context.getUrlParameter("menu")=="javapolicy" ) "lotusSelected"}]]></xp:this.styleClass>
-									<xp:link escape="true" text="java.policy">
-										<xp:this.value><![CDATA[/Reader.xsp?tab=settings&menu=javapolicy]]></xp:this.value>
-									</xp:link>
-								</xp:panel>
-								<xp:panel tagName="li">
-									<xp:this.styleClass><![CDATA[#{javascript:if (context.getUrlParameter("menu")=="rcpinstall" ) "lotusSelected"}]]></xp:this.styleClass>
-									<xp:link escape="true" text="rcpinstall.properties">
-										<xp:this.value><![CDATA[/Reader.xsp?tab=settings&menu=rcpinstall]]></xp:this.value>
-									</xp:link>
-								</xp:panel>
-							</ul>
-							<!-- END Navigation -->
-
-						</div>
-					</div>
+					<xc:menu_settings></xc:menu_settings>
+				</xp:panel>
+				
+				<xp:panel id="menu_logs" styleClass="lotusMenu">
+					<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("tab")=="logs"}]]></xp:this.rendered>
+					<xc:menu_logs></xc:menu_logs>
 				</xp:panel>
 				<!-- END Menu -->
 

@@ -1,5 +1,6 @@
 package dk.majkilde.logreader.files;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,10 +8,12 @@ import java.util.List;
 
 import dk.xpages.log.LogManager;
 import dk.xpages.log.Logger;
+import dk.xpages.utils.NotesStrings;
 
 public class FileList implements Serializable {
 
 	private final Logger log = LogManager.getLogger();
+	private IFile current = null;
 
 	/**
 	 * 
@@ -37,6 +40,10 @@ public class FileList implements Serializable {
 		return Directory.getCleanPattern(pattern);
 	}
 
+	public String getPath() {
+		return NotesStrings.strLeftBack(getPattern(), File.separator);
+	}
+
 	public IFile getNewest() {
 		if (files.size() > 0) {
 			return files.get(0);
@@ -58,5 +65,16 @@ public class FileList implements Serializable {
 
 	public int getCount() {
 		return files.size();
+	}
+
+	public void setCurrent(IFile current) {
+		this.current = current;
+	}
+
+	public IFile getCurrent() {
+		if (current == null) {
+			current = getNewest();
+		}
+		return current;
 	}
 }
