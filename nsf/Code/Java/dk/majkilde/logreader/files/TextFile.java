@@ -3,7 +3,9 @@ package dk.majkilde.logreader.files;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
@@ -17,13 +19,19 @@ public class TextFile implements IFile, Serializable {
 
 	private final Logger log = LogManager.getLogger();
 	protected final File file;
+	ArrayList<String> includes = null;
 
 	public TextFile(final File file) {
 		this.file = file;
 	}
 
-	public TextFile(final String filename) {
+	protected TextFile(final String filename) {
 		this.file = new File(filename);
+	}
+
+	public TextFile(final String filename, final ArrayList<String> includes) {
+		this.file = new File(filename);
+		this.includes = includes;
 	}
 
 	/**
@@ -42,13 +50,39 @@ public class TextFile implements IFile, Serializable {
 	public String getHtml() {
 		List<String> content;
 		try {
-			content = TextReader.read(file);
+			content = getStringList(); // TextReader.read(file);
+			filterContent(content);
 		} catch (IOException e) {
 			log.error(e);
 			return NotesStrings.messageFormat("Error reading file '{1}': {0}", e.getMessage(), file.getName());
 		}
 
 		return NotesStrings.join("<br/>", content);
+	}
+
+	private boolean isLineIncluded(String line) {
+		//check every entry in the filter
+		for (String entry : includes) {
+			if (NotesStrings.containsIgnoreCase(line, entry)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private void filterContent(List<String> content) {
+		if (includes == null || includes.size() == 0) {
+			return; //no filters
+		}
+
+		//check every line in the file
+		for (Iterator<String> itr = content.iterator(); itr.hasNext();) {
+			String line = itr.next();
+
+			if (!isLineIncluded(line)) {
+				itr.remove();
+			}
+		}
 	}
 
 	public long getSize() {
@@ -63,8 +97,12 @@ public class TextFile implements IFile, Serializable {
 		return file.getPath();
 	}
 
-	public byte[] getByteArray() throws IOException {
+	private byte[] getByteArray() throws IOException {
 		return FileUtils.readFileToByteArray(file);
+	}
+
+	private List<String> getStringList() throws IOException {
+		return FileUtils.readLines(file);
 	}
 
 	public void download() {

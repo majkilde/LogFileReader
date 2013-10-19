@@ -123,8 +123,6 @@ public class XML implements Serializable {
 
 	public XML child(String name) {
 		XML child = optChild(name);
-		if (child == null)
-			throw new RuntimeException("Could not find child node: " + name);
 		return child;
 	}
 
@@ -148,7 +146,7 @@ public class XML implements Serializable {
 	public String string(String name) {
 		String value = optString(name);
 		if (value == null) {
-			throw new RuntimeException("Could not find attribute: " + name + ", in node: " + this.name);
+			return "";
 		}
 		return value;
 	}

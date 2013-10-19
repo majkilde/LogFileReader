@@ -51,7 +51,16 @@ public class FileManager implements Serializable {
 				String title = file.child("title").content();
 				if (NotesStrings.equalsIgnoreCase(type, "TXT")) {
 					String filename = file.child("filename").content();
-					TextFileList textfilelist = new TextFileList(title, filename);
+
+					XML filters = file.child("filters");
+					ArrayList<String> includes = new ArrayList<String>();
+					if (filters != null) {
+						for (XML include : filters.children("include")) {
+							includes.add(include.content());
+						}
+					}
+
+					TextFileList textfilelist = new TextFileList(title, filename, includes);
 
 					filelists.put(title, textfilelist);
 
@@ -65,7 +74,11 @@ public class FileManager implements Serializable {
 
 				} else if (NotesStrings.equalsIgnoreCase(type, "NSF")) {
 					String filename = file.child("filename").content();
-					NSFFileList nsffilelist = new NSFFileList(filename);
+					String viewname = file.child("viewname").content();
+					String dateFormula = file.child("date-formula").content();
+					String bodyField = file.child("body-field").content();
+
+					NSFFileList nsffilelist = new NSFFileList(title, filename, viewname, dateFormula, bodyField);
 
 					filelists.put(title, nsffilelist);
 

@@ -28,13 +28,13 @@ public class TextFileList implements Serializable, IFileList {
 
 	private final List<IFile> files = new ArrayList<IFile>();
 
-	public TextFileList(final String title, final String pattern) {
+	public TextFileList(final String title, final String pattern, final ArrayList<String> includes) {
 		this.title = title;
 		this.pattern = pattern;
 
 		List<String> filenames = Directory.getFileNames(pattern);
 		for (String filename : filenames) {
-			files.add(new TextFile(filename));
+			files.add(new TextFile(filename, includes));
 		}
 
 		Collections.sort(files);

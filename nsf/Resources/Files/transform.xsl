@@ -2,12 +2,13 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:template match="/">
            <table id="eventTable" border="1" cellspacing="1" cellpadding="5" width="90%">
-            <tr style="background:#ACD6FF;">
+            <tr style="background:black;">
               
-              <th width="15%"><a id="Time" style="color:#0000FF; text-decoration:none;">Time</a></th>
-              <th width="10%"><a id="Severity" style="color:#0000FF; text-decoration:none;">Severity</a></th>
-              <th width="45%"><a id="Message" style="color:#0000FF; text-decoration:none;">Message</a></th>
-              <th width="15%"><a id="SubSystem" style="color:#0000FF; text-decoration:none;">SubSystem</a></th>
+              <th width="15%"><a id="Time" style="color:white; text-decoration:none;">Time</a></th>
+              <th width="10%"><a id="Severity" style="color:white; text-decoration:none;">Severity</a></th>
+              <th width="45%"><a id="Message" style="color:white; text-decoration:none;">Message</a></th>
+              <th width="15%"><a id="SubSystem" style="color:white; text-decoration:none;">Exception</a></th>
+              <th width="15%"><a id="SubSystem" style="color:white; text-decoration:none;">SubSystem</a></th>
               </tr>          
             <xsl:for-each select="CommonBaseEvents/CommonBaseEvent">
               <tr>                            
@@ -35,6 +36,15 @@
                     <td>&#xA0;</td>
                   </xsl:otherwise>
             </xsl:choose>
+             <xsl:choose>
+                  <xsl:when test="string(extendedDataElements[@name='CommonBaseEventLogRecord:Exception']/values)">
+                    <td><xsl:value-of select="extendedDataElements[@name='CommonBaseEventLogRecord:Exception']/values"/></td>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <td>&#xA0;</td>
+                  </xsl:otherwise>
+            </xsl:choose>
+
             <xsl:choose>
                   <xsl:when test="string(sourceComponentId/@subComponent)">
                     <td><xsl:value-of select="sourceComponentId/@subComponent"/></td>
@@ -43,6 +53,7 @@
                     <td>&#xA0;</td>
                   </xsl:otherwise>
              </xsl:choose> 
+             
               </tr>
             </xsl:for-each>
           </table>

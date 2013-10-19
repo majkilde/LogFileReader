@@ -67,7 +67,6 @@
 							<xp:this.href><![CDATA[?tab=logs]]></xp:this.href>
 						</xp:tabPanel>
 						<xp:tabPanel label="Configuration" id="config" href="/Reader.xsp?tab=config"></xp:tabPanel>
-						<xp:tabPanel label="Log.nsf" id="log" href="/Reader.xsp?tab=log"></xp:tabPanel>
 						<xp:tabPanel label="About" id="about" href="/Reader.xsp?tab=about"></xp:tabPanel>
 					</xp:tabbedPanel>
 					<!-- END Tabs -->

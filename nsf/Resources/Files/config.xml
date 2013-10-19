@@ -3,9 +3,11 @@
 		<file type="TXT">
 			<title>Console</title>
 			<filename>[data]\IBM_TECHNICAL_SUPPORT\console*.log</filename>
-			<filter>HTTP</filter>
-			<filter>JVM</filter>
-			<filter>XSP</filter>
+			<filters>
+				<include>HTTP</include>
+				<include>JVM</include>
+				<include>XSP</include>
+			</filters>
 		</file>
 		<file type="XML">
 			<title>Error files</title>
@@ -28,11 +30,9 @@
 		<file type="NSF">
 			<title>log.nsf</title>
 			<filename>log.nsf</filename>
-			<view>($SearchEventsView)</view>
-			<fields>
-				<date>StartTime</date>
-					<content>body</content>
-			</fields>
+			<viewname>($SearchEventsView)</viewname>
+			<date-formula>StartTime</date-formula>
+			<body-field>body</body-field>
 		</file>
 	</logfiles>
 	<configfiles>
