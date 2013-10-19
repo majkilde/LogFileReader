@@ -1,5 +1,6 @@
 package dk.xpages.utils;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.text.MessageFormat;
 import java.util.List;
@@ -18,7 +19,12 @@ import org.apache.commons.lang3.StringUtils;
  * 
  */
 
-public class NotesStrings extends StringUtils {
+public class NotesStrings extends StringUtils implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * MessageFormat: http://docs.oracle.com/javase/7/docs/api/java/text/MessageFormat.html

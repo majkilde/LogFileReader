@@ -1,6 +1,7 @@
 package dk.majkilde.logreader.files;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -10,7 +11,11 @@ import dk.xpages.log.Logger;
 import dk.xpages.utils.NotesEnvironment;
 import dk.xpages.utils.NotesStrings;
 
-public class Directory {
+public class Directory implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static final String NOTES_PROGRAM = "[program]";
 	public static final String NOTES_DATA = "[data]";
 	public static final String NOTES_CONFIG = "[config]";
@@ -66,8 +71,12 @@ public class Directory {
 			if (d.isFile()) {
 				if (pattern == null) {
 					files.add(folder + entries[i]);
-				} else {
+				} else if (pattern.contains("*")) {
 					if (wildCardMatch(entries[i], pattern)) {
+						files.add(folder + entries[i]);
+					}
+				} else {
+					if (entries[i].equals(pattern)) {
 						files.add(folder + entries[i]);
 					}
 				}

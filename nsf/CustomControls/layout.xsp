@@ -11,14 +11,12 @@
 					<div class="lotusLogo"></div>
 
 					<!-- Utility menu -->
-					<xp:tabbedPanel id="lotusUtility" styleClass="lotusInlinelist lotusUtility"
-						disableTheme="true">
+					<xp:tabbedPanel id="lotusUtility" styleClass="lotusInlinelist lotusUtility" disableTheme="true">
 						<xp:tabPanel id="tabserverName" startTabStyleClass="lotusFirst">
 							<xp:this.label><![CDATA[${javascript:"On " + @Name("[CN]",database.getServer());}]]></xp:this.label>
 							<xp:this.loaded><![CDATA[${javascript:@ClientType()=="Notes"}]]></xp:this.loaded>
 						</xp:tabPanel>
-						<xp:tabPanel id="userName" startTabStyleClass="lotusFirst"
-							styleClass="lotusUser">
+						<xp:tabPanel id="userName" startTabStyleClass="lotusFirst" styleClass="lotusUser">
 							<xp:this.label><![CDATA[#{javascript:@Name("[CN]",session.getEffectiveUserName());}]]></xp:this.label>
 							<xp:this.loaded><![CDATA[${javascript:@ClientType()=="Web"}]]></xp:this.loaded>
 						</xp:tabPanel>
@@ -35,11 +33,10 @@
 
 
 					<!-- Global navigation -->
-					<ul class="lotusInlinelist lotusLinks">
+					<ul class="lotusInlinelist lotusLinks" style="display:none;">
 						<li class="lotusFirst lotusSelected">
 							<xp:link escape="true" text="Home" id="link1">
-								<xp:eventHandler event="onclick" submit="true"
-									refreshMode="complete">
+								<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
 									<xp:this.action>
 										<xp:openPage name="$$HomePage">
 										</xp:openPage>
@@ -60,8 +57,7 @@
 		<xp:panel id="lotusTitleBar" styleClass="lotusTitleBar">
 			<div class="lotusRightCorner">
 				<div class="lotusInner">
-					<xp:text escape="true" id="computedField2" value="#{javascript:@DbTitle()}"
-						tagName="h2">
+					<xp:text escape="true" id="computedField2" value="#{javascript:@DbTitle()}" tagName="h2">
 					</xp:text>
 
 					<!-- Tabs -->
@@ -70,39 +66,21 @@
 						<xp:tabPanel label="Logs" id="Logs" styleClass="lotusSelected">
 							<xp:this.href><![CDATA[?tab=logs]]></xp:this.href>
 						</xp:tabPanel>
-						<xp:tabPanel label="XPages log" id="xpages"
-							href="/Reader.xsp?tab=xpages"></xp:tabPanel>
-						<xp:tabPanel label="Console" id="console"
-							href="/Reader.xsp?tab=console"></xp:tabPanel>
-						<xp:tabPanel label="Error logs" id="error"
-							href="/Reader.xsp?tab=error"></xp:tabPanel>
-						<xp:tabPanel label="Trace logs" id="trace"
-							href="/Reader.xsp?tab=trace"></xp:tabPanel>
-						<xp:tabPanel label="Startup.log" id="startup"
-							href="/Reader.xsp?tab=startup"></xp:tabPanel>
+						<xp:tabPanel label="Configuration" id="config" href="/Reader.xsp?tab=config"></xp:tabPanel>
 						<xp:tabPanel label="Log.nsf" id="log" href="/Reader.xsp?tab=log"></xp:tabPanel>
-						<xp:tabPanel label="Settings" id="settings"
-							href="/Reader.xsp?tab=settings"></xp:tabPanel>
 						<xp:tabPanel label="About" id="about" href="/Reader.xsp?tab=about"></xp:tabPanel>
-												<xp:tabPanel label="Setup" id="setup" href="/Reader.xsp?tab=setup"></xp:tabPanel>
 					</xp:tabbedPanel>
 					<!-- END Tabs -->
-
 				</div>
-
-
-
 			</div>
 		</xp:panel>
 		<!-- END titleBar-->
 
 		<!--  Placebar -->
-		<xp:panel id="lotusPlaceBar" styleClass="lotusPlaceBar">
+		<xp:panel id="lotusPlaceBar" styleClass="lotusPlaceBar" loaded="false">
 			<div class="lotusRightCorner">
 				<div class="lotusInner">
-					<xp:text escape="true" id="computedField1" value="#{javascript:@Now()}"
-						tagName="h2">
-					</xp:text>
+					<xp:text escape="true" id="computedField1" value="#{javascript:@Now()}" tagName="h2"></xp:text>
 				</div>
 			</div>
 		</xp:panel>
@@ -112,14 +90,14 @@
 			<xp:panel id="lotusColLeft" styleClass="lotusColLeft">
 
 				<!-- Menu -->
-				<xp:panel id="menu_settings" styleClass="lotusMenu">
-					<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("tab")=="settings"}]]></xp:this.rendered>
-					<xc:menu_settings></xc:menu_settings>
-				</xp:panel>
-				
 				<xp:panel id="menu_logs" styleClass="lotusMenu">
-					<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("tab")=="logs"}]]></xp:this.rendered>
+					<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("tab")=="logs" || context.getUrlParameter("tab")==""}]]></xp:this.rendered>
 					<xc:menu_logs></xc:menu_logs>
+				</xp:panel>
+
+				<xp:panel id="menu_config" styleClass="lotusMenu">
+					<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("tab")=="config"}]]></xp:this.rendered>
+					<xc:menu_config></xc:menu_config>
 				</xp:panel>
 				<!-- END Menu -->
 
@@ -129,8 +107,7 @@
 				<!-- Section -->
 				<div class="lotusSection">
 					<h2>
-						<a class="lotusSprite lotusArrow lotusTwistyOpen" href="javascript:;"
-							title="click to collapse section">
+						<a class="lotusSprite lotusArrow lotusTwistyOpen" href="javascript:;" title="click to collapse section">
 							<span class="lotusAltText">&#x25bc;</span>
 						</a>
 						<span class="lotusLeft">English Resources</span>
@@ -140,13 +117,11 @@
 						<div class="lotusChunk">
 							<ul>
 								<li>
-									<xp:link text="OpenNTF.org" value="http://openntf.org"
-										target="_blank">
+									<xp:link text="OpenNTF.org" value="http://openntf.org" target="_blank">
 									</xp:link>
 								</li>
 								<li>
-									<xp:link text="XSnippets" value="http://openntf.org/xsnippets"
-										target="_blank">
+									<xp:link text="XSnippets" value="http://openntf.org/xsnippets" target="_blank">
 									</xp:link>
 								</li>
 
@@ -158,8 +133,7 @@
 				<!-- Section -->
 				<div class="lotusSection">
 					<h2>
-						<a class="lotusSprite lotusArrow lotusTwistyOpen" href="javascript:;"
-							title="click to collapse section">
+						<a class="lotusSprite lotusArrow lotusTwistyOpen" href="javascript:;" title="click to collapse section">
 							<span class="lotusAltText">&#x25bc;</span>
 						</a>
 						<span class="lotusLeft">Danish Resources</span>
@@ -169,18 +143,15 @@
 						<div class="lotusChunk">
 							<ul>
 								<li>
-									<xp:link text="XPages.dk" value="http://xpages.dk"
-										target="_blank">
+									<xp:link text="XPages.dk" value="http://xpages.dk" target="_blank">
 									</xp:link>
 								</li>
 								<li>
-									<xp:link text="LotusScript.dk" value="http://lotusscript.dk"
-										target="_blank">
+									<xp:link text="LotusScript.dk" value="http://lotusscript.dk" target="_blank">
 									</xp:link>
 								</li>
 								<li>
-									<xp:link text="Notesnet.dk" value="http://notesnet.dk"
-										target="_blank">
+									<xp:link text="Notesnet.dk" value="http://notesnet.dk" target="_blank">
 									</xp:link>
 								</li>
 
@@ -202,7 +173,6 @@
 		<!-- Footer -->
 		<xp:panel id="lotusFooter" styleClass="lotusFooter">
 			<!-- Place your footer here -->
-
 			&#160;
 		</xp:panel>
 		<!-- END Footer -->
@@ -213,6 +183,4 @@
 		</xp:panel>
 		<!-- END Legal -->
 	</xp:panel>
-	
-
 </xp:view>

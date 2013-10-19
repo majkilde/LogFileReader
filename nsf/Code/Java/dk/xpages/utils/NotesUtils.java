@@ -1,5 +1,6 @@
 package dk.xpages.utils;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -10,8 +11,12 @@ import lotus.domino.Session;
 import dk.xpages.log.LogManager;
 import dk.xpages.log.Logger;
 
-public class NotesUtils {
+public class NotesUtils implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static Logger log = LogManager.getLogger();
 
 	@SuppressWarnings("unchecked")

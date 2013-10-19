@@ -13,7 +13,7 @@ import dk.xpages.utils.NotesStrings;
 public class TextFile implements IFile, Serializable {
 
 	private final Logger log = LogManager.getLogger();
-	private final File file;
+	protected final File file;
 
 	public TextFile(final File file) {
 		this.file = file;
@@ -60,4 +60,8 @@ public class TextFile implements IFile, Serializable {
 		return file.getPath();
 	}
 
+	public byte[] getByteArray() throws IOException {
+		//	return FileUtils.readFileToByteArray(file);
+		return null;
+	}
 }

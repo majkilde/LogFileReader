@@ -32,9 +32,14 @@ manager.getCurrentFilelist();}]]></xe:this.createObject>
 			</xp:text>
 		</h2>
 		<div class="lotusSectionBody">
-			Other files found in "
-			<xp:text escape="true" id="computedField5" value="#{javascript:filelist.getPath()}"></xp:text>
-			":
+				<xp:text escape="true" id="computedField8" value="#{javascript:filelist.getCount()}">
+					<xp:this.converter>
+						<xp:convertNumber type="number" integerOnly="true"></xp:convertNumber>
+					</xp:this.converter>
+				</xp:text>
+				&#160; files matches <i>"
+				<xp:text escape="true" id="computedField5" value="#{javascript:filelist.getPattern()}"></xp:text>
+			"</i>:
 
 			<div class="fileSelector">
 				<xp:pager partialRefresh="true" id="filesPager" for="files" layout="Previous Next"></xp:pager>

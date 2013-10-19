@@ -1,6 +1,7 @@
 
 .fileViewer{
 	font-family:Consolas,"Courier New";
+	overflow:auto;
 }
 
 .tip th {

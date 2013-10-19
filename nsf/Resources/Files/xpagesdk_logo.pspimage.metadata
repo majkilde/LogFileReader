@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" replicaid="C1257B8B006B3B8D" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="37a" sequence="1" unid="4B01A7867F24EEC9C1257C09003422F6">
+<created><datetime dst="true">20131019T112928,22+02</datetime></created>
+<modified><datetime dst="true">20131019T112928,25+02</datetime></modified>
+<revised><datetime dst="true">20131019T112928,24+02</datetime></revised>
+<lastaccessed><datetime dst="true">20131019T112928,25+02</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20131019T112928,25+02</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
+<wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
+<item name="$TITLE"><text>xpagesdk_logo.pspimage</text></item>
+<item name="$Flags"><text>345CgQ</text></item>
+<item name="$FlagsExt"><text>D</text></item>
+
+<item name="$FileModDT" sign="true"><datetime dst="true">20131019T110610,10+02</datetime></item>
+
+<item name="$FileNames" sign="true"><text>xpagesdk_logo.pspimage</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item></note>

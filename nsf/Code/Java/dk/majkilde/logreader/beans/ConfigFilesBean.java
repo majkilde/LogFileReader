@@ -11,13 +11,13 @@ import dk.xpages.log.Logger;
 import dk.xpages.utils.NotesStrings;
 import dk.xpages.utils.XSPUtils;
 
-public class LogFilesBean implements Serializable {
+public class ConfigFilesBean implements Serializable {
 	private final Logger log = LogManager.getLogger();
-	private final FileManager manager = new FileManager("logfiles");
+	private final FileManager manager = new FileManager("configfiles");
 
 	//	private IFile currentFile = null;
 
-	public LogFilesBean() {
+	public ConfigFilesBean() {
 		log.info("Bean initialized: {0}", LogFilesBean.class.getName());
 	}
 
@@ -58,14 +58,4 @@ public class LogFilesBean implements Serializable {
 		}
 	}
 
-	//	public void setCurrentFile(IFile file) {
-	//		this.currentFile = file;
-	//	}
-	//
-	//	public IFile getCurrentFile() {
-	//		if (currentFile == null) {
-	//			currentFile = getCurrentFilelist().getNewest();
-	//		}
-	//		return currentFile;
-	//	}
 }

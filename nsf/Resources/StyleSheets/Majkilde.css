@@ -3,6 +3,14 @@
 	margin: 0px;
 }
 
+.lotusTitleBar {
+	border-bottom:0px;
+}
+
+.lotusMain {
+	border-top:0px;
+}
+
 .lotusTitleBar h2 {
 	margin: 0px;
 	font-weight: bold;
@@ -12,17 +20,12 @@
 	margin: 0px;
 }
 
-/* Move the debug toolbar to the bottom */
-div.debugToolbar {
-	position: relative !important;
-}
-
 /* add the xpages logo */
 .lotusLogo {
-	background-image: url("xpages.png");
-	width: 100px;
-	height: 35px;
-	margin-left: 10px !important;
+	background-image: url("xpagesdk_logo.png");
+	width: 200px;
+	height: 40px;
+	margin-left: 3px !important;
 }
 
 /* Form layout */

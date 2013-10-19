@@ -1,9 +1,11 @@
 package dk.xpages.utils;
 
 import java.io.InputStream;
+import java.io.Serializable;
 import java.util.Map;
 
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
 
 import lotus.domino.Database;
 import lotus.domino.Session;
@@ -17,7 +19,12 @@ import com.ibm.xsp.model.domino.wrapped.DominoDocument;
  * Note: More handy utils in com.ibm.xsp.extlib.util.ExtLibUtil
  *
  */
-public class XSPUtils {
+public class XSPUtils implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public static XSPUrl getUrl() {
 		try {
@@ -74,5 +81,17 @@ public class XSPUtils {
 
 	public static InputStream getResourceAsStream(String filename) {
 		return FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(filename);
+	}
+
+	public static String getFullyQualifiedDatabaseURL() {
+		FacesContext context = FacesContext.getCurrentInstance();
+		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
+
+		String scheme = request.getScheme();
+		String serverName = request.getServerName();
+		int serverPort = request.getServerPort();
+		String contextPath = request.getContextPath();
+
+		return scheme + "://" + serverName + ((serverPort == 80) ? "" : ":" + serverPort) + contextPath;
 	}
 }

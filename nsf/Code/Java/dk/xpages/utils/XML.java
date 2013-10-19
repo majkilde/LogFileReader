@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,7 +29,12 @@ import dk.xpages.log.Logger;
  * @link http://argonrain.wordpress.com/2009/10/27/000/
  * Quote: "All you need is this class, which you can of course customise however you like."
  */
-public class XML {
+public class XML implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@SuppressWarnings("unused")
 	private final Logger log = LogManager.getLogger();
 

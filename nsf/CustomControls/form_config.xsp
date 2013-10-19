@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xe="http://www.ibm.com/xsp/coreex">
+
+	<xp:this.data>
+		<xe:objectData var="filelist">
+			<xe:this.createObject><![CDATA[#{javascript:manager = new dk.majkilde.logreader.beans.ConfigFilesBean();
+manager.getCurrentFilelist();}]]></xe:this.createObject>
+		</xe:objectData>
+	</xp:this.data>
+
+	<xp:this.resources>
+		<xp:styleSheet href="/logfilereader.css"></xp:styleSheet>
+	</xp:this.resources>
+
+	<h1>
+		<xp:text escape="true" id="computedField2" value="#{javascript:filelist.getTitle()}" disableTheme="true"></xp:text>
+	</h1>
+
+	<div class="lotusSection">
+		<h2>
+
+			Curren file:&#160; <xp:text escape="true" id="computedField4" value="#{javascript:filelist.getCurrent().getFilename();}" disableTheme="true"></xp:text>
+
+		</h2>
+		<div class="lotusSectionBody">
+			<table class="tip">
+				<tr>
+					<th>Date:</th>
+					<td>
+						<xp:text escape="true" id="computedField3" value="#{javascript:filelist.getCurrent().getDate()}">
+							<xp:this.converter>
+								<xp:convertDateTime type="both"></xp:convertDateTime>
+							</xp:this.converter>
+						</xp:text>
+					</td>
+				</tr>
+				<tr>
+					<th>Size:</th>
+					<td>
+						<xp:text escape="true" id="computedField1" value="#{javascript:dk.xpages.utils.NotesStrings.readableFileSize( filelist.getCurrent().getSize());}"></xp:text>
+					</td>
+				</tr>
+				<tr>
+					<th>Path:</th>
+					<td>
+						<xp:text escape="true" id="computedField5" value="#{javascript:filelist.getPath()}"></xp:text>
+					</td>
+				</tr>
+			</table>
+
+
+
+		</div>
+	</div>
+
+
+
+
+
+
+	<div class="lotusSection">
+		<h2>Content</h2>
+		<div class="lotusSectionBody">
+			<div class="fileViewer">
+				<xp:text escape="false" id="fileContent" disableTheme="true">
+					<xp:this.value><![CDATA[#{javascript:file=filelist.getCurrent();
+if( file!=null){
+	file.getHtml();
+}}]]></xp:this.value>
+				</xp:text>
+			</div>
+		</div>
+	</div>
+</xp:view>
