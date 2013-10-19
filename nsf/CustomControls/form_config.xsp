@@ -19,7 +19,14 @@ manager.getCurrentFilelist();}]]></xe:this.createObject>
 	<div class="lotusSection">
 		<h2>
 
-			Curren file:&#160; <xp:text escape="true" id="computedField4" value="#{javascript:filelist.getCurrent().getFilename();}" disableTheme="true"></xp:text>
+			Current file:&#160; 
+			<xp:link escape="true" text="#{javascript:filelist.getCurrent().getFilename()}" id="link1">
+				<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
+					<xp:this.action><![CDATA[#{javascript:filelist.getCurrent().download();}]]></xp:this.action>
+				</xp:eventHandler>
+
+			</xp:link>
+
 
 		</h2>
 		<div class="lotusSectionBody">

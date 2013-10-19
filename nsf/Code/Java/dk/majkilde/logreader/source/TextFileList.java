@@ -106,13 +106,4 @@ public class TextFileList implements Serializable, IFileList {
 		return current;
 	}
 
-	//	public void addTransformer(String transformFilename) {
-	//		if (!NotesStrings.isBlank(transformFilename)) {
-	//			xlsTransformer = XSPUtils.getResourceAsStream(transformFilename);
-	//		}
-	//	}
-	//
-	//	public InputStream getTransforer() {
-	//		return xlsTransformer;
-	//	}
 }

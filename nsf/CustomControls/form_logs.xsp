@@ -26,7 +26,12 @@ manager.getCurrentFilelist();}]]></xe:this.createObject>
 	<div class="lotusSection">
 		<h2>
 			Current file:&#160;
-			<xp:text escape="true" id="computedField4" value="#{javascript:filelist.getCurrent().getFilename();}"></xp:text>
+			<xp:link escape="true" text="#{javascript:filelist.getCurrent().getFilename()}" id="link1">
+				<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
+					<xp:this.action><![CDATA[#{javascript:filelist.getCurrent().download();}]]></xp:this.action>
+				</xp:eventHandler>
+			</xp:link>
+
 			, &#160;
 			<xp:text escape="true" id="computedField6" value="#{javascript:dk.xpages.utils.NotesStrings.readableFileSize( filelist.getCurrent().getSize());}">
 			</xp:text>

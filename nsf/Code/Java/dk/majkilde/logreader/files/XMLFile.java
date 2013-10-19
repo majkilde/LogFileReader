@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileReader;
-import java.io.InputStream;
 import java.io.Serializable;
 
 import javax.xml.transform.Transformer;
@@ -14,26 +13,27 @@ import javax.xml.transform.stream.StreamSource;
 
 import dk.xpages.log.LogManager;
 import dk.xpages.log.Logger;
+import dk.xpages.utils.XSPUtils;
 
 public class XMLFile extends TextFile implements Serializable {
 	private final Logger log = LogManager.getLogger();
-	private InputStream xlsFile = null;
+	private String xlsFilename = null;
 	private static final long serialVersionUID = 1L;
 
-	public XMLFile(final File file, final InputStream xlsFile) {
+	public XMLFile(final File file, final String xlsFilename) {
 		super(file);
-		this.xlsFile = xlsFile;
+		this.xlsFilename = xlsFilename;
 	}
 
-	public XMLFile(final String filename, final InputStream xlsFile) {
+	public XMLFile(final String filename, final String xlsFilename) {
 		super(filename);
-		this.xlsFile = xlsFile;
+		this.xlsFilename = xlsFilename;
 	}
 
 	@Override
 	public String getHtml() {
 
-		if (xlsFile == null) {
+		if (xlsFilename == null) {
 			//no XSL file specified - just return the content as a plain text file
 			return super.getHtml();
 		}
@@ -46,7 +46,7 @@ public class XMLFile extends TextFile implements Serializable {
 			StreamSource inputStream = new StreamSource(new BufferedReader(new FileReader(file)));
 
 			// Transformer XLS 
-			transformer = tFactory.newTransformer(new StreamSource(xlsFile));
+			transformer = tFactory.newTransformer(new StreamSource(XSPUtils.getResourceAsStream(xlsFilename)));
 
 			// Output stream
 			ByteArrayOutputStream output = new ByteArrayOutputStream();

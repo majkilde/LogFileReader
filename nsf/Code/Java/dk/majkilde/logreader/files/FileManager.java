@@ -20,8 +20,9 @@ import dk.xpages.utils.XSPUtils;
 
 public class FileManager implements Serializable {
 	/**
-	 * 
+	 *  
 	 */
+
 	private static final long serialVersionUID = 1L;
 
 	private final Map<String, IFileList> filelists = new LinkedHashMap<String, IFileList>();

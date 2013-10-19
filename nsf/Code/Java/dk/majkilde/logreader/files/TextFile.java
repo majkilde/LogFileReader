@@ -6,8 +6,11 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
+
 import dk.xpages.log.LogManager;
 import dk.xpages.log.Logger;
+import dk.xpages.utils.Download;
 import dk.xpages.utils.NotesStrings;
 
 public class TextFile implements IFile, Serializable {
@@ -61,7 +64,16 @@ public class TextFile implements IFile, Serializable {
 	}
 
 	public byte[] getByteArray() throws IOException {
-		//	return FileUtils.readFileToByteArray(file);
-		return null;
+		return FileUtils.readFileToByteArray(file);
+	}
+
+	public void download() {
+		Download download = new Download();
+		try {
+			download.save(getByteArray(), getFilename());
+		} catch (IOException e) {
+			log.error(e);
+		}
+
 	}
 }

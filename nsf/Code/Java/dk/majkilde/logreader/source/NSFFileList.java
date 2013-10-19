@@ -4,8 +4,12 @@ import java.io.Serializable;
 import java.util.List;
 
 import dk.majkilde.logreader.files.IFile;
+import dk.xpages.log.LogManager;
+import dk.xpages.log.Logger;
 
 public class NSFFileList implements IFileList, Serializable {
+
+	private final Logger log = LogManager.getLogger();
 
 	/**
 	 * 

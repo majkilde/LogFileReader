@@ -1,7 +1,6 @@
 package dk.majkilde.logreader.source;
 
 import java.io.File;
-import java.io.InputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,7 +12,6 @@ import dk.majkilde.logreader.files.XMLFile;
 import dk.xpages.log.LogManager;
 import dk.xpages.log.Logger;
 import dk.xpages.utils.NotesStrings;
-import dk.xpages.utils.XSPUtils;
 
 public class XMLFileList implements Serializable, IFileList {
 
@@ -29,20 +27,16 @@ public class XMLFileList implements Serializable, IFileList {
 
 	private final List<IFile> files = new ArrayList<IFile>();
 
-	public XMLFileList(final String title, final String pattern, final InputStream xlsTransformer) {
+	public XMLFileList(final String title, final String pattern, final String xlsFilename) {
 		this.title = title;
 		this.pattern = pattern;
 
 		List<String> filenames = Directory.getFileNames(pattern);
 		for (String filename : filenames) {
-			files.add(new XMLFile(filename, xlsTransformer));
+			files.add(new XMLFile(filename, xlsFilename));
 		}
 
 		Collections.sort(files);
-	}
-
-	public XMLFileList(final String title, final String pattern, final String xlsTransformer) {
-		this(title, pattern, XSPUtils.getResourceAsStream(xlsTransformer));
 	}
 
 	/* (non-Javadoc)

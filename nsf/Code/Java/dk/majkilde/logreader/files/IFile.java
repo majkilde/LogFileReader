@@ -16,4 +16,6 @@ public interface IFile extends Comparable<IFile> {
 
 	public byte[] getByteArray() throws IOException;
 
+	public abstract void download();
+
 }
