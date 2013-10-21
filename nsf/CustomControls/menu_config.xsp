@@ -9,8 +9,7 @@
 					<xp:panel tagName="li" rendered="#{javascript:filelist.getCount()!=0;}">
 						<xp:this.styleClass><![CDATA[#{javascript:if (context.getUrlParameter("menu")==filelist.getTitle() || (context.getUrlParameter("menu")=="" && configFiles.getFirstFilelist()==filelist )) "lotusSelected"}]]></xp:this.styleClass>
 						<xp:link escape="true" text="#{javascript:filelist.getTitle()}">
-
-						<xp:this.value><![CDATA[#{javascript:"/Reader.xsp?tab=config&menu="+viewScope.filelist.getTitle()}]]></xp:this.value></xp:link>
+						<xp:this.value><![CDATA[#{javascript:"/Reader.xsp?tab=config&menu="+filelist.getTitle()}]]></xp:this.value></xp:link>
 					</xp:panel>
 				</xp:repeat>
 			</ul>
