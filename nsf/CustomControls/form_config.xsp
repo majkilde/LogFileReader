@@ -1,28 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xe="http://www.ibm.com/xsp/coreex">
 
-	<xp:this.data>
-		<xe:objectData var="filelist">
-			<xe:this.createObject><![CDATA[#{javascript:manager = new dk.majkilde.logreader.beans.ConfigFilesBean();
-manager.getCurrentFilelist();}]]></xe:this.createObject>
-		</xe:objectData>
-	</xp:this.data>
-
-	<xp:this.resources>
-		<xp:styleSheet href="/logfilereader.css"></xp:styleSheet>
-	</xp:this.resources>
-
+	
+	<xp:this.beforePageLoad><![CDATA[#{javascript:viewScope.filelist = configFiles.getCurrentFilelist();
+viewScope.currentFile = filelist.getCurrent();}]]></xp:this.beforePageLoad>
 	<h1>
-		<xp:text escape="true" id="computedField2" value="#{javascript:filelist.getTitle()}" disableTheme="true"></xp:text>
+		<xp:text escape="true" id="computedField2" value="#{javascript:viewScope.filelist.getTitle()}" disableTheme="true"></xp:text>
 	</h1>
 
 	<div class="lotusSection">
 		<h2>
 
-			Current file:&#160; 
-			<xp:link escape="true" text="#{javascript:filelist.getCurrent().getFilename()}" id="link1">
+			Current file:&#160;
+			<xp:link escape="true" text="#{javascript:viewScope.currentFile.getFilename()}" id="link1">
 				<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
-					<xp:this.action><![CDATA[#{javascript:filelist.getCurrent().download();}]]></xp:this.action>
+					<xp:this.action><![CDATA[#{javascript:viewScope.currentFile.download();}]]></xp:this.action>
 				</xp:eventHandler>
 
 			</xp:link>
@@ -34,7 +26,7 @@ manager.getCurrentFilelist();}]]></xe:this.createObject>
 				<tr>
 					<th>Date:</th>
 					<td>
-						<xp:text escape="true" id="computedField3" value="#{javascript:filelist.getCurrent().getDate()}">
+						<xp:text escape="true" id="computedField3" value="#{javascript:viewScope.currentFile.getDate()}">
 							<xp:this.converter>
 								<xp:convertDateTime type="both"></xp:convertDateTime>
 							</xp:this.converter>
@@ -44,25 +36,18 @@ manager.getCurrentFilelist();}]]></xe:this.createObject>
 				<tr>
 					<th>Size:</th>
 					<td>
-						<xp:text escape="true" id="computedField1" value="#{javascript:dk.xpages.utils.NotesStrings.readableFileSize( filelist.getCurrent().getSize());}"></xp:text>
+						<xp:text escape="true" id="computedField1" value="#{javascript:dk.xpages.utils.NotesStrings.readableFileSize( viewScope.currentFile.getSize());}"></xp:text>
 					</td>
 				</tr>
 				<tr>
 					<th>Path:</th>
 					<td>
-						<xp:text escape="true" id="computedField5" value="#{javascript:filelist.getPath()}"></xp:text>
+						<xp:text escape="true" id="computedField5" value="#{javascript:viewScope.filelist.getPath()}"></xp:text>
 					</td>
 				</tr>
 			</table>
-
-
-
 		</div>
 	</div>
-
-
-
-
 
 
 	<div class="lotusSection">
@@ -70,7 +55,7 @@ manager.getCurrentFilelist();}]]></xe:this.createObject>
 		<div class="lotusSectionBody">
 			<div class="fileViewer">
 				<xp:text escape="false" id="fileContent" disableTheme="true">
-					<xp:this.value><![CDATA[#{javascript:file=filelist.getCurrent();
+					<xp:this.value><![CDATA[#{javascript:file=viewScope.currentFile;
 if( file!=null){
 	file.getHtml();
 }}]]></xp:this.value>

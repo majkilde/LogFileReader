@@ -34,14 +34,37 @@
 	text-transform:uppercase;
 }
 
-.lotusContent .viewer {
-	height: 500px;
-	overflow: auto;
-	font-family: courier;
+
+.fileViewer{
+	font-family:Consolas,"Courier New";
+	overflow:auto;
 }
 
-.lotusContent .viewer th {
+.tip th {
 	text-align: left;
-	background: #444;
-	color: white;
+}
+
+.fileSelector {
+	margin-top:4px;
+	margin-left:10px;
+}
+
+.fileSelector ul {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+.fileSelector li {
+	display:inline;
+}
+
+.fileSelector li + li{
+	border-left: 2px solid gray;
+	padding-left: 5px;
+	margin-left:5px;
+}
+
+.fileSelector .current {
+	color:gray;
+	font-weight:bold;
 }
