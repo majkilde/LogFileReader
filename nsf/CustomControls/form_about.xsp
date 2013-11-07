@@ -2,89 +2,263 @@
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core">
 	<h1>About</h1>
 	<div class="viewer">
-		<table>
+
+
+		<table class="lotusTable">
 			<tr>
-				<th>
-					<xp:text escape="true" id="dbTitle"
-						value="#{javascript:session.getCurrentDatabase().getTitle();}">
+				<th style="width:200px;">
+					<xp:text escape="true" value="#{javascript:session.getCurrentDatabase().getTitle();}" disableTheme="true">
 					</xp:text>
 				</th>
-				<th>Value</th>
+				<th></th>
 			</tr>
 			<tr>
-				<td>Version</td>
-				<td><xp:text escape="true" id="version"
-						value="#{javascript:Reader.getVersion();}">
-					</xp:text></td>
+				<td>Developer</td>
+				<td>
+					<div class="pipelist">
+						<ul>
+							<li><strong>Jakob Majkilde</strong></li>
+							<li>
+								<xp:link escape="true" text="majkilde.dk" value="http://majkilde.dk" target="_blank"></xp:link>
+							</li>
+							<li>
+								<xp:link escape="true" text="xpages.dk" value="http://xpages.dk" target="_blank"></xp:link>
+							</li>
+							<li>
+								<xp:link escape="true" text="lotusscript.dk" value="http://lotusscript.dk" target="_blank"></xp:link>
+							</li>
+							<li>
+								<xp:link escape="true" text="notesnet.dk" value="http://notesnet.dk" target="_blank"></xp:link>
+							</li>
+							<li>
+								<xp:link escape="true" text="majkilde.com" value="http://majkilde.com" target="_blank"></xp:link>
+							</li>
+						</ul>
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td>Project Link</td>
 				<td>
-					<xp:link escape="true" text="OpenNTF"
-						target="_blank" id="downloadlink">
+					<xp:link escape="true" text="OpenNTF" target="_blank" id="downloadlink">
 						<xp:this.value><![CDATA[http://www.openntf.org/internal/home.nsf/project.xsp?action=openDocument&name=XPages%20Log%20File%20Reader]]></xp:this.value>
 					</xp:link>
 				</td>
 			</tr>
+		</table>
+
+		<table class="lotusTable">
 			<tr>
-				<th>Server info</th>
-				<th>Value</th>
-			</tr>
-			<tr>
-				<td>Name</td>
-				<td>
-					<xp:text escape="true" id="computedField1">
+				<th style="width:200px;">
+					SERVER:&#160;
+					<xp:text escape="true" disableTheme="true">
 						<xp:this.value><![CDATA[#{javascript:@Name( "[Abbreviate]",session.getServerName());}]]></xp:this.value>
 					</xp:text>
-				</td>
+				</th>
+				<th></th>
 			</tr>
 			<tr>
 				<td>Version</td>
 				<td>
-					<xp:text escape="true" id="computedField2"
-						value="#{javascript:session.getNotesVersion()}">
+					<xp:text escape="true" value="#{javascript:session.getNotesVersion()}">
+					</xp:text>
+					&#160; on &#160;
+					<xp:text escape="true" value="#{javascript:session.getPlatform()}">
 					</xp:text>
 				</td>
 			</tr>
+
 			<tr>
-				<td>Platform</td>
+				<td>OS</td>
 				<td>
-					<xp:text escape="true" id="computedField3"
-						value="#{javascript:session.getPlatform()}">
-					</xp:text>
+					<table class="simpleTable">
+						<tr>
+							<td>OS name</td>
+							<td>
+								<xp:text escape="true">
+									<xp:this.value><![CDATA[#{javascript:java.lang.System.getProperty("os.name");}]]></xp:this.value>
+								</xp:text>
+							</td>
+						</tr>
+						<tr>
+							<td>File seperator</td>
+							<td>
+
+								<xp:text escape="true">
+									<xp:this.value><![CDATA[#{javascript:java.lang.System.getProperty("file.separator");}]]></xp:this.value>
+								</xp:text>
+							</td>
+						</tr>
+						<tr>
+							<td>Path seperator</td>
+							<td>
+
+								<xp:text escape="true">
+									<xp:this.value><![CDATA[#{javascript:java.lang.System.getProperty("path.separator");}]]></xp:this.value>
+								</xp:text>
+							</td>
+						</tr>
+						<tr>
+							<td>Line seperator</td>
+							<td>
+								<xp:text escape="true">
+									<xp:this.value><![CDATA[#{javascript:dk.majkilde.logreader.java.System.getEscapedLineSeperator()
+
+}]]></xp:this.value>
+								</xp:text>
+							</td>
+						</tr>
+
+					</table>
 				</td>
 			</tr>
+
 			<tr>
 				<td>International</td>
 				<td>
-					<xp:text escape="false" id="computedField4">
+					<table class="simpleTable">
+						<xp:text escape="false">
 
-						<xp:this.value><![CDATA[#{javascript:var intl:NotesInternational = session.getInternational();
-"Currency: " + intl.getCurrencySymbol() + 
-"<br>Date seperator: " + intl.getDateSep() + 
-"<br>Time seperator: " + intl.getTimeSep() + 
-"<br>Timezone: " + intl.getTimeZone()}]]></xp:this.value>
+							<xp:this.value><![CDATA[#{javascript:var intl:NotesInternational = session.getInternational();
+"<tr><td>Currency</td><td>" + intl.getCurrencySymbol() + "</td></tr>"+ 
+"<tr><td>Date seperator</td><td>" + intl.getDateSep() + "</td></tr>"+ 
+"<tr><td>Time seperator</td><td>" + intl.getTimeSep() + "</td></tr>"+ 
+"<tr><td>Timezone</td><td>" + intl.getTimeZone() + "</td></tr>"}]]></xp:this.value>
+						</xp:text>
+					</table>
+				</td>
+			</tr>
+			</table>
+					<table class="lotusTable">
+
+			<tr>
+				<th colspan="2">
+				Current user:&#160;
+				<xp:text escape="true" disableTheme="true">
+					<xp:this.value><![CDATA[#{javascript:@Name( "[Abbreviate]",session.getEffectiveUserName())}]]></xp:this.value>
+				</xp:text>
+				</th>
+				
+			</tr>
+			
+			<tr>
+				<td style="width:200px;">Member of</td>
+				<td>
+					<xp:text escape="true">
+						<xp:this.value><![CDATA[#{javascript:@Implode( session.getUserGroupNameList(), ", ")}]]></xp:this.value>
+					</xp:text>
+
+
+				</td>
+			</tr>
+
+		</table>
+
+
+		<table class="lotusTable">
+
+			<tr>
+				<th style="width:200px;">Extension library</th>
+				<th></th>
+			</tr>
+			<tr>
+				<td>Version</td>
+				<td>
+					<xp:text escape="true">
+						<xp:this.value><![CDATA[#{javascript:try { var v = com.ibm.xsp.extlib.util.ExtLibUtil.getExtLibVersion(); return v; } catch (e) { return
+				"Error reading version or not installed"; } }]]></xp:this.value>
+					</xp:text>
+				</td>
+			</tr>
+
+		</table>
+
+
+
+
+		<table class="lotusTable">
+			<tr>
+				<th style="width:200px;">Dojo
+				</th>
+				<th></th>
+			</tr>
+			<tr>
+				<td>Default version</td>
+				<td>
+					<xp:text escape="true" value="#{javascript:com.ibm.xsp.context.DojoLibraryFactory.getDefaultLibrary().getVersion()}"></xp:text>
+
+				</td>
+			</tr>
+			<tr>
+				<td>Installed versions</td>
+				<td>
+					<xp:repeat id="repeat1" rows="30" value="#{javascript:com.ibm.xsp.context.DojoLibraryFactory.getDojoLibraries()}" var="dojo">
+						<xp:text escape="true" value="#{javascript:dojo.getVersion()}"></xp:text>
+						<br />
+					</xp:repeat>
+				</td>
+			</tr>
+
+		</table>
+
+		<table class="lotusTable">
+			<tr>
+				<th style="width:200px;">
+					Java
+				</th>
+				<th></th>
+			</tr>
+			<tr>
+				<td>
+					JVM Version
+				</td>
+				<td>
+					<xp:text escape="true" value="#{javascript:dk.majkilde.logreader.java.System.getJVMVersion()}">
 					</xp:text>
 				</td>
 			</tr>
 			<tr>
-				<td>Username list:</td>
 				<td>
-					<xp:text escape="true" id="computedField5"
-						value="#{javascript:session.getUserNameList()}">
-					</xp:text>
+					Memory
+				</td>
+				<td>
+					<table class="simpleTable">
+						<tr>
+							<td>Total</td>
+							<td>
+								<xp:text escape="true">
+									<xp:this.value><![CDATA[#{javascript:mem = dk.majkilde.logreader.java.System.getTotalMemory();
+dk.xpages.utils.NotesStrings.readableFileSize( mem );}]]></xp:this.value>
+								</xp:text>
+							</td>
+						</tr>
+						<tr>
+							<td>Free</td>
+							<td>
+								<xp:text escape="true">
+									<xp:this.value><![CDATA[#{javascript:mem = dk.majkilde.logreader.java.System.getFreeMemory();
+dk.xpages.utils.NotesStrings.readableFileSize( mem );}]]></xp:this.value>
+								</xp:text>
+							</td>
+						</tr>
+						<tr>
+							<td>Used</td>
+							<td>
+								<xp:text escape="true">
+									<xp:this.value><![CDATA[#{javascript:mem = dk.majkilde.logreader.java.System.getUsedMemory();
+dk.xpages.utils.NotesStrings.readableFileSize( mem );}]]></xp:this.value>
+								</xp:text>
+							</td>
+						</tr>
+
+					</table>
+
+
+
+
 				</td>
 			</tr>
 
-
-			<!--
-				<tr> <th>Extension library</th> <th>Value</th> </tr> <tr>
-				<td>Version</td> <td> <xp:text escape="true" id="computedField6">
-				<xp:this.value><![CDATA[#{javascript:try { var v =
-				com.ibm.xsp.extlib.util.ExtLibUtil.getExtLibVersion(); return v; }
-				catch (e) { return "Error reading version or not installed"; }
-				}]]></xp:this.value> </xp:text></td> </tr>
-			-->
 		</table>
 	</div>
 </xp:view>

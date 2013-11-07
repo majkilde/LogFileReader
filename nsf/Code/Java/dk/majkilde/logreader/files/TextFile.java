@@ -16,7 +16,7 @@ import dk.xpages.utils.Download;
 import dk.xpages.utils.NotesStrings;
 
 public class TextFile implements IFile, Serializable {
-
+	private final String ENCODING = "utf-8";
 	private final Logger log = LogManager.getLogger();
 	protected final File file;
 	ArrayList<String> includes = null;
@@ -102,11 +102,12 @@ public class TextFile implements IFile, Serializable {
 	}
 
 	private List<String> getStringList() throws IOException {
-		return FileUtils.readLines(file);
+		return FileUtils.readLines(file, ENCODING);
 	}
 
 	public void download() {
 		Download download = new Download();
+		download.setCharset(ENCODING);
 		try {
 			download.save(getByteArray(), getFilename());
 		} catch (IOException e) {

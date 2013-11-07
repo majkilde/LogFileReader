@@ -8,25 +8,23 @@ manager.getCurrentFilelist();}]]></xe:this.createObject>
 		</xe:objectData>
 	</xp:this.data>
 
-	<xp:this.resources>
-		<xp:styleSheet href="/logfilereader.css"></xp:styleSheet>
-	</xp:this.resources>
-
 	<h1>
-		<xp:text escape="true" id="computedField2" value="#{javascript:filelist.getTitle()}" disableTheme="true"></xp:text>
+		<xp:text escape="true" id="getTitle" value="#{javascript:filelist.getTitle()}" disableTheme="true"></xp:text>
 	</h1>
 
 	<div class="lotusSection">
-		<h2>
+		<h2 class="fileinfoHeader">
 
-			Current file:&#160; 
-			<xp:link escape="true" text="#{javascript:filelist.getCurrent().getFilename()}" id="link1">
+			File:&#160; 
+			<xp:link escape="true" text="#{javascript:filelist.getCurrent().getFilename()}" id="downloadLink" styleClass="downloadLink">
 				<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
 					<xp:this.action><![CDATA[#{javascript:filelist.getCurrent().download();}]]></xp:this.action>
 				</xp:eventHandler>
-
 			</xp:link>
 
+			, &#160;
+			<xp:text escape="true" id="filSize" value="#{javascript:dk.xpages.utils.NotesStrings.readableFileSize( filelist.getCurrent().getSize());}">
+			</xp:text>
 
 		</h2>
 		<div class="lotusSectionBody">
@@ -34,7 +32,7 @@ manager.getCurrentFilelist();}]]></xe:this.createObject>
 				<tr>
 					<th>Date:</th>
 					<td>
-						<xp:text escape="true" id="computedField3" value="#{javascript:filelist.getCurrent().getDate()}">
+						<xp:text escape="true" id="getDate" value="#{javascript:filelist.getCurrent().getDate()}">
 							<xp:this.converter>
 								<xp:convertDateTime type="both"></xp:convertDateTime>
 							</xp:this.converter>
@@ -42,15 +40,9 @@ manager.getCurrentFilelist();}]]></xe:this.createObject>
 					</td>
 				</tr>
 				<tr>
-					<th>Size:</th>
-					<td>
-						<xp:text escape="true" id="computedField1" value="#{javascript:dk.xpages.utils.NotesStrings.readableFileSize( filelist.getCurrent().getSize());}"></xp:text>
-					</td>
-				</tr>
-				<tr>
 					<th>Path:</th>
 					<td>
-						<xp:text escape="true" id="computedField5" value="#{javascript:filelist.getPath()}"></xp:text>
+						<xp:text escape="true" id="getPath" value="#{javascript:filelist.getPath()}"></xp:text>
 					</td>
 				</tr>
 			</table>
@@ -59,11 +51,6 @@ manager.getCurrentFilelist();}]]></xe:this.createObject>
 
 		</div>
 	</div>
-
-
-
-
-
 
 	<div class="lotusSection">
 		<h2>Content</h2>

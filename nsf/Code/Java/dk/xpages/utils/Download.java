@@ -61,6 +61,7 @@ public class Download implements Serializable {
 
 		response.setCharacterEncoding(charset);
 		response.setHeader("Content-disposition", "attachment; filename=" + filename);
+		response.setHeader("Content-Length", String.valueOf(data.length));
 		OutputStream output = response.getOutputStream();
 		output.write(data);
 		output.close();

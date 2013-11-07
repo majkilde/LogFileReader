@@ -8,6 +8,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import lotus.domino.NotesException;
+import lotus.notes.addins.DominoServer;
+import lotus.notes.addins.ServerAccess;
 import dk.majkilde.logreader.source.IFileList;
 import dk.majkilde.logreader.source.NSFFileList;
 import dk.majkilde.logreader.source.TextFileList;
@@ -27,10 +30,23 @@ public class FileManager implements Serializable {
 
 	private final Map<String, IFileList> filelists = new LinkedHashMap<String, IFileList>();
 
-	private final Logger log = LogManager.getLogger();
+	private static final Logger log = LogManager.getLogger();
 
 	public FileManager(final String configSection) {
 		loadConfig(configSection);
+	}
+
+	public static boolean canReadLogs(final lotus.domino.Session session) {
+		boolean result = false;
+		try {
+			String username = session.getEffectiveUserName();
+			DominoServer server = new DominoServer();
+			result = server.checkServerAccess(username, ServerAccess.PROG_UNRESTRICTED);
+			result = result || server.checkServerAccess(username, ServerAccess.VIEW_ONLY_ADMIN);
+		} catch (NotesException ne) {
+			log.error(ne);
+		}
+		return result;
 	}
 
 	/**

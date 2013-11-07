@@ -9,14 +9,13 @@ manager.getCurrentFilelist();}]]></xe:this.createObject>
 	</xp:this.data>
 
 	<xp:this.resources>
-		<xp:styleSheet href="/logfilereader.css"></xp:styleSheet>
 		<xp:dojoModule name="dijit.Tooltip"></xp:dojoModule>
 	</xp:this.resources>
 
 	<h1>
-		<xp:text escape="true" id="computedField2" value="#{javascript:filelist.getTitle()}" disableTheme="true"></xp:text>
-		:&#160;
-		<xp:text escape="true" id="computedField9" value="#{javascript:filelist.getCurrent().getDate();}" disableTheme="true">
+		<xp:text escape="true" id="fileName" value="#{javascript:filelist.getCurrent().getFilename()}" disableTheme="true"></xp:text>
+		,&#160;
+		<xp:text escape="true" id="fileDate" value="#{javascript:filelist.getCurrent().getDate();}" disableTheme="true">
 			<xp:this.converter>
 				<xp:convertDateTime type="both"></xp:convertDateTime>
 			</xp:this.converter>
@@ -24,26 +23,26 @@ manager.getCurrentFilelist();}]]></xe:this.createObject>
 	</h1>
 
 	<div class="lotusSection">
-		<h2>
-			Current file:&#160;
-			<xp:link escape="true" text="#{javascript:filelist.getCurrent().getFilename()}" id="link1">
+		<h2 class="fileinfoHeader">
+			File:&#160;
+			<xp:link escape="true" text="#{javascript:filelist.getCurrent().getFilename()}" id="downloadLink" styleClass="downloadLink">
 				<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
 					<xp:this.action><![CDATA[#{javascript:filelist.getCurrent().download();}]]></xp:this.action>
 				</xp:eventHandler>
 			</xp:link>
 
 			, &#160;
-			<xp:text escape="true" id="computedField6" value="#{javascript:dk.xpages.utils.NotesStrings.readableFileSize( filelist.getCurrent().getSize());}">
+			<xp:text escape="true" id="filSize" value="#{javascript:dk.xpages.utils.NotesStrings.readableFileSize( filelist.getCurrent().getSize());}">
 			</xp:text>
 		</h2>
 		<div class="lotusSectionBody">
-				<xp:text escape="true" id="computedField8" value="#{javascript:filelist.getCount()}">
+				<xp:text escape="true" id="fileCount" value="#{javascript:filelist.getCount()}">
 					<xp:this.converter>
 						<xp:convertNumber type="number" integerOnly="true"></xp:convertNumber>
 					</xp:this.converter>
 				</xp:text>
 				&#160; files matches <i>"
-				<xp:text escape="true" id="computedField5" value="#{javascript:filelist.getPattern()}"></xp:text>
+				<xp:text escape="true" id="filePattern" value="#{javascript:filelist.getPattern()}"></xp:text>
 			"</i>:
 
 			<div class="fileSelector">
@@ -54,7 +53,7 @@ manager.getCurrentFilelist();}]]></xe:this.createObject>
 						<li>
 							<xp:link escape="true" id="tip">
 								<xp:this.styleClass><![CDATA[#{javascript:if( filelist.getCurrent()==file) {"current"}}]]></xp:this.styleClass>
-								<xp:text escape="true" id="computedField3" value="#{javascript:file.getDate();}">
+								<xp:text escape="true" id="date" value="#{javascript:file.getDate();}">
 									<xp:this.converter>
 										<xp:convertDateTime type="both" dateStyle="short" timeStyle="short"></xp:convertDateTime>
 									</xp:this.converter>
@@ -69,13 +68,13 @@ manager.getCurrentFilelist();}]]></xe:this.createObject>
 									<tr>
 										<th>Filename:</th>
 										<td>
-											<xp:text escape="true" id="computedField7" value="#{javascript:file.getFilename();}"></xp:text>
+											<xp:text escape="true" id="filename" value="#{javascript:file.getFilename();}"></xp:text>
 										</td>
 									</tr>
 									<tr>
 										<th>Size: </th>
 										<td>
-											<xp:text escape="true" id="computedField1" value="#{javascript:dk.xpages.utils.NotesStrings.readableFileSize( file.getSize());}"></xp:text>
+											<xp:text escape="true" id="size" value="#{javascript:dk.xpages.utils.NotesStrings.readableFileSize( file.getSize());}"></xp:text>
 										</td>
 									</tr>
 								</table>
@@ -86,10 +85,6 @@ manager.getCurrentFilelist();}]]></xe:this.createObject>
 			</div>
 		</div>
 	</div>
-
-
-
-
 
 
 	<div class="lotusSection">
