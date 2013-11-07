@@ -1,14 +1,14 @@
-/* OneUI tweaks */
+/* OneUI 2.1 bug fix */
 .lotusSection h2 {
 	margin: 0px;
 }
 
 .lotusTitleBar {
-	border-bottom: 0px;
+	border-bottom:0px;
 }
 
 .lotusMain {
-	border-top: 0px;
+	border-top:0px;
 }
 
 .lotusTitleBar h2 {
@@ -18,27 +18,6 @@
 
 .lotusPlaceBar h2 {
 	margin: 0px;
-}
-
-/* table on the about page */
-.lotusTable th {
-	background-color: gray;
-	color: white;
-	font-weight: bold;
-}
-
-.lotusTable td,.lotusTable th {
-	padding: 2px 5px 2px 5px;
-}
-
-.lotusTable {
-	margin-bottom: 20px;
-}
-
-.simpleTable td {
-	padding:0 5px 0 0 ;
-	margin:0;
-	border:0;
 }
 
 /* add the xpages logo */
@@ -51,27 +30,14 @@
 
 /* Form layout */
 .lotusContent h1 {
-	margin-bottom: 22px;
+	margin-bottom: 20px;
+	text-transform:uppercase;
 }
 
-.fileinfoHeader a {
-	text-decoration: underline;
-}
-
-<<<<<<< HEAD
-.fileinfoHeader a:visited {
-	text-decoration: underline;
-}
-
-.fileViewer {
-	font-family: Consolas, "Courier New";
-	overflow: auto;
-=======
 
 .fileViewer{
 	font-family:Consolas,"Courier New";
 	overflow:auto;
->>>>>>> 1181eaef1f3ebcfbcacac2974f084a5062224f06
 }
 
 .tip th {
@@ -79,49 +45,6 @@
 }
 
 .fileSelector {
-<<<<<<< HEAD
-	margin-top: 4px;
-	margin-left: 10px;
-}
-
-.fileSelector ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-
-.fileSelector li {
-	display: inline;
-}
-
-.fileSelector li+li {
-	border-left: 2px solid gray;
-	padding-left: 5px;
-	margin-left: 5px;
-}
-
-.fileSelector .current {
-	color: gray;
-	font-weight: bold;
-}
-
-/* list on about page */
-.pipelist ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-
-.pipelist li {
-	display: inline;
-}
-
-
-
-.pipelist li + li:before{
-    content: " | ";
-    padding: 0 10px;
-=======
 	margin-top:4px;
 	margin-left:10px;
 }
@@ -144,5 +67,44 @@
 .fileSelector .current {
 	color:gray;
 	font-weight:bold;
->>>>>>> 1181eaef1f3ebcfbcacac2974f084a5062224f06
+}
+
+/* list on about page */
+.pipelist ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.pipelist li {
+	display: inline;
+}
+
+
+.pipelist li + li:before{
+    content: " | ";
+    padding: 0 10px;
+	margin-top:4px;
+	margin-left:10px;
+}
+
+/* table on the about page */
+.lotusTable th {
+	background-color: gray;
+	color: white;
+	font-weight: bold;
+}
+
+.lotusTable td,.lotusTable th {
+	padding: 2px 5px 2px 5px;
+}
+
+.lotusTable {
+	margin-bottom: 20px;
+}
+
+.simpleTable td {
+	padding:0 5px 0 0 ;
+	margin:0;
+	border:0;
 }

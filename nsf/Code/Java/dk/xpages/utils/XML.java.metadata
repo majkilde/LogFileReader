@@ -1,18 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="3.3" replicaid="C1257C0B001D3247" version="8.5" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="1fa" sequence="4" unid="E476A02FE8DB145DC1257C0B001D34C3">
-<created><datetime dst="true">20131021T071900,51+02</datetime></created>
-<modified><datetime dst="true">20131021T072312,49+02</datetime></modified>
-<revised><datetime dst="true">20131021T072312,48+02</datetime></revised>
-<lastaccessed><datetime dst="true">20131021T072312,49+02</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20131021T071901,72+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Jakob Majkilde/OU=NDK/O=GEAP</name></updatedby>
-<wassignedby><name>CN=Jakob Majkilde/OU=NDK/O=GEAP</name></wassignedby>
+<?xml version="1.0" encoding="UTF-8"?><note class="form" replicaid="C1257B8B006B3B8D" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="2ce" sequence="32" unid="7B05AEB9C7363E4FC1257C07002B8C44">
+<created><datetime dst="true">20131017T095539,56+02</datetime></created>
+<modified><datetime>20131107T115255,20+01</datetime></modified>
+<revised><datetime>20131107T115255,19+01</datetime></revised>
+<lastaccessed><datetime>20131107T115255,20+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20131017T095539,57+02</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
+<wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
 <item name="$Flags"><text>34567Cg~[</text></item>
 <item name="$TITLE"><text>dk/xpages/utils/XML.java</text></item>
+
 <item name="$DesignerVersion"><text>8.5.3</text></item>
 
 
 <item name="$FileNames" sign="true"><text>dk/xpages/utils/XML.java</text></item>
-
 
 </note>

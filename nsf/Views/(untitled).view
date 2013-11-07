@@ -1,14 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!DOCTYPE note SYSTEM 'xmlschemas/domino_8_5_3.dtd'>
-<note class='view' xmlns='http://www.lotus.com/dxl' version='8.5' maintenanceversion='3.3'
- replicaid='C1257C0B001D3247'>
-<noteinfo noteid='116' unid='E51031BFDA4917C2C1257C0B001D326B' sequence='1'>
-<created><datetime dst='true'>20131021T071854,51+02</datetime></created>
-<modified><datetime dst='true'>20131021T071854,53+02</datetime></modified>
-<revised><datetime dst='true'>20131021T071854,52+02</datetime></revised>
-<lastaccessed><datetime dst='true'>20131021T071854,53+02</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20131021T071854,53+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Jakob Majkilde/OU=NDK/O=GEAP</name></updatedby>
+<note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' replicaid='C1257B8B006B3B8D'>
+<noteinfo noteid='3a6' unid='9ACEF1A73112054DC1257C1C003AAC63' sequence='3'>
+<created><datetime>20131107T114052,19+01</datetime></created>
+<modified><datetime>20131107T115256,14+01</datetime></modified>
+<revised><datetime>20131107T115256,13+01</datetime></revised>
+<lastaccessed><datetime>20131107T115256,14+01</datetime></lastaccessed>
+<addedtofile><datetime>20131107T114052,33+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
+<wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
 <item name='$TITLE'><text/></item>
 <item name='$Formula' summary='true'><formula compiled='true'>
 HAAFAA4ACgABAAQAJCQkJAQABAAAAAgAZgADAA==

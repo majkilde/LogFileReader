@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="3.3" replicaid="C1257C0B001D3247" version="8.5" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="15e" sequence="5" unid="49B9323FD857659BC1257C0B001D3459">
-<created><datetime dst="true">20131021T071859,45+02</datetime></created>
-<modified><datetime dst="true">20131021T072848,36+02</datetime></modified>
-<revised><datetime dst="true">20131021T072848,35+02</datetime></revised>
-<lastaccessed><datetime dst="true">20131021T072848,36+02</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20131021T071859,46+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Jakob Majkilde/OU=NDK/O=GEAP</name></updatedby>
-<wassignedby><name>CN=Jakob Majkilde/OU=NDK/O=GEAP</name></wassignedby>
+<?xml version="1.0" encoding="UTF-8"?><note class="form" replicaid="C1257B8B006B3B8D" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="25a" sequence="12" unid="12187D80317A5F04C1257C070027CDE0">
+<created><datetime dst="true">20131017T091446,08+02</datetime></created>
+<modified><datetime>20131107T115255,38+01</datetime></modified>
+<revised><datetime>20131107T115255,37+01</datetime></revised>
+<lastaccessed><datetime>20131107T115255,38+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20131017T091446,09+02</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
+<wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
 <item name="$Flags"><text>gC~4K</text></item>
 <item name="$TITLE"><text>junit.xsp</text></item>
 
 
 <item name="$FileNames" sign="true"><text>junit.xsp</text></item>
-<item name="$DesignerVersion"><text>8.5</text></item>
 
+<item name="$DesignerVersion"><text>8.5</text></item>
 
 
 

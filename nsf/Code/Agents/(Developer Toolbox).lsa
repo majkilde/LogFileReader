@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note class='filter' xmlns='http://www.lotus.com/dxl' version='9.0' replicaid='C1257B8B006B3B8D'>
-<noteinfo noteid='1c2' unid='C12579F2003CFDCBC1257286004808E0' sequence='89'>
+<noteinfo noteid='1c2' unid='C12579F2003CFDCBC1257286004808E0' sequence='90'>
 <created><datetime>20070218T140648,64+01</datetime></created>
-<modified><datetime dst='true'>20130615T213119,56+02</datetime></modified>
-<revised><datetime dst='true'>20120412T122011,25+02</datetime></revised>
-<lastaccessed><datetime dst='true'>20130615T213119,56+02</datetime></lastaccessed>
+<modified><datetime>20131107T115255,96+01</datetime></modified>
+<revised><datetime>20131107T115255,95+01</datetime></revised>
+<lastaccessed><datetime>20131107T115255,96+01</datetime></lastaccessed>
 <addedtofile><datetime dst='true'>20130615T213119,56+02</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Jakob Majkilde/OU=NDK/O=GEAP</name><name>CN=Jakob Majkilde/O=MAJKILDE</name><name
 >CN=Jakob Majkilde/OU=NDK/O=GEAP</name><name>CN=Jakob Majkilde/O=MAJKILDE</name><name
@@ -199,9 +199,9 @@ WwBbeAJLjAQshAhHeAIjphpcADqe/xs6EQAxGzoMABtLrART/AaFJTri/RpfABphABpiABwaZAAa
 ZQB9jAUUv324Bb8Wk7+bjkB9xAWbBgcaZgAP2P8aZwAdBwAkAAAAAAAeAAoABAAAAAwA6AD7ATwB
 AwAHAAwABQAJMFMwRQAAAAIAAAARABQAAAAAAP//AQADAAUAAAAIAEQADgAKAAAAAw==
 </rawitemdata></item>
-<item name='$AssistVersion'><datetime>20120212T142416,41+01</datetime></item>
 <item name='$palmVersion'><datetime>20120212T142429,00+01</datetime></item>
 <item name='$palmDate'><datetime dst='true'>20120412T121950,00+02</datetime></item>
 <item name='$palmUser'><text>CN=Jakob Majkilde/O=MAJKILDE</text></item>
-<item name='$palmSource'><text>template=Design;title=Design 6.9.3 NTF;filename=templates\design.nsf;server=SERVER;</text></item></note>
+<item name='$palmSource'><text>template=Design;title=Design 6.9.3 NTF;filename=templates\design.nsf;server=SERVER;</text></item>
+<item name='$AssistVersion'><datetime>20131107T115254,93+01</datetime></item></note>
 
