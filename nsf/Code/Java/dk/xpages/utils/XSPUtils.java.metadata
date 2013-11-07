@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><note class="form" replicaid="C1257B8B006B3B8D" version="9.0" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="332" sequence="27" unid="C1257B8B006B3B8DC1257BFB004F230B">
-<created><datetime dst="true">20131005T162423,15+02</datetime></created>
-<modified><datetime>20131107T115255,22+01</datetime></modified>
-<revised><datetime>20131107T115255,21+01</datetime></revised>
-<lastaccessed><datetime>20131107T115255,22+01</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20131018T121417,54+02</datetime></addedtofile></noteinfo>
+<noteinfo noteid="3de" sequence="7" unid="83FA26A8E1DAAE75C1257C1C004E8212">
+<created><datetime>20131107T151731,06+01</datetime></created>
+<modified><datetime>20131107T152930,02+01</datetime></modified>
+<revised><datetime>20131107T152930,01+01</datetime></revised>
+<lastaccessed><datetime>20131107T152930,02+01</datetime></lastaccessed>
+<addedtofile><datetime>20131107T151732,73+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
 <wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
-<item name="$Flags"><text>34567Cg~[</text></item>
 
 <item name="$palmVersion"><datetime dst="true">20131008T194636,00+02</datetime></item>
 <item name="$palmDate"><datetime dst="true">20131018T121417,00+02</datetime></item>
@@ -19,5 +18,7 @@
 
 
 <item name="$FileNames" sign="true"><text>dk/xpages/utils/XSPUtils.java</text></item>
+<item name="$Class"><text>MVC</text></item>
+<item name="$Flags"><text>34567Cg~[</text></item>
 
 </note>

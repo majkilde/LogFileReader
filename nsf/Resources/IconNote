@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note default='true' class='icon' xmlns='http://www.lotus.com/dxl' version='9.0'
  replicaid='C1257B8B006B3B8D'>
-<noteinfo noteid='11a' unid='2C9E58F9F48A268EC12579F2003CFDD0' sequence='7'>
+<noteinfo noteid='11a' unid='2C9E58F9F48A268EC12579F2003CFDD0' sequence='8'>
 <created><datetime dst='true'>20120502T130611,36+02</datetime></created>
-<modified><datetime dst='true'>20131017T092437,79+02</datetime></modified>
-<revised><datetime dst='true'>20131017T092437,78+02</datetime></revised>
-<lastaccessed><datetime dst='true'>20131017T092437,79+02</datetime></lastaccessed>
+<modified><datetime>20131107T141836,70+01</datetime></modified>
+<revised><datetime>20131107T141836,69+01</datetime></revised>
+<lastaccessed><datetime>20131107T141836,70+01</datetime></lastaccessed>
 <addedtofile><datetime dst='true'>20130615T213116,59+02</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
 <wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
@@ -28,10 +28,10 @@ AAAAUEECICABAAD/////+A4DgA==
 <item name='$DefaultXPage'><text>Reader.xsp</text></item>
 <item name='$DefaultClientXPage'><text>Reader.xsp</text></item>
 <item name='$Daos'><text>0</text></item>
-<item name='$TITLE'><text>Log File Reader 2.0
-#1Log File Reader</text></item>
 <item name='$Flags'><text>7J!F</text></item>
 <item name='$LaunchXPageRunOnServer'><text>0</text></item>
 <item name='$FlagsNoRefresh'><text/></item>
-<item name='$DefaultFrameset'><text>admin</text></item></note>
+<item name='$DefaultFrameset'><text>admin</text></item>
+<item name='$TITLE'><text>Log File Reader
+#1Log File Reader</text></item></note>
 

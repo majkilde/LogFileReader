@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?><note class="form" replicaid="C1257B8B006B3B8D" version="9.0" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="23e" sequence="8" unid="39A315A7EB4530E4C1257C070027A9BB">
-<created><datetime dst="true">20131017T091313,55+02</datetime></created>
-<modified><datetime>20131107T115255,04+01</datetime></modified>
-<revised><datetime>20131107T115255,03+01</datetime></revised>
-<lastaccessed><datetime>20131107T115255,04+01</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20131017T091313,65+02</datetime></addedtofile></noteinfo>
+<noteinfo noteid="3fa" sequence="5" unid="D4FBA84D94AFD38FC1257C1C004EE95B">
+<created><datetime>20131107T152155,47+01</datetime></created>
+<modified><datetime>20131107T152930,14+01</datetime></modified>
+<revised><datetime>20131107T152930,13+01</datetime></revised>
+<lastaccessed><datetime>20131107T152930,14+01</datetime></lastaccessed>
+<addedtofile><datetime>20131107T152157,09+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
 <wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
-<item name="$Flags"><text>34567Cg~[</text></item>
 <item name="$TITLE"><text>dk/xpages/log/PhaseListener.java</text></item>
-
 <item name="$DesignerVersion"><text>8.5.3</text></item>
 
 
 <item name="$FileNames" sign="true"><text>dk/xpages/log/PhaseListener.java</text></item>
+
+<item name="$Class"><text>MVC</text></item>
+<item name="$Flags"><text>34567Cg~[</text></item>
 
 </note>

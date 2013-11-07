@@ -1,6 +1,5 @@
 package dk.xpages.utils;
 
-import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.text.MessageFormat;
 import java.util.List;
@@ -19,19 +18,19 @@ import org.apache.commons.lang3.StringUtils;
  * 
  */
 
-public class NotesStrings extends StringUtils implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class NotesStrings extends StringUtils {
 
 	/**
 	 * MessageFormat: http://docs.oracle.com/javase/7/docs/api/java/text/MessageFormat.html
 	 */
 	public static String messageFormat(String source, Object... params) {
-		MessageFormat msg = new MessageFormat(source);
-		return msg.format(params);
+		if (params == null) {
+			return source;
+		} else {
+			MessageFormat msg = new MessageFormat(source);
+			return msg.format(params);
+		}
+
 	}
 
 	/**
@@ -128,5 +127,4 @@ public class NotesStrings extends StringUtils implements Serializable {
 		int digitGroups = (int) (Math.log10(size) / Math.log10(1024));
 		return new DecimalFormat("#,##0.#").format(size / Math.pow(1024, digitGroups)) + " " + units[digitGroups];
 	}
-
 }

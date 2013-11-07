@@ -1,6 +1,5 @@
 package dk.xpages.utils;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import lotus.domino.Base;
@@ -14,12 +13,7 @@ import lotus.domino.View;
 import com.ibm.domino.xsp.module.nsf.NotesContext;
 import com.ibm.xsp.model.domino.DominoUtils;
 
-public class NotesObjects extends DominoUtils implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class NotesObjects extends DominoUtils {
 
 	public static Session getSessionAsSigner() {
 		NotesContext nc = NotesContext.getCurrentUnchecked();

@@ -1,19 +1,14 @@
 package dk.xpages.utils;
 
 import java.io.File;
-import java.io.Serializable;
 
 import lotus.domino.NotesException;
 import lotus.domino.Session;
 import dk.xpages.log.LogManager;
 import dk.xpages.log.Logger;
 
-public class NotesEnvironment implements Serializable {
+public class NotesEnvironment {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private static Logger log = LogManager.getLogger();
 
 	/**
@@ -28,14 +23,6 @@ public class NotesEnvironment implements Serializable {
 			log.error(e);
 		}
 		return value;
-	}
-
-	/**
-	 * 
-	 * @return The default temporary-file directory, typically c:\temp on windows
-	 */
-	public static String getTempFolder() {
-		return System.getProperty("java.io.tmpdir");
 	}
 
 	public static String getDataFolder() {
@@ -63,6 +50,14 @@ public class NotesEnvironment implements Serializable {
 	 */
 	public static String getConfigFilename() {
 		return NotesUtils.evaluateString("@ConfigFile");
+	}
+
+	/**
+	 * 
+	 * @return The default temporary-file directory, typically c:\temp on windows
+	 */
+	public static String getTempFolder() {
+		return System.getProperty("java.io.tmpdir");
 	}
 
 	/**

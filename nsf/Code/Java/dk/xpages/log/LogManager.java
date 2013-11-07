@@ -5,7 +5,6 @@ import java.util.Map;
 
 public class LogManager {
 	private static Map<String, Logger> loggers = new HashMap<String, Logger>();
-	private static final NotesHandler handler = new NotesHandler();
 
 	/**
 	 * Gets the class name of the caller in the current stack at the given {@code depth}.
@@ -14,7 +13,7 @@ public class LogManager {
 	 * @return a class name
 	 */
 
-	private static String getClassName(final int depth) {
+	public static String getClassName(final int depth) {
 		return new Throwable().getStackTrace()[depth].getClassName();
 	}
 
@@ -43,13 +42,14 @@ public class LogManager {
 	 * @return The Logger.
 	 */
 	public static Logger getLogger(final String name) {
+
 		final String actualName = name != null ? name : getClassName(2);
 
 		if (loggers.containsKey(actualName)) {
 			return loggers.get(actualName);
 		} else {
 			Logger logger = new Logger(actualName);
-			logger.setHandler(handler);
+			//			logger.setHandler(handler);
 			loggers.put(actualName, logger);
 			return logger;
 		}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+	<table class="lotusTable">
+		<tr>
+			<th style="width:200px;">Browser</th>
+			<th></th>
+		</tr>
+
+<tr>
+			<td>User agent</td>
+			<td>
+			<xp:text escape="true">
+					<xp:this.value><![CDATA[#{javascript:dk.xpages.utils.XSPUtils.getRequest().getHeader("User-Agent");}]]></xp:this.value>
+				</xp:text>
+			</td>
+			</tr>
+
+	</table>
+
+</xp:view>

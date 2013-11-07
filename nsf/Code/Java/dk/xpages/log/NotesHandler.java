@@ -2,8 +2,8 @@ package dk.xpages.log;
 
 import static dk.xpages.utils.NotesObjects.incinerate;
 
-import java.io.Serializable;
 import java.util.Vector;
+import java.util.logging.LogRecord;
 
 import lotus.domino.Database;
 import lotus.domino.Document;
@@ -20,16 +20,10 @@ import dk.xpages.utils.NotesObjects;
 import dk.xpages.utils.NotesStrings;
 import dk.xpages.utils.XSPUtils;
 
-public class NotesHandler implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class NotesHandler {
 	private String unid = null;
 	private int sessionId = 0;
 	private final Clock watch = new Clock();
-
-	private final NotesFormatter formatter = new NotesFormatter();
 
 	public NotesHandler() {
 	}
@@ -39,7 +33,7 @@ public class NotesHandler implements Serializable {
 	}
 
 	private void setTruncated(Document doc) throws NotesException {
-		doc.replaceItemValue("truncated", "1");
+		doc.replaceItemValue("truncated", "1").recycle();
 	}
 
 	private void writeRecord(Document doc, LogRecord record) {
@@ -51,7 +45,7 @@ public class NotesHandler implements Serializable {
 
 			//Add the record
 			if (!isTruncated(doc)) {
-				String message = formatter.format(record);
+				String message = getFormatter().format(record);
 
 				final int MAX_ITEM_SIZE_IN_NOTES = 32000;
 				int messageSize = item.getValueLength() + message.length();
@@ -64,13 +58,14 @@ public class NotesHandler implements Serializable {
 			}
 
 			//Update control fields
-			doc.replaceItemValue("elapsed", watch.getWatch("TOTAL").getTime());
+			doc.replaceItemValue("elapsed", watch.getWatch("TOTAL").getTime()).recycle();
 
-			if (!doc.hasItem("level") || doc.getItemValueInteger("level") < record.getLevel().intLevel()) {
+			if (!doc.hasItem("level") || doc.getItemValueInteger("level") < record.getLevel().intValue()) {
 				//new higher level
-				doc.replaceItemValue("message", NotesStrings.messageFormat("{0} [{1}]", record.getMessage(), record.getMethodName()));
-				doc.replaceItemValue("level", record.getLevel().intLevel());
-				doc.replaceItemValue("levelText", record.getLevel().name());
+				doc.replaceItemValue("message", NotesStrings.messageFormat("{0} [{1}]", record.getMessage(), record.getSourceMethodName()))
+						.recycle();
+				doc.replaceItemValue("level", record.getLevel().intValue()).recycle();
+				doc.replaceItemValue("levelText", record.getLevel().getLocalizedName()).recycle();
 
 			}
 			incinerate(item);
@@ -79,6 +74,10 @@ public class NotesHandler implements Serializable {
 			e.printStackTrace();
 		}
 
+	}
+
+	private NotesFormatter getFormatter() {
+		return new NotesFormatter();
 	}
 
 	private static final int NUMBER_OF_LOGS_TO_KEEP = 20;
@@ -129,23 +128,25 @@ public class NotesHandler implements Serializable {
 	private Document createDocument(Document doc) {
 		try {
 			//References
-			doc.replaceItemValue("Form", "log");
-			doc.replaceItemValue("sessionId", sessionId); //not used for anything ...
-			doc.replaceItemValue("$created", NotesObjects.getNow());
-			doc.replaceItemValue("page", getPagename());
-			doc.replaceItemValue("systemDocument", 1);
+			doc.replaceItemValue("Form", "log").recycle();
+			doc.replaceItemValue("sessionId", sessionId).recycle(); //not used for anything ...
+			doc.replaceItemValue("$created", NotesObjects.getNow()).recycle();
+			doc.replaceItemValue("page", getPagename()).recycle();
+			doc.replaceItemValue("systemDocument", 1).recycle();
 
 			//URL
 			XSPUrl url = XSPUtils.getUrl();
-			doc.replaceItemValue("url", url.getAddress());
-			doc.replaceItemValue("queryString", url.getQueryString());
+			doc.replaceItemValue("url", url.getAddress()).recycle();
+			doc.replaceItemValue("queryString", url.getQueryString()).recycle();
 
 			//User
 			Session session = XSPUtils.getCurrentSession();
-			doc.replaceItemValue("username", session.getEffectiveUserName()).setNames(true);
+			Item item = doc.replaceItemValue("username", session.getEffectiveUserName());
+			item.setNames(true);
+			incinerate(item);
 
 			//Memory
-			doc.replaceItemValue("usedMemoryBefore", getUsedMemory());
+			//doc.replaceItemValue("usedMemoryBefore", NotesLog.getUsedMemory()).recycle();
 			//doc.replaceItemValue("heapBefore", ManagementFactory.getMemoryMXBean().getHeapMemoryUsage().getUsed()).recycle();
 			//doc.replaceItemValue("nonHeapBefore", ManagementFactory.getMemoryMXBean().getNonHeapMemoryUsage().getUsed()).recycle();
 
@@ -161,13 +162,6 @@ public class NotesHandler implements Serializable {
 
 	}
 
-	private static long getUsedMemory() {
-		Runtime runtime = Runtime.getRuntime();
-		runtime.gc();
-		long mem = runtime.totalMemory() - runtime.freeMemory();
-		return mem;
-	}
-
 	private Document createDocument(Database db) {
 		try {
 			return createDocument(db.createDocument());
@@ -179,8 +173,8 @@ public class NotesHandler implements Serializable {
 
 	public void publish(LogRecord record) {
 		// ensure that this log record should be logged by this Handler
-		//		if (!isLoggable(record))
-		//			return;
+		if (!isLoggable(record))
+			return;
 
 		Database db = NotesObjects.getCurrentDatabaseAsSigner();
 		Document doc = null;
@@ -208,6 +202,10 @@ public class NotesHandler implements Serializable {
 
 		incinerate(doc, db);
 
+	}
+
+	private boolean isLoggable(LogRecord record) {
+		return true;
 	}
 
 	private int getSessionId() {

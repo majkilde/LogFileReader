@@ -37,6 +37,10 @@ public class XMLFile extends TextFile implements Serializable {
 			return super.getHtml();
 		}
 
+		if (file.length() == 0) {
+			return "Empty file (size=0)";
+		}
+
 		// XSL transform
 		TransformerFactory tFactory = TransformerFactory.newInstance();
 		Transformer transformer;

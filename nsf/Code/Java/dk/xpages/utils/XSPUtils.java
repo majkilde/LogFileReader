@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.io.Serializable;
 import java.util.Map;
 
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
@@ -28,7 +29,7 @@ public class XSPUtils implements Serializable {
 
 	public static XSPUrl getUrl() {
 		try {
-			return XSPContext.getXSPContext(FacesContext.getCurrentInstance()).getUrl();
+			return XSPContext.getXSPContext(getContext()).getUrl();
 		} catch (Exception e) {
 			return null;
 		}
@@ -43,8 +44,8 @@ public class XSPUtils implements Serializable {
 	}
 
 	public static Object getVariableValue(String varName) {
-		FacesContext context = FacesContext.getCurrentInstance();
-		return context.getApplication().getVariableResolver().resolveVariable(context, varName);
+		FacesContext context = getContext();
+		return getContext().getApplication().getVariableResolver().resolveVariable(context, varName);
 	}
 
 	public static Session getCurrentSession() {
@@ -80,12 +81,11 @@ public class XSPUtils implements Serializable {
 	}
 
 	public static InputStream getResourceAsStream(String filename) {
-		return FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(filename);
+		return getExternalContext().getResourceAsStream(filename);
 	}
 
 	public static String getFullyQualifiedDatabaseURL() {
-		FacesContext context = FacesContext.getCurrentInstance();
-		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
+		HttpServletRequest request = getRequest();
 
 		String scheme = request.getScheme();
 		String serverName = request.getServerName();
@@ -93,5 +93,18 @@ public class XSPUtils implements Serializable {
 		String contextPath = request.getContextPath();
 
 		return scheme + "://" + serverName + ((serverPort == 80) ? "" : ":" + serverPort) + contextPath;
+	}
+
+	public static FacesContext getContext() {
+		return FacesContext.getCurrentInstance();
+	}
+
+	public static ExternalContext getExternalContext() {
+		return getContext().getExternalContext();
+	}
+
+	public static HttpServletRequest getRequest() {
+		return (HttpServletRequest) getContext().getExternalContext().getRequest();
+
 	}
 }
