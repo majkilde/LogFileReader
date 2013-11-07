@@ -1,15 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?><note class="form" replicaid="C1257B8B006B3B8D" version="9.0" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="2ea" sequence="5" unid="96EE2804C79C3F61C1257C0700351098">
-<created><datetime dst="true">20131017T113936,56+02</datetime></created>
-<modified><datetime dst="true">20131017T114356,60+02</datetime></modified>
-<revised><datetime dst="true">20131017T114356,59+02</datetime></revised>
-<lastaccessed><datetime dst="true">20131017T114356,60+02</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20131017T113936,57+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
-<wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="3.3" replicaid="C1257C0B001D3247" version="8.5" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="252" sequence="4" unid="503043ACC56A1FA5C1257C0B001D3535">
+<created><datetime dst="true">20131021T071901,65+02</datetime></created>
+<modified><datetime dst="true">20131021T072312,93+02</datetime></modified>
+<revised><datetime dst="true">20131021T072312,92+02</datetime></revised>
+<lastaccessed><datetime dst="true">20131021T072312,93+02</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20131021T071903,04+02</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Jakob Majkilde/OU=NDK/O=GEAP</name></updatedby>
+<wassignedby><name>CN=Jakob Majkilde/OU=NDK/O=GEAP</name></wassignedby>
 <item name="$Flags"><text>34567Cg~[</text></item>
 <item name="$TITLE"><text>dk/majkilde/logreader/files/IFilter.java</text></item>
 <item name="$DesignerVersion"><text>8.5.3</text></item>
 
 
-<item name="$FileNames" sign="true"><text>dk/majkilde/logreader/files/IFilter.java</text></item></note>
+<item name="$FileNames" sign="true"><text>dk/majkilde/logreader/files/IFilter.java</text></item>
+
+
+</note>

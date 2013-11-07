@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xe="http://www.ibm.com/xsp/coreex">
-	<xp:this.data>
-		<xe:objectData var="pageBean" createObject="#{javascript:new dk.majkilde.logreader.beans.LogFilesBean()}"></xe:objectData>
-	</xp:this.data>
+
+
 	<div id="bottomcorner" class="lotusBottomCorner">
 		<div id="inner" class="lotusInner">
 			<ul>
-				<xp:repeat rows="30" value="#{javascript:pageBean.getFilelists()}" var="filelist" removeRepeat="true">
+				<xp:repeat rows="30" value="#{javascript:logFiles.getFilelists()}" var="filelist" removeRepeat="true">
 					<xp:panel tagName="li" rendered="#{javascript:filelist.getCount()!=0;}">
-						<xp:this.styleClass><![CDATA[#{javascript:if (context.getUrlParameter("menu")==filelist.getTitle() || (context.getUrlParameter("menu")=="" && pageBean.getFirstFilelist()==filelist )) "lotusSelected"}]]></xp:this.styleClass>
+						<xp:this.styleClass><![CDATA[#{javascript:if (context.getUrlParameter("menu")==filelist.getTitle() || (context.getUrlParameter("menu")=="" && logFiles.getFirstFilelist()==filelist )) "lotusSelected"}]]></xp:this.styleClass>
 						<xp:link escape="true" text="#{javascript:filelist.getTitle()}">
 
 						<xp:this.value><![CDATA[#{javascript:"/Reader.xsp?tab=logs&menu="+filelist.getTitle()}]]></xp:this.value></xp:link>
