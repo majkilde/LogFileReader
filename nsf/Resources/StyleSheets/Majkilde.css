@@ -109,3 +109,18 @@
 	margin:0;
 	border:0;
 }
+
+/* Junit */
+#junit h2 {
+	margin: 0 0 20px 0;
+}
+
+/* Fun stuff */
+.pi, .pi:hover {
+position: absolute;
+    right: 0%;
+    top: 98%;
+    margin-right:4px;
+    text-decoration:none;
+    cursor:default;
+   }

@@ -1,56 +1,37 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' replicaid='C1257B8B006B3B8D'>
-<noteinfo noteid='28e' unid='C1257B8B006B3B8DC1257BFE00460311' sequence='28'>
+<noteinfo noteid='28e' unid='C1257B8B006B3B8DC1257BFE00460311' sequence='32'>
 <created><datetime dst='true'>20131008T144443,05+02</datetime></created>
-<modified><datetime>20131107T115255,46+01</datetime></modified>
-<revised><datetime>20131107T115255,45+01</datetime></revised>
-<lastaccessed><datetime>20131107T115255,46+01</datetime></lastaccessed>
+<modified><datetime>20131107T191721,99+01</datetime></modified>
+<revised><datetime>20131107T191721,98+01</datetime></revised>
+<lastaccessed><datetime>20131107T191721,99+01</datetime></lastaccessed>
 <addedtofile><datetime dst='true'>20131017T092356,96+02</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
 <wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
 <item name='$FormulaClass' sign='true'><text>1</text></item>
+<item name='$palmVersion'><datetime dst='true'>20131009T074608,00+02</datetime></item>
+<item name='$palmDate'><datetime dst='true'>20131017T092356,00+02</datetime></item>
+<item name='$palmUser'><text>CN=Jakob Majkilde/O=MAJKILDE</text></item>
+<item name='$palmSource'><text>title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;</text></item>
 <item name='$TITLE' sign='true'><text>Main</text></item>
 <item name='$Index' sign='true'><text/></item>
 <item name='$Formula' summary='true' sign='true'><formula compiled='true'>
-1AACAF4AAgAkNAUABwBhZGRyZXNzAAUABABjaXR5AQACACwgIgIFAAMAemlwAFYBIgIEAB8CBQAL
-AGNvdW50cnljb2RlAAEAAQAtACICBQAFAHN0YXRlACICBAAfAgMAAgAUAAIAJDAAAAAAAAAAAPA/
-AwAFADoANQAHAAcABwACAAQAAgAJAAQAQ291bnRyeWNvbXBhbnkkNERhdGUkMCRDb25mbGljdCRS
-RUYABAAEAAAAGAAFAAQARm9ybQEABABGYWtlCgIDAAcACgAEAAlMMVM=
+TgAFACIAHgADAAcACQAEAHN1YmplY3QkQ29uZmxpY3QkUkVGBAAEAAAAHAAFAAQARm9ybQEACABE
+b2N1bWVudAoCAwAHAAoABAAJTDFT
 </formula></item>
 <item name='$Collation' summary='true'>
 <rawitemdata type='2'>
-KwADAABECGYHAAAHAIBmAAcABwCAZgAOAAIAQ291bnRyeWNvbXBhbnkkNA==
+FAABAABEgGYAAAAHAHN1YmplY3Q=
 </rawitemdata></item>
-<item name='$Collation1' summary='true'>
-<rawitemdata type='2'>
-FAABAABEgGYAAAAHAGNvbXBhbnk=
-</rawitemdata></item>
-<item name='$Totals' sign='true'><textlist><text>0</text><text>0</text><text
->0</text><text>0</text><text>1</text></textlist></item>
 <item name='$ViewFormat' summary='true' sign='true'>
 <rawitemdata type='5'>
-AQAFAAUACQwAAFZDAwQHAAAAAAAAABoABQEBCwABAAAAAAAAAAICAAAAVkMBAQcABwAAAAAADgEG
-AAELAAAAAAAAAAAAAgIAAABWQwEAAgAHAHoAAADhAAcAAQsAAAAAAAAAAAACAgAAQFZDAAAEAAQA
-AAAAAKMACAABCwAAAAAAAAAAAAICAAAAVkMgAAIAAQAWAAAAUAAJAAELRQAAAAgAAAAAAgIAAABD
-b3VudHJ5Y29tcGFueUNvbXBhbnkkNEFkZHJlc3N6AAIAXgACACQ0BQAHAGFkZHJlc3MABQAEAGNp
-dHkBAAIALCAiAgUAAwB6aXAAVgEiAgQAHwIFAAsAY291bnRyeWNvZGUAAQABAC0AIgIFAAUAc3Rh
-dGUAIgIEAB8CAwAHABoAFAAJMlM0UzVTNlM3UzEyUzEzUzE4U0RhdGVEYXRlJDAjFgACABQAAgAk
-MAAAAAAAAAAA8D8DACYAAgAAAAEBAAkBAAEKAQEBCgAAAQCtKwQAvwABAAAAAAAAAAAAV0MKAQEL
-AAAAAAAAAAAAAAAAAAAAAAAAEAAAACoA//8AAAAAAAAAAAAAAAAAAFdDCwEBCwAAAAAAAAAAAAAA
-AAAAAAAAAAQAAAAAAP//AAAAAAAAAAAAAAAAAABXQwwBAQsAAAAAAAAAAAAAAAAAAAAAAAAEAAAA
-AAD//wAAAAAAAAAAAAAAAAAAV0MNAQELAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA//8AAAAAAAAA
-AAAAAAAAAFdDDgEBCwAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAP//AAAAAAAAAAAAAAAAAABCAIAA
-AAABAF9fXwAFAP///wABAAAAAAAAAAAAAAAAAAEA////AAEAX19fAAAAAQD///8AAQD///8AAQAA
-AAAAAAD2/ykAAAAAAAMAEwAHAAAAAAAAAAAAAAAAAAAAAAAAAAAAdHdpc3RpZT8IAAAAAAABAFlD
-AAAIAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAsLmtyLgA=
+AQABAAUACQwAAFZDAQAHAAUAAAAAAB8CBQABCwAAAAAAAAAAAAICAABAc3ViamVjdFRpdGxlJgAC
+AAAAAQEACQEAAQoBAQEKAAABAK0rBAC/AAEAAAAAAAAAAABXQwYBAQsAAAAAAAAAAAAAAAAAAAAA
+AAAEAAAAAAD//wAAAAAAAAAAAAAAAAAAQgCAAAAAAQBfX18ABQD///8AAQAAAAAAAAAAAAAAAAAB
+AP///wABAF9fXwAAAAEA////AAEA////AAEAAAAAAAAACAAAAAAAAQA=
 </rawitemdata></item>
 <item name='$Fonts' sign='true'><textlist><text>5</text><text>53</text><text
->Consolas</text><text>6</text><text>53</text><text>Consolas</text><text>7</text><text
->53</text><text>Consolas</text><text>8</text><text>53</text><text>Consolas</text><text
->9</text><text>53</text><text>Consolas</text><text>10</text><text>53</text><text
->Consolas</text><text>11</text><text>53</text><text>Consolas</text><text>12</text><text
->53</text><text>Consolas</text><text>13</text><text>53</text><text>Consolas</text><text
->14</text><text>53</text><text>Consolas</text></textlist></item>
+>Consolas</text><text>6</text><text>53</text><text>Consolas</text></textlist></item>
 <item name='$comment' sign='true'><text>MVC Database</text></item>
 <item name='$Flags'><text>PY</text></item>
 <item name='$DesignerVersion'><text>8.5.3</text></item>
@@ -61,11 +42,9 @@ AAAABQEBCwgAAQB5/2wAAQAAAAAAAQAAAAAAAQD///8AAQDw8PAAAgAfAAAAAAAAAAAAAwAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAD2/zEAAAAAAAMAEwAPAAAAAAAAAAAAAAAAAAAAAAAAAAAAYWN0aW9uQmFyQnV0dG9uP/z/
 OgAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAC+
-/z4AAAABAAAAnwEAAAgAAAAAAAAAIFNlYXJjaCAgAAAAEgACAJAXAAAAAAAA7QEDAAcADAAFAAkw
-UzBFAA==
-</rawitemdata></item>
-<item name='$palmVersion'><datetime dst='true'>20131009T074608,00+02</datetime></item>
-<item name='$palmDate'><datetime dst='true'>20131017T092356,00+02</datetime></item>
-<item name='$palmUser'><text>CN=Jakob Majkilde/O=MAJKILDE</text></item>
-<item name='$palmSource'><text>title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;title=MVC Database;filename=xpages\mvc.nsf;server=DEV;</text></item></note>
+/3AAAAABAAAAHwEAAAgAJgAAAAAAIENyZWF0ZSAsAAAAHgACAOgDAAAAAAAAAQAIAERvY3VtZW50
+7QIDAAcADAAFAAkwUzBFACYAAAAYAAEABwBbQWRtaW5dAOcAdAIeAQMABwAMAAUACTNTNVMAvv8+
+AAAAAQAAAJ8BAAAIAAAAAAAAACBTZWFyY2ggIAAAABIAAgCQFwAAAAAAAO0BAwAHAAwABQAJMFMw
+RQA=
+</rawitemdata></item></note>
 

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
 
+	<xp:this.afterRenderResponse><![CDATA[#{javascript:var exCon = facesContext.getExternalContext();
+var response = exCon.getResponse();
+response.setHeader("X-UA-Compatible", "IE=edge");}]]></xp:this.afterRenderResponse>
 	<xp:panel id="lotusFrame" styleClass="lotusFrame">
 
 		<!-- lotusBanner-->
@@ -182,4 +185,5 @@
 		</xp:panel>
 		<!-- END Legal -->
 	</xp:panel>
+	<xc:pi></xc:pi>
 </xp:view>
