@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<table class="lotusTable">
+			<tr>
+				<th style="width:200px;">
+					SERVER:&#160;
+					<xp:text escape="true" disableTheme="true">
+						<xp:this.value><![CDATA[#{javascript:@Name( "[Abbreviate]",session.getServerName());}]]></xp:this.value>
+					</xp:text>
+				</th>
+				<th></th>
+			</tr>
+			<tr>
+				<td>Version</td>
+				<td>
+					<xp:text escape="true" value="#{javascript:session.getNotesVersion()}"></xp:text>
+					&#160; on &#160;
+					<xp:text escape="true" value="#{javascript:session.getPlatform()}"></xp:text>
+				</td>
+			</tr>
+
+			<tr>
+				<td>OS</td>
+				<td>
+					<table class="simpleTable">
+						<tr>
+							<td>OS name</td>
+							<td>
+								<xp:text escape="true">
+									<xp:this.value><![CDATA[#{javascript:java.lang.System.getProperty("os.name");}]]></xp:this.value>
+								</xp:text>
+							</td>
+						</tr>
+						<tr>
+							<td>File seperator</td>
+							<td>
+
+								<xp:text escape="true">
+									<xp:this.value><![CDATA[#{javascript:java.lang.System.getProperty("file.separator");}]]></xp:this.value>
+								</xp:text>
+							</td>
+						</tr>
+						<tr>
+							<td>Path seperator</td>
+							<td>
+
+								<xp:text escape="true">
+									<xp:this.value><![CDATA[#{javascript:java.lang.System.getProperty("path.separator");}]]></xp:this.value>
+								</xp:text>
+							</td>
+						</tr>
+						<tr>
+							<td>Line seperator</td>
+							<td>
+								<xp:text escape="true">
+									<xp:this.value><![CDATA[#{javascript:dk.majkilde.logreader.java.System.getEscapedLineSeperator()
+
+}]]></xp:this.value>
+								</xp:text>
+							</td>
+						</tr>
+
+					</table>
+				</td>
+			</tr>
+
+			<tr>
+				<td>International</td>
+				<td>
+					<table class="simpleTable">
+						<xp:text escape="false">
+
+							<xp:this.value><![CDATA[#{javascript:var intl:NotesInternational = session.getInternational();
+"<tr><td>Currency</td><td>" + intl.getCurrencySymbol() + "</td></tr>"+ 
+"<tr><td>Date seperator</td><td>" + intl.getDateSep() + "</td></tr>"+ 
+"<tr><td>Time seperator</td><td>" + intl.getTimeSep() + "</td></tr>"+ 
+"<tr><td>Timezone</td><td>" + intl.getTimeZone() + "</td></tr>"}]]></xp:this.value>
+						</xp:text>
+					</table>
+				</td>
+			</tr>
+		</table>
+		
+
+</xp:view>

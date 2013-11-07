@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" replicaid="C1257B8B006B3B8D" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="3c2" sequence="3" unid="23C229ED81A62157C1257C1C0045BD49">
+<created><datetime>20131107T134144,41+01</datetime></created>
+<modified><datetime>20131107T134427,05+01</datetime></modified>
+<revised><datetime>20131107T134427,04+01</datetime></revised>
+<lastaccessed><datetime>20131107T134427,05+01</datetime></lastaccessed>
+<addedtofile><datetime>20131107T134148,72+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
+<wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
+<item name="$Flags"><text>34567Cg~[</text></item>
+<item name="$TITLE"><text>dk/xpages/utils/design/TemplateVersion.java</text></item>
+
+<item name="$Class"><text>MVC 1.0</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+<item name="$FileNames" sign="true"><text>dk/xpages/utils/design/TemplateVersion.java</text></item>
+
+</note>

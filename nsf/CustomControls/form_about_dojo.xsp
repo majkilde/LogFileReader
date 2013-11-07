@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+<table class="lotusTable">
+			<tr>
+				<th style="width:200px;">Dojo</th>
+				<th></th>
+			</tr>
+			<tr>
+				<td>Default version</td>
+				<td>
+					<xp:text escape="true" value="#{javascript:com.ibm.xsp.context.DojoLibraryFactory.getDefaultLibrary().getVersion()}"></xp:text>
+
+				</td>
+			</tr>
+			<tr>
+				<td>Installed versions</td>
+				<td>
+					<xp:repeat id="repeat1" rows="30" value="#{javascript:com.ibm.xsp.context.DojoLibraryFactory.getDojoLibraries()}"
+						var="dojo"
+					>
+						<xp:text escape="true" value="#{javascript:dojo.getVersion()}"></xp:text>
+						<br />
+					</xp:repeat>
+				</td>
+			</tr>
+
+		</table>
+
+</xp:view>

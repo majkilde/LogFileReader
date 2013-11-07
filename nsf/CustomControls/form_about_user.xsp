@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+<table class="lotusTable">
+
+			<tr>
+				<th colspan="2">
+					Current user:&#160;
+					<xp:text escape="true" disableTheme="true">
+						<xp:this.value><![CDATA[#{javascript:@Name( "[Abbreviate]",session.getEffectiveUserName())}]]></xp:this.value>
+					</xp:text>
+				</th>
+
+			</tr>
+
+			<tr>
+				<td style="width:200px;">Member of</td>
+				<td>
+					<xp:text escape="true">
+						<xp:this.value><![CDATA[#{javascript:@Implode( session.getUserGroupNameList(), ", ")}]]></xp:this.value>
+					</xp:text>
+
+
+				</td>
+			</tr>
+
+		</table>
+</xp:view>

@@ -6,8 +6,9 @@
 		<xp:dojoModule name="dijit.Tooltip"></xp:dojoModule>
 	</xp:this.resources>
 
-	<xp:this.beforePageLoad><![CDATA[#{javascript:viewScope.filelist = logFiles.getCurrentFilelist();
-viewScope.currentFile = filelist.getCurrent();}]]></xp:this.beforePageLoad>
+	
+	<xp:this.beforeRenderResponse><![CDATA[#{javascript:viewScope.filelist = logFiles.getCurrentFilelist();
+viewScope.currentFile = filelist.getCurrent();}]]></xp:this.beforeRenderResponse>
 	<h1>
 		<xp:text escape="true" id="computedField2" value="#{javascript:viewScope.filelist.getTitle()}" disableTheme="true"></xp:text>
 		:&#160;

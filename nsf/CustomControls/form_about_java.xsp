@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+		<table class="lotusTable">
+			<tr>
+				<th style="width:200px;">Java</th>
+				<th></th>
+			</tr>
+			<tr>
+				<td>JVM Version</td>
+				<td>
+					<xp:text escape="true" value="#{javascript:dk.majkilde.logreader.java.System.getJVMVersion()}"></xp:text>
+				</td>
+			</tr>
+			<tr>
+				<td>Memory</td>
+				<td>
+					<table class="simpleTable">
+						<tr>
+							<td>Total</td>
+							<td>
+								<xp:text escape="true">
+									<xp:this.value><![CDATA[#{javascript:mem = dk.majkilde.logreader.java.System.getTotalMemory();
+dk.xpages.utils.NotesStrings.readableFileSize( mem );}]]></xp:this.value>
+								</xp:text>
+							</td>
+						</tr>
+						<tr>
+							<td>Free</td>
+							<td>
+								<xp:text escape="true">
+									<xp:this.value><![CDATA[#{javascript:mem = dk.majkilde.logreader.java.System.getFreeMemory();
+dk.xpages.utils.NotesStrings.readableFileSize( mem );}]]></xp:this.value>
+								</xp:text>
+							</td>
+						</tr>
+						<tr>
+							<td>Used</td>
+							<td>
+								<xp:text escape="true">
+									<xp:this.value><![CDATA[#{javascript:mem = dk.majkilde.logreader.java.System.getUsedMemory();
+dk.xpages.utils.NotesStrings.readableFileSize( mem );}]]></xp:this.value>
+								</xp:text>
+							</td>
+						</tr>
+
+					</table>
+
+
+
+
+				</td>
+			</tr>
+
+		</table>
+
+</xp:view>

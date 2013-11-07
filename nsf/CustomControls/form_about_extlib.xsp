@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+		<table class="lotusTable">
+
+			<tr>
+				<th style="width:200px;">Extension library</th>
+				<th></th>
+			</tr>
+			<tr>
+				<td>Version</td>
+				<td>
+					<xp:text escape="true">
+						<xp:this.value><![CDATA[#{javascript:try { var v = com.ibm.xsp.extlib.util.ExtLibUtil.getExtLibVersion(); return v; } catch (e) { return
+				"Error reading version or not installed"; } }]]></xp:this.value>
+					</xp:text>
+				</td>
+			</tr>
+
+		</table>
+
+
+</xp:view>
