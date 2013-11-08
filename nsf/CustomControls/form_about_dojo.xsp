@@ -2,7 +2,7 @@
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core">
 <table class="lotusTable">
 			<tr>
-				<th style="width:200px;">Dojo</th>
+				<th style="width:200px;"><a id="dojo">Dojo</a></th>
 				<th></th>
 			</tr>
 			<tr>

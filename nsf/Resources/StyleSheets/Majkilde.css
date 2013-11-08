@@ -96,6 +96,10 @@
 	font-weight: bold;
 }
 
+.lotusTable th a, .lotusTable th a:hover  {
+	color: white;
+	}
+
 .lotusTable td,.lotusTable th {
 	padding: 2px 5px 2px 5px;
 }
@@ -113,6 +117,16 @@
 /* Junit */
 #junit h2 {
 	margin: 0 0 20px 0;
+}
+
+/* Download link */
+
+.downloadLink{
+	color:red;
+	background-image: url('download.png');
+background-position: center right;
+background-repeat: no-repeat;
+padding-right:13px;
 }
 
 /* Fun stuff */

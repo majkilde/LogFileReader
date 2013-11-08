@@ -12,7 +12,7 @@ viewScope.currentFile = filelist.getCurrent();}]]></xp:this.beforePageLoad>
 		<h2>
 
 			Current file:&#160;
-			<xp:link escape="true" text="#{javascript:viewScope.currentFile.getFilename()}" id="link1">
+			<xp:link escape="true" text="#{javascript:viewScope.currentFile.getFilename()}" id="download" styleClass="downloadLink">
 				<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
 					<xp:this.action><![CDATA[#{javascript:viewScope.currentFile.download();}]]></xp:this.action>
 				</xp:eventHandler>

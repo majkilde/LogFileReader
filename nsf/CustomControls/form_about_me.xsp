@@ -3,8 +3,10 @@
 <table class="lotusTable">
 			<tr>
 				<th style="width:200px;">
+				<a id="logfilereader">
 					<xp:text escape="true" value="#{javascript:session.getCurrentDatabase().getTitle();}" disableTheme="true">
 					</xp:text>
+					</a>
 				</th>
 				<th></th>
 			</tr>

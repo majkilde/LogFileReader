@@ -1,29 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note default='true' class='icon' xmlns='http://www.lotus.com/dxl' version='9.0'
  replicaid='C1257B8B006B3B8D'>
-<noteinfo noteid='11a' unid='2C9E58F9F48A268EC12579F2003CFDD0' sequence='8'>
+<noteinfo noteid='11a' unid='2C9E58F9F48A268EC12579F2003CFDD0' sequence='10'>
 <created><datetime dst='true'>20120502T130611,36+02</datetime></created>
-<modified><datetime>20131107T141836,70+01</datetime></modified>
-<revised><datetime>20131107T141836,69+01</datetime></revised>
-<lastaccessed><datetime>20131107T141836,70+01</datetime></lastaccessed>
+<modified><datetime>20131108T125658,37+01</datetime></modified>
+<revised><datetime>20131108T125658,36+01</datetime></revised>
+<lastaccessed><datetime>20131108T125658,37+01</datetime></lastaccessed>
 <addedtofile><datetime dst='true'>20130615T213116,59+02</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
 <wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
-<item name='IconBitmap' summary='true'>
-<rawitemdata type='6'>
-AiAgAQAA///////wD///gAH//gAAf/wAAD/4AAAf8AAAD+AAAAfgAAAHwAAAA8AAAAPAAAADgAAA
-AYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAHAAAADwAAAA8AAAAPgAAAH4AAAB/AAAA/4AAAf
-/AAAP/4AAH//gAH///AP//////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAiIiIiAAAAAAAAAAAAAAI
-jPZmZm/IgAAAAAAAAAAIjGZmZmZmZsiAAAAAAAAAjGZmZmZmZmZmyAAAAAAACMZmZmZmZmZmZmyA
-AAAAAIxmZmZmZmZmZmZmyAAAAAjGZmZmZmZmZmZmZmyAAAAIZmbyL2byL2byL2ZmgAAAjGZmIiJm
-IiJmIiJmZsgAAIZmZiIiZiIiZiIiZmZoAADGZmYiImYiImYiImZmbAAI9mZmIiJmIiJmIiJmZm+A
-CGZmZiIiZiIiZiIiZmZmgAhmZmYiImYiImYiImZmZoAIZmZmIiJmIiJmIiJmZmaACGZvIiIiZiIi
-ZiIiIvZmgAhmYiIiImYiImYiIiImZoAIZm8iIi9m8i9m8iIi9maACPZmZmZmZmZmZmZmZmZvgADG
-ZmbyL2byL2byL2ZmbAAAj2ZmIiJmIiJmIiJmZvgAAIxmZiIiZiIiZiIiZmbIAAAI9mbyL2byL2by
-L2ZvgAAACMZmZmZmZmZmZmZmbIAAAACMZmZmZmZmZmZmZsgAAAAACMZmZmZmZmZmZmyAAAAAAACM
-9mZmZmZmZm/IAAAAAAAACIz2ZmZmZm/IgAAAAAAAAAAIiMZmZmyIgAAAAAAAAAAAAACIiIiIAAAA
-AAAAUEECICABAAD/////+A4DgA==
-</rawitemdata></item>
 <item name='$DBTheme'><text>Majkilde.theme</text></item>
 <item name='$DefaultXPage'><text>Reader.xsp</text></item>
 <item name='$DefaultClientXPage'><text>Reader.xsp</text></item>
@@ -33,5 +18,20 @@ AAAAUEECICABAAD/////+A4DgA==
 <item name='$FlagsNoRefresh'><text/></item>
 <item name='$DefaultFrameset'><text>admin</text></item>
 <item name='$TITLE'><text>Log File Reader
-#1Log File Reader</text></item></note>
+#1Log File Reader</text></item>
+<item name='IconBitmap' summary='true'>
+<rawitemdata type='6'>
+AiAgAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAARERERERERERERERERERERERH/////////////////ERER7u7u
+7u7u7u7u7u7u7hEREe7u7hERERERERERER4RER/u7u4f//////////8eERH/7/7uH///////////
+HhER7/7+7h///////////x4RERHu7u4f//////////8eEREf7+7uH///////////HhER/+/+7h//
+/////////x4REe/+/u4f//////////8eERER7u7uH///////////HhERH+/u7h///////////x4R
+Ef/v/u4f//////////8eERHv/v7uH/8RERERER//HhEREe7f7h//Hv/x7x8f/x4RER/v//4f/xER
+ERERH/8eERH/7//+H/8e/x7//x//HhER7/7//h//EREREREf/x4RERHu3/4f/x7x7/HvH/8eEREf
+7//+H/8RERERER//HhER/+///h///////////x4REe/+//4f//////////8eERER7t/+H//+//7/
+////HhERH+H//h///////////x4REf/v//4f//////////8eERHv/v/+H///////////HhEREe7f
+/h///////////x4RERHhER4REREREREREREeERER/u7u7u7u7u7u7u7u7hERERERERERERERERER
+EREREREREREREREREREREREREQ==
+</rawitemdata></item></note>
 

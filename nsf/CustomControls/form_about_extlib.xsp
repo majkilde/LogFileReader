@@ -3,7 +3,7 @@
 		<table class="lotusTable">
 
 			<tr>
-				<th style="width:200px;">Extension library</th>
+				<th style="width:200px;"><a id="extlib">Extension library</a></th>
 				<th></th>
 			</tr>
 			<tr>

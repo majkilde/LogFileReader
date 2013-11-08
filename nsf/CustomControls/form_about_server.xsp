@@ -3,10 +3,12 @@
 	<table class="lotusTable">
 			<tr>
 				<th style="width:200px;">
+				<a id="server">
 					SERVER:&#160;
 					<xp:text escape="true" disableTheme="true">
 						<xp:this.value><![CDATA[#{javascript:@Name( "[Abbreviate]",session.getServerName());}]]></xp:this.value>
 					</xp:text>
+					</a>
 				</th>
 				<th></th>
 			</tr>

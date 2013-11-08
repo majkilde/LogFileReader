@@ -6,8 +6,8 @@ import java.util.List;
 
 import com.ibm.xsp.designer.context.XSPUrl;
 
-import dk.majkilde.logreader.config.CompositeMenuItem;
-import dk.majkilde.logreader.config.LeafMenuItem;
+import dk.majkilde.logreader.menu.IMenu;
+import dk.majkilde.logreader.menu.MenuItem;
 import dk.xpages.log.LogManager;
 import dk.xpages.log.Logger;
 import dk.xpages.utils.NotesStrings;
@@ -19,30 +19,51 @@ public class LayoutBean implements Serializable {
 
 	private final Logger log = LogManager.getLogger();
 
-	private final CompositeMenuItem tabs;
+	private final IMenu menu;
 
 	public LayoutBean() {
 		InputStream input = XSPUtils.getResourceAsStream("config.xml");
 		XML configXML = new XML(input, "config");
-		tabs = CompositeMenuItem.createTabsFromXML(configXML.child("menu"));
+		menu = MenuItem.createFromXML(configXML.child("menu"));
 	}
 
-	public CompositeMenuItem getTabs() {
-		return tabs;
+	public IMenu getMenu() {
+		return menu;
 	}
 
-	public List<LeafMenuItem> getTabList() {
-		return tabs.getList();
+	public List<IMenu> getTabs() {
+		return menu.getChildren();
+	}
+
+	private String getSelectedTabId() {
+		XSPUrl url = XSPUtils.getUrl();
+		String selectedId = url.getParameter("tab");
+		if (NotesStrings.isBlank(selectedId)) {
+			selectedId = getTabs().get(0).getId();
+		}
+		return selectedId;
+	}
+
+	private String getSelectedMenuId() {
+		XSPUrl url = XSPUtils.getUrl();
+		String selectedId = url.getParameter("menu");
+		if (NotesStrings.isBlank(selectedId)) {
+			selectedId = getSelectedTab().getChildren().get(0).getId();
+		}
+		return selectedId;
 	}
 
 	public boolean isTabSelected(String tabid) {
-		XSPUrl url = XSPUtils.getUrl();
-		String selected = url.getParameter("tab");
-		if (NotesStrings.isBlank(selected)) {
-			selected = tabs.getFirst().getId();
-		}
+		return getSelectedTabId().equals(tabid);
+	}
 
-		return selected.equals(tabid);
+	public boolean isMenuSelected(String menuid) {
+		boolean selected = getSelectedMenuId().equals(menuid);
+		return selected;
+	}
+
+	public IMenu getSelectedTab() {
+		return menu.getChild(getSelectedTabId());
 	}
 
 }

@@ -4,10 +4,12 @@
 
 			<tr>
 				<th colspan="2">
+				<a id="user">
 					Current user:&#160;
 					<xp:text escape="true" disableTheme="true">
 						<xp:this.value><![CDATA[#{javascript:@Name( "[Abbreviate]",session.getEffectiveUserName())}]]></xp:this.value>
 					</xp:text>
+					</a>
 				</th>
 
 			</tr>

@@ -2,7 +2,7 @@
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
 	<table class="lotusTable">
 		<tr>
-			<th style="width:200px;">Browser</th>
+			<th style="width:200px;"><a id="browser">Browser</a></th>
 			<th></th>
 		</tr>
 

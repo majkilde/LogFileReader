@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xe="http://www.ibm.com/xsp/coreex">
+
+
+	<div id="bottomcorner" class="lotusBottomCorner">
+		<div id="inner" class="lotusInner">
+
+			<ul>
+				<xp:repeat rows="30" var="menuitem" value="#{javascript:layout.getSelectedTab().getChildren()}" disableTheme="true"
+					removeRepeat="true"
+				>
+					<xp:panel tagName="li">
+					<xp:this.styleClass><![CDATA[#{javascript:if(layout.isMenuSelected(menuitem.getId())) "lotusSelected"}]]></xp:this.styleClass>
+						<xp:link escape="true" text="#{javascript:menuitem.getName();}">
+							
+							<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
+								<xp:this.action><![CDATA[#{javascript:menuitem.executeAction()}]]></xp:this.action>
+							</xp:eventHandler>
+						</xp:link>
+					</xp:panel>
+				</xp:repeat>
+			</ul>
+
+
+
+		</div>
+	</div>
+
+</xp:view>

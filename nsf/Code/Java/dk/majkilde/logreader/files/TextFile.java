@@ -19,7 +19,7 @@ public class TextFile implements IFile, Serializable {
 	private final String ENCODING = "utf-8";
 	private final Logger log = LogManager.getLogger();
 	protected final File file;
-	ArrayList<String> includes = null;
+	ArrayList<String> includes = new ArrayList<String>();
 
 	public TextFile(final File file) {
 		this.file = file;

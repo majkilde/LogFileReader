@@ -64,17 +64,18 @@ response.setHeader("X-UA-Compatible", "IE=edge");}]]></xp:this.afterRenderRespon
 					</xp:text>
 
 					<!-- Tabs -->
-
 					<div class="lotusTabContainer">
 						<ul class="lotusTabs lotusTabsIndented">
-							<xp:repeat rows="10" var="tab" value="#{javascript:layout.getTabList()}" disableTheme="true" removeRepeat="true">
-									<xp:panel tagName="li">
+							<xp:repeat rows="10" var="tab" value="#{javascript:layout.getTabs()}" disableTheme="true" removeRepeat="true">
+								<xp:panel tagName="li">
 
-										<xp:this.styleClass><![CDATA[#{javascript:layout.isTabSelected(tab.getId()) ? "lotusSelected" : "";}]]></xp:this.styleClass>
-										<xp:link escape="true" text="#{javascript:tab.getName();}" value="#{javascript:tab.getUrl();}">
-
-										</xp:link>
-									</xp:panel>
+									<xp:this.styleClass><![CDATA[#{javascript:layout.isTabSelected(tab.getId()) ? "lotusSelected" : "";}]]></xp:this.styleClass>
+									<xp:link escape="true" text="#{javascript:tab.getName();}" id="link2">
+										<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
+											<xp:this.action><![CDATA[#{javascript:tab.executeAction()}]]></xp:this.action>
+										</xp:eventHandler>
+									</xp:link>
+								</xp:panel>
 							</xp:repeat>
 						</ul>
 					</div>
@@ -101,14 +102,9 @@ response.setHeader("X-UA-Compatible", "IE=edge");}]]></xp:this.afterRenderRespon
 			<xp:panel id="lotusColLeft" styleClass="lotusColLeft">
 
 				<!-- Menu -->
-				<xp:panel id="menu_logs" styleClass="lotusMenu">
-					<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("tab")=="logs" || context.getUrlParameter("tab")==""}]]></xp:this.rendered>
-					<xc:menu_logs></xc:menu_logs>
-				</xp:panel>
 
-				<xp:panel id="menu_config" styleClass="lotusMenu">
-					<xp:this.rendered><![CDATA[#{javascript:context.getUrlParameter("tab")=="config"}]]></xp:this.rendered>
-					<xc:menu_config></xc:menu_config>
+				<xp:panel id="menu" styleClass="lotusMenu">
+					<xc:menu></xc:menu>
 				</xp:panel>
 				<!-- END Menu -->
 

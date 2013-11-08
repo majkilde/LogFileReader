@@ -54,18 +54,43 @@
 		</file>
 	</configfiles>
 
-	<menu>	
+	<menu>
 		<item name="Logs" id="logs" page="Reader.xsp">
+			<action type="link" url="Reader.xsp?tab=logs" />
+
 		</item>
 		<item name="Configuration" id="config" page="Reader.xsp">
+			<action type="link" url="Reader.xsp?tab=config" />
+			<item name="notes.ini">
+				<action type="textreader">
+					<filename>[config]\notes.ini</filename>
+				</action>
+			</item>
+			<item name="java.policy">
+				<action type="textreader">
+					<filename>[program]\jvm\lib\security\java.policy</filename>
+				</action>
+			</item>
+			<item name="java.pol">
+				<action type="textreader">
+					<filename>[program]\jvm\lib\security\java.pol</filename>
+				</action>
+			</item>
+			<item name="rcpinstall.properties">
+				<action type="textreader">
+					<filename>[data]\domino\workspace\.config\rcpinstall.properties</filename>
+				</action>
+			</item>
 		</item>
 		<item name="Ext" id="ext" link="#">
 		</item>
 		<item name="OpenLog" id="openlog" link="#">
 		</item>
 		<item name="About" page="About.xsp">
+			<action type="link" url="About.xsp?tab=about" />
 		</item>
-		<item name="Majkilde" link="http://www.majkilde.dk">
+		<item name="Majkilde">
+			<action type="link" url="http://www.majkilde.dk" />
 		</item>
 	</menu>
 </config>
