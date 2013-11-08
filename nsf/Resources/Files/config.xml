@@ -53,9 +53,19 @@
 			<filename>[data]\domino\workspace\.config\rcpinstall.properties</filename>
 		</file>
 	</configfiles>
-	<tab name="Ext" id="ext">
-	</tab>
-	<tab name="OpenLog" id="openlog" visible="false">
-	</tab>
-	
+
+	<menu>	
+		<item name="Logs" id="logs" page="Reader.xsp">
+		</item>
+		<item name="Configuration" id="config" page="Reader.xsp">
+		</item>
+		<item name="Ext" id="ext" link="#">
+		</item>
+		<item name="OpenLog" id="openlog" link="#">
+		</item>
+		<item name="About" page="About.xsp">
+		</item>
+		<item name="Majkilde" link="http://www.majkilde.dk">
+		</item>
+	</menu>
 </config>

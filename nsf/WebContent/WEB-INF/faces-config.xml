@@ -2,6 +2,11 @@
 <!DOCTYPE faces-config PUBLIC "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.0//EN"
                               "http://java.sun.com/dtd/web-facesconfig_1_0.dtd">
 <faces-config>
+<managed-bean>
+    <managed-bean-name>layout</managed-bean-name>
+    <managed-bean-class>dk.majkilde.logreader.beans.LayoutBean</managed-bean-class>
+    <managed-bean-scope>application</managed-bean-scope>
+  </managed-bean>
   <managed-bean>
     <managed-bean-name>configFiles</managed-bean-name>
     <managed-bean-class>dk.majkilde.logreader.beans.ConfigFilesBean</managed-bean-class>

@@ -64,14 +64,23 @@ response.setHeader("X-UA-Compatible", "IE=edge");}]]></xp:this.afterRenderRespon
 					</xp:text>
 
 					<!-- Tabs -->
-					<xp:tabbedPanel id="tabs" styleClass="lotusTabs lotusTabsIndented">
-						<xp:this.selectedTab><![CDATA[#{javascript:context.getUrlParameter("tab")}]]></xp:this.selectedTab>
-						<xp:tabPanel label="Logs" id="Logs" styleClass="lotusSelected">
-							<xp:this.href><![CDATA[?tab=logs]]></xp:this.href>
-						</xp:tabPanel>
-						<xp:tabPanel label="Configuration" id="config" href="/Reader.xsp?tab=config"></xp:tabPanel>
-						<xp:tabPanel label="About" id="about" href="/Reader.xsp?tab=about"></xp:tabPanel>
-					</xp:tabbedPanel>
+
+					<div class="lotusTabContainer">
+						<ul class="lotusTabs lotusTabsIndented">
+							<xp:repeat rows="10" var="tab" value="#{javascript:layout.getTabList()}" disableTheme="true" removeRepeat="true">
+									<xp:panel tagName="li">
+
+										<xp:this.styleClass><![CDATA[#{javascript:layout.isTabSelected(tab.getId()) ? "lotusSelected" : "";}]]></xp:this.styleClass>
+										<xp:link escape="true" text="#{javascript:tab.getName();}" value="#{javascript:tab.getUrl();}">
+
+										</xp:link>
+									</xp:panel>
+							</xp:repeat>
+						</ul>
+					</div>
+
+
+
 					<!-- END Tabs -->
 				</div>
 			</div>
@@ -175,6 +184,7 @@ response.setHeader("X-UA-Compatible", "IE=edge");}]]></xp:this.afterRenderRespon
 		<!-- Footer -->
 		<xp:panel id="lotusFooter" styleClass="lotusFooter">
 			<!-- Place your footer here -->
+			<xc:pi></xc:pi>
 			&#160;
 		</xp:panel>
 		<!-- END Footer -->
@@ -185,5 +195,5 @@ response.setHeader("X-UA-Compatible", "IE=edge");}]]></xp:this.afterRenderRespon
 		</xp:panel>
 		<!-- END Legal -->
 	</xp:panel>
-	<xc:pi></xc:pi>
+
 </xp:view>

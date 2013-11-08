@@ -117,10 +117,9 @@
 
 /* Fun stuff */
 .pi, .pi:hover {
-position: absolute;
-    right: 0%;
-    top: 98%;
+	float:right;
     margin-right:4px;
     text-decoration:none;
     cursor:default;
+
    }
