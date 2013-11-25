@@ -1,5 +1,6 @@
 package dk.majkilde.logreader.menu;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -8,7 +9,12 @@ import java.util.Map;
 import dk.xpages.utils.NotesStrings;
 import dk.xpages.utils.XML;
 
-public class MenuItem implements IMenu {
+public class MenuItem implements IMenu, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private final Map<String, IMenu> items = new LinkedHashMap<String, IMenu>();
 
 	private final String name;
@@ -59,7 +65,9 @@ public class MenuItem implements IMenu {
 	}
 
 	public void add(IMenu menuitem) {
-		items.put(menuitem.getId(), menuitem);
+		if (menuitem.isVisible()) {
+			items.put(menuitem.getId(), menuitem);
+		}
 	}
 
 	public IMenu getChild(String id) {
@@ -80,5 +88,13 @@ public class MenuItem implements IMenu {
 
 	public void executeAction() {
 		action.execute();
+	}
+
+	public boolean isVisible() {
+		try {
+			return getAction().isValid();
+		} catch (Exception e) {
+			return false;
+		}
 	}
 }

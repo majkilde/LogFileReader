@@ -14,4 +14,8 @@ public class NullAction implements IAction {
 		return null;
 	}
 
+	public boolean isValid() {
+		return false;
+	}
+
 }

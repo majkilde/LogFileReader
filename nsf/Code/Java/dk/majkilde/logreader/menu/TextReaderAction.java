@@ -7,6 +7,8 @@ public class TextReaderAction implements IAction {
 	private String filename = "";
 	private final IMenu parent;
 
+	private TextFileList filelist = null;
+
 	public TextReaderAction(IMenu parent) {
 		this.parent = parent;
 	}
@@ -21,6 +23,7 @@ public class TextReaderAction implements IAction {
 
 	public TextReaderAction setFilename(String filename) {
 		this.filename = filename;
+		filelist = new TextFileList("textreader", filename, null);
 		return this;
 	}
 
@@ -30,7 +33,6 @@ public class TextReaderAction implements IAction {
 
 	public void execute() {
 
-		TextFileList filelist = new TextFileList("textreader", getFilename(), null);
 		XSPUtils.getViewScope().put("filelist", filelist);
 		XSPUtils.getViewScope().put("currentFile", filelist.getCurrent());
 		XSPUtils.getViewScope().put("currentMenu", getParent());
@@ -41,6 +43,14 @@ public class TextReaderAction implements IAction {
 		<h1>
 		 */
 
+	}
+
+	public boolean isValid() {
+		try {
+			return filelist.getCount() > 0;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 }

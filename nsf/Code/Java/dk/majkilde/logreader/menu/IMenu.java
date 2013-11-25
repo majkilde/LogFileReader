@@ -15,4 +15,6 @@ public interface IMenu {
 
 	public void executeAction();
 
+	public boolean isVisible();
+
 }

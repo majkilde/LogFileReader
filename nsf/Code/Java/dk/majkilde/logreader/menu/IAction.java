@@ -7,4 +7,6 @@ public interface IAction {
 	public IMenu getParent();
 
 	public void execute();
+
+	public boolean isValid();
 }

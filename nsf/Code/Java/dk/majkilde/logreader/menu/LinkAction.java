@@ -40,4 +40,8 @@ public class LinkAction implements IAction {
 
 	}
 
+	public boolean isValid() {
+		return !getUrl().isEmpty();
+	}
+
 }
