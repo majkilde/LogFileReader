@@ -45,12 +45,27 @@ public class LayoutBean implements Serializable {
 	}
 
 	private String getSelectedMenuId() {
-		XSPUrl url = XSPUtils.getUrl();
-		String selectedId = url.getParameter("menu");
-		if (NotesStrings.isBlank(selectedId)) {
-			selectedId = getSelectedTab().getChildren().get(0).getId();
+		//Check the viewscope
+		IMenu currentMenu = (IMenu) XSPUtils.getViewScope().get("currentMenu");
+		if (currentMenu != null) {
+			return currentMenu.getId();
 		}
-		return selectedId;
+
+		//Check the URL
+		XSPUrl url = XSPUtils.getUrl();
+		String urlId = url.getParameter("menu");
+		if (!NotesStrings.isBlank(urlId)) {
+			return urlId;
+
+		}
+
+		//defaults to the first menu
+		try {
+			return getSelectedTab().getChildren().get(0).getId();
+		} catch (Exception e) {
+			return "";
+		}
+
 	}
 
 	public boolean isTabSelected(String tabid) {

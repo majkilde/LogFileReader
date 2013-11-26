@@ -1,9 +1,15 @@
 package dk.majkilde.logreader.menu;
 
+import java.io.Serializable;
+
 import dk.majkilde.logreader.source.TextFileList;
 import dk.xpages.utils.XSPUtils;
 
-public class TextReaderAction implements IAction {
+public class TextReaderAction implements IAction, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String filename = "";
 	private final IMenu parent;
 

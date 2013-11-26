@@ -1,6 +1,13 @@
 package dk.majkilde.logreader.menu;
 
-public class NullAction implements IAction {
+import java.io.Serializable;
+
+public class NullAction implements IAction, Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public String getType() {
 		return "null";

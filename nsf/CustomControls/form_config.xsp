@@ -5,7 +5,7 @@
 	<xp:this.beforePageLoad><![CDATA[#{javascript:viewScope.filelist = configFiles.getCurrentFilelist();
 viewScope.currentFile = filelist.getCurrent();}]]></xp:this.beforePageLoad>
 	<h1>
-		<xp:text escape="true" id="computedField2" value="#{javascript:viewScope.filelist.getTitle()}" disableTheme="true"></xp:text>
+		<xp:text escape="true" id="computedField2" value="#{javascript:viewScope.currentFile.getFilename()}" disableTheme="true"></xp:text>
 	</h1>
 
 	<div class="lotusSection">

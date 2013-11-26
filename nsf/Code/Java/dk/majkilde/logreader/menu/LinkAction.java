@@ -1,10 +1,15 @@
 package dk.majkilde.logreader.menu;
 
 import java.io.IOException;
+import java.io.Serializable;
 
 import dk.xpages.utils.XSPUtils;
 
-public class LinkAction implements IAction {
+public class LinkAction implements IAction, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String url = "";
 	private final IMenu parent;
 
