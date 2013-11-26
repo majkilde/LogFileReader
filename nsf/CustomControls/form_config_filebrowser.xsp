@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core">
 
+	<xp:this.resources>
+		<xp:dojoModule name="dijit.Tooltip"></xp:dojoModule>
+	</xp:this.resources>
+
 	<xp:text escape="true" id="computedField8" value="#{javascript:viewScope.filelist.getCount()}">
 		<xp:this.converter>
 			<xp:convertNumber type="number" integerOnly="true"></xp:convertNumber>
