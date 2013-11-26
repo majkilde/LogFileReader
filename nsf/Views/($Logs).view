@@ -1,13 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
-<note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' replicaid='C1257B8B006B3B8D'>
-<noteinfo noteid='296' unid='C1257B8B006B3B8DC1257BFC0056C310' sequence='35'>
-<created><datetime dst='true'>20131006T174740,32+02</datetime></created>
-<modified><datetime>20131107T115256,00+01</datetime></modified>
-<revised><datetime>20131107T115255,99+01</datetime></revised>
-<lastaccessed><datetime>20131107T115256,00+01</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20131017T092357,07+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
-<wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
+<!DOCTYPE note SYSTEM 'xmlschemas/domino_8_5_3.dtd'>
+<note class='view' xmlns='http://www.lotus.com/dxl' version='8.5' maintenanceversion='3.3'
+ replicaid='C1257C0B001D3247'>
+<noteinfo noteid='176' unid='45707BE973FFD91DC1257C0B001D346C' sequence='6'>
+<created><datetime dst='true'>20131021T071859,64+02</datetime></created>
+<modified><datetime>20131125T081019,00+01</datetime></modified>
+<revised><datetime>20131125T081018,99+01</datetime></revised>
+<lastaccessed><datetime>20131125T081019,00+01</datetime></lastaccessed>
+<addedtofile><datetime dst='true'>20131021T071859,74+02</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Jakob Majkilde/OU=NDK/O=GEAP</name></updatedby>
+<wassignedby><name>CN=Jakob Majkilde/OU=NDK/O=GEAP</name></wassignedby>
 <item name='$FormulaClass' sign='true'><text>1</text></item>
 <item name='$Index' sign='true'><text/></item>
 <item name='$Formula' summary='true' sign='true'><formula compiled='true'>

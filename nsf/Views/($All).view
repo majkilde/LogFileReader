@@ -1,14 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
-<note default='true' class='view' xmlns='http://www.lotus.com/dxl' version='9.0'
- replicaid='C1257B8B006B3B8D'>
-<noteinfo noteid='292' unid='C1257B8B006B3B8DC1257BF800530881' sequence='14'>
-<created><datetime dst='true'>20131002T170656,65+02</datetime></created>
-<modified><datetime>20131107T115255,98+01</datetime></modified>
-<revised><datetime>20131107T115255,97+01</datetime></revised>
-<lastaccessed><datetime>20131107T115255,98+01</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20131017T092357,01+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
-<wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
+<!DOCTYPE note SYSTEM 'xmlschemas/domino_8_5_3.dtd'>
+<note default='true' class='view' xmlns='http://www.lotus.com/dxl' version='8.5'
+ maintenanceversion='3.3' replicaid='C1257C0B001D3247'>
+<noteinfo noteid='17a' unid='4C6EA57564E9B018C1257C0B001D346D' sequence='6'>
+<created><datetime dst='true'>20131021T071859,65+02</datetime></created>
+<modified><datetime>20131125T081019,04+01</datetime></modified>
+<revised><datetime>20131125T081019,03+01</datetime></revised>
+<lastaccessed><datetime>20131125T081019,04+01</datetime></lastaccessed>
+<addedtofile><datetime dst='true'>20131021T071859,78+02</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Jakob Majkilde/OU=NDK/O=GEAP</name></updatedby>
+<wassignedby><name>CN=Jakob Majkilde/OU=NDK/O=GEAP</name></wassignedby>
 <item name='$FormatNote' summary='true' sign='true'>
 <rawitemdata type='4'>
 AQCNO2sAi3slwUTIcQAlayXB

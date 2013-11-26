@@ -54,14 +54,6 @@ public class NotesEnvironment {
 
 	/**
 	 * 
-	 * @return The default temporary-file directory, typically c:\temp on windows
-	 */
-	public static String getTempFolder() {
-		return System.getProperty("java.io.tmpdir");
-	}
-
-	/**
-	 * 
 	 * @return a File hande to notes.ini
 	 */
 	public static File getConfigFile() {

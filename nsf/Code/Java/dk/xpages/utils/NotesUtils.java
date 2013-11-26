@@ -47,5 +47,4 @@ public class NotesUtils {
 	public static String evaluateString(String formula) {
 		return evaluateString(formula, null);
 	}
-
 }

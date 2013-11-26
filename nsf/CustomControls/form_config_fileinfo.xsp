@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+<table class="tip">
+				<tr>
+					<th>Date:</th>
+					<td>
+						<xp:text escape="true" id="computedField3" value="#{javascript:viewScope.currentFile.getDate()}">
+							<xp:this.converter>
+								<xp:convertDateTime type="both"></xp:convertDateTime>
+							</xp:this.converter>
+						</xp:text>
+					</td>
+				</tr>
+			
+				<tr>
+					<th>Path:</th>
+					<td>
+						<xp:text escape="true" id="computedField5" value="#{javascript:viewScope.filelist.getPath()}"></xp:text>
+					</td>
+				</tr>
+			</table>
+</xp:view>

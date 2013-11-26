@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xe="http://www.ibm.com/xsp/coreex">
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xe="http://www.ibm.com/xsp/coreex" xmlns:xc="http://www.ibm.com/xsp/custom">
+
 
 	
 	<xp:this.beforePageLoad><![CDATA[#{javascript:viewScope.filelist = configFiles.getCurrentFilelist();
@@ -16,39 +17,21 @@ viewScope.currentFile = filelist.getCurrent();}]]></xp:this.beforePageLoad>
 				<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
 					<xp:this.action><![CDATA[#{javascript:viewScope.currentFile.download();}]]></xp:this.action>
 				</xp:eventHandler>
-
 			</xp:link>
-
-
+			, &#160;
+			<xp:text escape="true" id="computedField6" value="#{javascript:dk.xpages.utils.NotesStrings.readableFileSize( viewScope.currentFile.getSize());}">
+			</xp:text>
 		</h2>
+		
 		<div class="lotusSectionBody">
-			<table class="tip">
-				<tr>
-					<th>Date:</th>
-					<td>
-						<xp:text escape="true" id="computedField3" value="#{javascript:viewScope.currentFile.getDate()}">
-							<xp:this.converter>
-								<xp:convertDateTime type="both"></xp:convertDateTime>
-							</xp:this.converter>
-						</xp:text>
-					</td>
-				</tr>
-				<tr>
-					<th>Size:</th>
-					<td>
-						<xp:text escape="true" id="computedField1" value="#{javascript:dk.xpages.utils.NotesStrings.readableFileSize( viewScope.currentFile.getSize());}"></xp:text>
-					</td>
-				</tr>
-				<tr>
-					<th>Path:</th>
-					<td>
-						<xp:text escape="true" id="computedField5" value="#{javascript:viewScope.filelist.getPath()}"></xp:text>
-					</td>
-				</tr>
-			</table>
+			<xc:form_config_fileinfo>
+				<xc:this.rendered><![CDATA[#{javascript:viewScope.filelist.getCount()<=1}]]></xc:this.rendered>
+			</xc:form_config_fileinfo>
+			<xc:form_config_filebrowser>
+				<xc:this.rendered><![CDATA[#{javascript:viewScope.filelist.getCount()>1}]]></xc:this.rendered>
+			</xc:form_config_filebrowser>
 		</div>
 	</div>
-
 
 	<div class="lotusSection">
 		<h2>Content</h2>

@@ -1,17 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
-<note class='filter' xmlns='http://www.lotus.com/dxl' version='9.0' replicaid='C1257B8B006B3B8D'>
-<noteinfo noteid='1c2' unid='C12579F2003CFDCBC1257286004808E0' sequence='90'>
-<created><datetime>20070218T140648,64+01</datetime></created>
-<modified><datetime>20131107T115255,96+01</datetime></modified>
-<revised><datetime>20131107T115255,95+01</datetime></revised>
-<lastaccessed><datetime>20131107T115255,96+01</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20130615T213119,56+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Jakob Majkilde/OU=NDK/O=GEAP</name><name>CN=Jakob Majkilde/O=MAJKILDE</name><name
->CN=Jakob Majkilde/OU=NDK/O=GEAP</name><name>CN=Jakob Majkilde/O=MAJKILDE</name><name
->CN=Jakob Majkilde/OU=Majkilde/O=mths</name><name>CN=Jakob Majkilde/O=MAJKILDE</name><name
->CN=Jakob Majkilde/OU=Majkilde/O=mths</name><name>CN=Manager/O=mths</name><name
->CN=Jakob Majkilde/OU=Majkilde/O=mths</name><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
-<wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
+<!DOCTYPE note SYSTEM 'xmlschemas/domino_8_5_3.dtd'>
+<note class='filter' xmlns='http://www.lotus.com/dxl' version='8.5' maintenanceversion='3.3'
+ replicaid='C1257C0B001D3247'>
+<noteinfo noteid='2ae' unid='81AFF25D6D2F2969C1257C2E00264903' sequence='4'>
+<created><datetime>20131125T075810,59+01</datetime></created>
+<modified><datetime>20131125T081024,28+01</datetime></modified>
+<revised><datetime>20131125T081024,27+01</datetime></revised>
+<lastaccessed><datetime>20131125T081024,28+01</datetime></lastaccessed>
+<addedtofile><datetime>20131125T075810,61+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Jakob Majkilde/OU=NDK/O=GEAP</name></updatedby>
+<wassignedby><name>CN=Jakob Majkilde/OU=NDK/O=GEAP</name></wassignedby>
 <item name='$TITLE' sign='true'><text>(Developer Toolbox)|toolbar.UpdateDocs</text></item>
 <item name='$AssistType' sign='true'><number>65413</number></item>
 <item name='$AssistLastRun' sign='true'>
@@ -84,7 +82,7 @@ JiAiIC0gIiAmIEVycm9yLCA2NCwgIkVycm9yIgoJUmVzdW1lIERPTkUKRW5kIFN1YgA=
 <item name='$DesignerVersion' sign='true'><text>8</text></item>
 <item name='$AssistRunInfo' summary='true'>
 <rawitemdata type='3'>
-BgAAAgAACAC+AQAAAAAAAAUAAAAwAAAAAAAAAAAAAAAAAAAAHAEAAAAAAAAAAAAAAAAAABAAAAAA
+BgAAAgAACACqAwAAAAAAAAUAAAAwAAAAAAAAAAAAAAAAAAAAHAEAAAAAAAAAAAAAAAAAABAAAAAA
 AAAAsKwlABF6JcEAAAAACKAlABF6JcHL/TwA8nklwQAAAAAAAAAAAAAAAAAAAAAAAAAAU3RhcnRl
 ZCBydW5uaW5nIGFnZW50ICcoRGV2ZWxvcGVyIFRvb2xib3gpfHRvb2xiYXIuVXBkYXRlRG9jcycg
 b24gMDItMDYtMjAxMiAwODo1MToyOA0KUnVubmluZyBvbiBzZWxlY3RlZCBkb2N1bWVudHM6IDEg

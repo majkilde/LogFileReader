@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+
+	<xp:text escape="true" id="computedField8" value="#{javascript:viewScope.filelist.getCount()}">
+		<xp:this.converter>
+			<xp:convertNumber type="number" integerOnly="true"></xp:convertNumber>
+		</xp:this.converter>
+	</xp:text>
+	&#160; files matches
+	<i>
+		"
+		<xp:text escape="true" id="computedField5" value="#{javascript:viewScope.filelist.getPattern()}"></xp:text>
+		"
+	</i>
+	:
+
+	<div class="fileSelector">
+		<xp:pager partialRefresh="true" id="filesPager" for="files" layout="Previous Next"></xp:pager>
+		<ul>
+			<xp:repeat id="files" rows="5" var="file" removeRepeat="true">
+				<xp:this.value><![CDATA[#{javascript:viewScope.filelist.getFiles();}]]></xp:this.value>
+				<li>
+					<xp:link escape="true" id="tip">
+						<xp:this.styleClass><![CDATA[#{javascript:if( viewScope.currentFile==file) {"current"}}]]></xp:this.styleClass>
+						<xp:text escape="true" id="computedField3" value="#{javascript:file.getDate();}">
+							<xp:this.converter>
+								<xp:convertDateTime type="both" dateStyle="short" timeStyle="short"></xp:convertDateTime>
+							</xp:this.converter>
+						</xp:text>
+						<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
+							<xp:this.action><![CDATA[#{javascript:viewScope.filelist.setCurrent( file );}]]></xp:this.action>
+						</xp:eventHandler>
+					</xp:link>
+
+					<div dojoType="dijit.Tooltip" connectId="#{id:tip}" position="below" showDelay="0" style="display:none;">
+						<table class="tip">
+							<tr>
+								<th>Filename:</th>
+								<td>
+									<xp:text escape="true" id="computedField7" value="#{javascript:file.getFilename();}"></xp:text>
+								</td>
+							</tr>
+							<tr>
+								<th>Size: </th>
+								<td>
+									<xp:text escape="true" id="computedField1" value="#{javascript:dk.xpages.utils.NotesStrings.readableFileSize( file.getSize());}"></xp:text>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</li>
+			</xp:repeat>
+		</ul>
+	</div>
+
+
+</xp:view>

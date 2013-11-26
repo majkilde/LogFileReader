@@ -115,7 +115,7 @@ public class Logger implements Serializable {
 		record.setSourceClassName(stacktrace.getClassName());
 		record.setSourceMethodName(stacktrace.getMethodName());
 		record.setThrown(thrown);
-		NotesHandler handler = new NotesHandler();
+		NotesHandler handler = NotesHandler.getInstance();
 		handler.publish(record);
 
 		//Always log to the standard java.util.logging 

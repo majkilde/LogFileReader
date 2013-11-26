@@ -25,7 +25,16 @@ public class NotesHandler {
 	private int sessionId = 0;
 	private final Clock watch = new Clock();
 
-	public NotesHandler() {
+	private NotesHandler() {
+	}
+
+	private static NotesHandler instance = null;
+
+	public static NotesHandler getInstance() {
+		if (instance == null) {
+			instance = new NotesHandler();
+		}
+		return instance;
 	}
 
 	private boolean isTruncated(Document doc) throws NotesException {
@@ -131,6 +140,7 @@ public class NotesHandler {
 			doc.replaceItemValue("Form", "log").recycle();
 			doc.replaceItemValue("sessionId", sessionId).recycle(); //not used for anything ...
 			doc.replaceItemValue("$created", NotesObjects.getNow()).recycle();
+			doc.replaceItemValue("$PublicAccess", "1").recycle();
 			doc.replaceItemValue("page", getPagename()).recycle();
 			doc.replaceItemValue("systemDocument", 1).recycle();
 
@@ -142,11 +152,11 @@ public class NotesHandler {
 			//User
 			Session session = XSPUtils.getCurrentSession();
 			Item item = doc.replaceItemValue("username", session.getEffectiveUserName());
-			item.setNames(true);
+			item.setAuthors(true);
 			incinerate(item);
 
 			//Memory
-			//doc.replaceItemValue("usedMemoryBefore", NotesLog.getUsedMemory()).recycle();
+			doc.replaceItemValue("usedMemoryBefore", getUsedMemory());
 			//doc.replaceItemValue("heapBefore", ManagementFactory.getMemoryMXBean().getHeapMemoryUsage().getUsed()).recycle();
 			//doc.replaceItemValue("nonHeapBefore", ManagementFactory.getMemoryMXBean().getNonHeapMemoryUsage().getUsed()).recycle();
 
@@ -160,6 +170,13 @@ public class NotesHandler {
 		}
 		return doc;
 
+	}
+
+	public static long getUsedMemory() {
+		Runtime runtime = Runtime.getRuntime();
+		runtime.gc();
+		long mem = runtime.totalMemory() - runtime.freeMemory();
+		return mem;
 	}
 
 	private Document createDocument(Database db) {
@@ -194,10 +211,15 @@ public class NotesHandler {
 		//add the message
 		writeRecord(doc, record);
 		//save
+		String dbTitle = "";
+		String user = "";
 		try {
+			dbTitle = db.getTitle() + " (" + db.getFilePath() + ")";
+			user = NotesObjects.getCurrentSession().getEffectiveUserName();
 			doc.save();
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println(dbTitle + " says: " + record.getMessage());
+			System.out.println("   Error: " + user + " can't save the log document - " + e.toString());
 		}
 
 		incinerate(doc, db);

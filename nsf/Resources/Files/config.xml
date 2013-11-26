@@ -57,7 +57,27 @@
 	<menu>
 		<item name="Logs" id="logs" page="Reader.xsp">
 			<action type="link" url="Reader.xsp?tab=logs" />
-
+			<item name="Console">
+				<action type="textreader">
+					<filename>[data]\IBM_TECHNICAL_SUPPORT\console*.log</filename>
+					<filters>
+						<include>HTTP</include>
+						<include>JVM</include>
+						<include>XSP</include>
+					</filters>
+				</action>
+			</item>
+			<item name="System info">
+				<action type="textreader">
+					<filename>[data]\IBM_TECHNICAL_SUPPORT\sysinfo*.log</filename>
+				</action>
+			</item>
+			<item name="XPages">
+				<action type="textreader">
+					<filename>[data]\IBM_TECHNICAL_SUPPORT\xpages*.log</filename>
+				</action>
+			</item>
+			
 		</item>
 		<item name="Configuration" id="config" page="Reader.xsp">
 			<action type="link" url="Reader.xsp?tab=config" />
@@ -79,6 +99,12 @@
 			<item name="rcpinstall.properties">
 				<action type="textreader">
 					<filename>[data]\domino\workspace\.config\rcpinstall.properties</filename>
+				</action>
+			</item>
+			
+			<item name="XPages">
+				<action type="textreader" multiple="true">
+					<filename>[data]\IBM_TECHNICAL_SUPPORT\xpages*.log</filename>
 				</action>
 			</item>
 		</item>
