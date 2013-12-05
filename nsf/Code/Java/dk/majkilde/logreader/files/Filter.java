@@ -78,6 +78,10 @@ public class Filter implements Serializable {
 		return this;
 	}
 
+	public boolean getVisible() {
+		return this.visible;
+	}
+
 	public Filter setBold(boolean bold) {
 		this.bold = bold;
 		return this;
@@ -114,10 +118,14 @@ public class Filter implements Serializable {
 	}
 
 	public String getStyleClass() {
+		return "class=\"" + getClassName() + "\" ";
+	}
+
+	public String getClassName() {
 		if (NotesStrings.isBlank(styleclass)) {
-			return "";
+			return "cls-" + getName().replace(' ', '-');
 		}
-		return "class=\"" + styleclass + "\" ";
+		return styleclass;
 	}
 
 	public String getName() {

@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><note class="form" replicaid="C1257B8B006B3B8D" version="9.0" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="396" sequence="33" unid="C41412EFA6D0E612C1257C0900769925">
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="C1257B8B006B3B8D" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="396" sequence="43" unid="C41412EFA6D0E612C1257C0900769925">
 <created><datetime dst="true">20131019T233524,53+02</datetime></created>
-<modified><datetime>20131107T115254,74+01</datetime></modified>
-<revised><datetime>20131107T115254,73+01</datetime></revised>
-<lastaccessed><datetime>20131107T115254,74+01</datetime></lastaccessed>
+<modified><datetime>20131205T110452,98+01</datetime></modified>
+<revised><datetime>20131205T110452,97+01</datetime></revised>
+<lastaccessed><datetime>20131205T110452,98+01</datetime></lastaccessed>
 <addedtofile><datetime dst="true">20131019T233525,48+02</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
 <wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>

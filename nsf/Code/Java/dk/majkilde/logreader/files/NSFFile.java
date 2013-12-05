@@ -98,4 +98,10 @@ public class NSFFile implements IFile, Serializable {
 		}
 
 	}
+
+	public Filters getFilters() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -15,4 +15,6 @@ public interface IFile extends Comparable<IFile> {
 
 	public abstract void download();
 
+	public Filters getFilters();
+
 }

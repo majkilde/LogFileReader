@@ -59,4 +59,12 @@ public class Filters implements Serializable {
 		return source;
 	}
 
+	public List<Filter> getFilterList() {
+		return filters;
+	}
+
+	public boolean hasFilters() {
+		return filters.size() > 0;
+	}
+
 }

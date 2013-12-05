@@ -56,7 +56,7 @@ public class TextFile implements IFile, Serializable {
 
 		filters.apply(content);
 
-		return NotesStrings.join("\n", content);
+		return NotesStrings.join("", content);
 	}
 
 	public long getSize() {
@@ -88,5 +88,9 @@ public class TextFile implements IFile, Serializable {
 			log.error(e);
 		}
 
+	}
+
+	public Filters getFilters() {
+		return filters;
 	}
 }

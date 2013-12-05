@@ -48,14 +48,6 @@ public class LayoutBean implements Serializable {
 			return currentMenu;
 		}
 
-		//Check the URL
-		//		XSPUrl url = XSPUtils.getUrl();
-		//		String urlId = url.getParameter("menu");
-		//		if (!NotesStrings.isBlank(urlId)) {
-		//			return urlId;
-		//
-		//		}
-
 		//defaults to the first menu
 		try {
 			return getSelectedTab().getChildren().get(0);

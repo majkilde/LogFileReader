@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xe="http://www.ibm.com/xsp/coreex" xmlns:xc="http://www.ibm.com/xsp/custom">
 
-
-	
 	<xp:this.beforePageLoad><![CDATA[#{javascript:layout.getCurrentFilelist();}]]></xp:this.beforePageLoad>
 	<h1>
 		<xp:text escape="true" id="computedField2" value="#{javascript:viewScope.currentFile.getFilename()}" disableTheme="true"></xp:text>
@@ -29,6 +27,7 @@
 			<xc:form_reader_filebrowser>
 				<xc:this.rendered><![CDATA[#{javascript:viewScope.filelist.getCount()>1}]]></xc:this.rendered>
 			</xc:form_reader_filebrowser>
+			<xc:form_reader_filters></xc:form_reader_filters>
 		</div>
 	</div>
 
@@ -36,12 +35,14 @@
 		<h2>Content</h2>
 		<div class="lotusSectionBody">
 			<div class="fileViewer">
+			<pre>
 				<xp:text escape="false" id="fileContent" disableTheme="true">
 					<xp:this.value><![CDATA[#{javascript:file=viewScope.currentFile;
 if( file!=null){
 	file.getHtml();
 }}]]></xp:this.value>
 				</xp:text>
+				</pre>
 			</div>
 		</div>
 	</div>
