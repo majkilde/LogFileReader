@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="C1257B8B006B3B8D" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="51a" sequence="6" unid="45E9B35C3B1DE30FC1257C38007CC07B">
+<created><datetime>20131205T234237,39+01</datetime></created>
+<modified><datetime>20131205T234655,17+01</datetime></modified>
+<revised><datetime>20131205T234655,16+01</datetime></revised>
+<lastaccessed><datetime>20131205T234655,17+01</datetime></lastaccessed>
+<addedtofile><datetime>20131205T234237,44+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
+<wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
+<item name="$FlagsExt" sign="true"><text>D</text></item>
+<item name="$ImagesWide" sign="true"><number>1</number></item>
+<item name="$ImagesHigh" sign="true"><number>1</number></item>
+<item name="$ImagesColorize" sign="true"><number>0</number></item>
+
+
+
+<item name="$MimeType" sign="true"><text>image/png</text></item>
+<item name="$FileModDT" sign="true"><datetime>20131205T234628,00+01</datetime></item>
+<item name="$Flags"><text>34CiQ</text></item>
+<item name="$ImageNames" sign="true"><text>Jakob 2012 (175px).png</text></item>
+<item name="$TITLE" sign="true"><text>majkilde.png</text></item>
+<item name="$DesignerVersion" sign="true"><text>8.5.3</text></item></note>

@@ -109,65 +109,7 @@ response.setHeader("X-UA-Compatible", "IE=edge");}]]></xp:this.afterRenderRespon
 				<!-- END Menu -->
 
 			</xp:panel>
-			<xp:panel id="lotusColRight" styleClass="lotusColRight">
-
-				<!-- Section -->
-				<div class="lotusSection">
-					<h2>
-						<a class="lotusSprite lotusArrow lotusTwistyOpen" href="javascript:;" title="click to collapse section">
-							<span class="lotusAltText">&#x25bc;</span>
-						</a>
-						<span class="lotusLeft">English Resources</span>
-
-					</h2>
-					<div class="lotusSectionBody">
-						<div class="lotusChunk">
-							<ul>
-								<li>
-									<xp:link text="OpenNTF.org" value="http://openntf.org" target="_blank">
-									</xp:link>
-								</li>
-								<li>
-									<xp:link text="XSnippets" value="http://openntf.org/xsnippets" target="_blank">
-									</xp:link>
-								</li>
-
-							</ul>
-						</div>
-					</div>
-				</div><!--END section-->
-
-				<!-- Section -->
-				<div class="lotusSection">
-					<h2>
-						<a class="lotusSprite lotusArrow lotusTwistyOpen" href="javascript:;" title="click to collapse section">
-							<span class="lotusAltText">&#x25bc;</span>
-						</a>
-						<span class="lotusLeft">Danish Resources</span>
-
-					</h2>
-					<div class="lotusSectionBody">
-						<div class="lotusChunk">
-							<ul>
-								<li>
-									<xp:link text="XPages.dk" value="http://xpages.dk" target="_blank">
-									</xp:link>
-								</li>
-								<li>
-									<xp:link text="LotusScript.dk" value="http://lotusscript.dk" target="_blank">
-									</xp:link>
-								</li>
-								<li>
-									<xp:link text="Notesnet.dk" value="http://notesnet.dk" target="_blank">
-									</xp:link>
-								</li>
-
-							</ul>
-						</div>
-					</div>
-				</div><!--END section-->
-
-			</xp:panel>
+			<xp:callback facetName="right_panel" id="right_panel"></xp:callback>
 
 			<!--  Contemt -->
 			<xp:panel id="lotusContent" styleClass="lotusContent">

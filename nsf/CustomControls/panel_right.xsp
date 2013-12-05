@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+<xp:panel id="lotusColRight" styleClass="lotusColRight">
+<!-- Section -->
+				<div class="lotusSection">
+					<h2>
+						<span class="lotusLeft">Developer</span>
+					</h2>
+					<div class="lotusSectionBody">
+						<div class="lotusChunk">
+						<xp:link escape="true" value="http://www.majkilde.dk" target="_blank">
+							<xp:image url="/majkilde.png" id="image1" style="height:auto;width:170px;margin-bottom:5.0px"></xp:image>
+						</xp:link>
+						<Strong>Jakob Majkilde</Strong>
+						, Lotus Notes developer since 1992 and founder of&#160;
+						<xp:link escape="true" text="notesnet.dk" value="http://www.notesnet.dk" target="_blank"></xp:link>.
+						Freelance since 2000.
+						</div>
+					</div>
+				</div><!--END section-->
+
+				<!-- Section -->
+				<div class="lotusSection">
+					<h2>
+						<span class="lotusLeft">Blogs</span>
+					</h2>
+					<div class="lotusSectionBody">
+						<div class="lotusChunk">
+							<ul>
+								<li>
+									<xp:link text="XPages.dk" value="http://xpages.dk" target="_blank">
+									</xp:link>
+								</li>
+								<li>
+									<xp:link text="LotusScript.dk" value="http://lotusscript.dk" target="_blank">
+									</xp:link>
+								</li>
+								<li>
+									<xp:link text="Majkilde.com" value="http://majkilde.com" target="_blank">
+									</xp:link>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+				</div><!--END section-->
+
+
+
+			</xp:panel>
+</xp:view>

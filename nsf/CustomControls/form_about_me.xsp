@@ -1,74 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core">
-<table class="lotusTable">
-			<tr>
-				<th style="width:200px;">
+	<table class="lotusTable">
+		<tr>
+			<th style="width:200px;">
 				<a id="logfilereader">
 					<xp:text escape="true" value="#{javascript:session.getCurrentDatabase().getTitle();}" disableTheme="true">
 					</xp:text>
-					</a>
-				</th>
-				<th></th>
-			</tr>
-			<tr>
-				<td>Developer</td>
-				<td>
-								<xp:link escape="true" text="Jakob Majkilde" value="http://majkilde.dk" target="_blank"></xp:link>, blogs: 
-					<span class="pipelist">
-					
-						<ul>
-							<li>
-								<xp:link escape="true" text="xpages.dk" value="http://xpages.dk" target="_blank"></xp:link>
-							</li>
-							<li>
-								<xp:link escape="true" text="lotusscript.dk" value="http://lotusscript.dk" target="_blank"></xp:link>
-							</li>
-							<li>
-								<xp:link escape="true" text="notesnet.dk" value="http://notesnet.dk" target="_blank"></xp:link>
-							</li>
-							<li>
-								<xp:link escape="true" text="majkilde.com" value="http://majkilde.com" target="_blank"></xp:link>
-							</li>
-						</ul>
-					</span>
-				</td>
-			</tr>
-			<tr>
-				<td>Project Link</td>
-				<td>
-					<xp:link escape="true" text="OpenNTF" target="_blank" id="downloadlink">
-						<xp:this.value><![CDATA[http://www.openntf.org/internal/home.nsf/project.xsp?action=openDocument&name=XPages%20Log%20File%20Reader]]></xp:this.value>
-					</xp:link>
-				</td>
-			</tr>
-			<tr>
-				<td>License</td>
-				<td>
-					<xp:link escape="true" text="Apache 2.0" target="_blank" id="link1">
-						<xp:this.value><![CDATA[http://www.apache.org/licenses/LICENSE-2.0.html]]></xp:this.value>
-					</xp:link>
-				</td>
-			</tr>
-			<tr>
-				<td>Log File Reader&#160;version</td>
-				<td>
+				</a>
+			</th>
+			<th></th>
+		</tr>
+
+		<tr>
+			<td>Project Link</td>
+			<td>
+				<xp:link escape="true" text="OpenNTF" target="_blank" id="downloadlink">
+					<xp:this.value><![CDATA[http://www.openntf.org/internal/home.nsf/project.xsp?action=openDocument&name=XPages%20Log%20File%20Reader]]></xp:this.value>
+				</xp:link>
+			</td>
+		</tr>
+		<tr>
+			<td>License</td>
+			<td>
+				<xp:link escape="true" text="Apache 2.0" target="_blank" id="link1">
+					<xp:this.value><![CDATA[http://www.apache.org/licenses/LICENSE-2.0.html]]></xp:this.value>
+				</xp:link>
+			</td>
+		</tr>
+		<tr>
+			<td>Log File Reader&#160;version</td>
+			<td>
 				<strong>
 					<xp:text escape="true" disableTheme="true">
 						<xp:this.value><![CDATA[#{javascript:template = new dk.xpages.utils.design.TemplateVersion();
 template.getVersion();}]]></xp:this.value>
-					</xp:text> 
-					</strong>
-					&#160;(
-					<xp:text escape="true" disableTheme="true">
-						<xp:this.value><![CDATA[#{javascript:template = new dk.xpages.utils.design.TemplateVersion();
-template.getDate();}]]></xp:this.value>
-						<xp:this.converter>
-							<xp:convertDateTime type="both"></xp:convertDateTime>
-						</xp:this.converter>
 					</xp:text>
-					)
-				</td>
-			</tr>
-		</table>
+				</strong>
+				&#160;(
+				<xp:text escape="true" disableTheme="true">
+					<xp:this.value><![CDATA[#{javascript:template = new dk.xpages.utils.design.TemplateVersion();
+template.getDate();}]]></xp:this.value>
+					<xp:this.converter>
+						<xp:convertDateTime type="both"></xp:convertDateTime>
+					</xp:this.converter>
+				</xp:text>
+				)
+			</td>
+		</tr>
+
+
+		<tr>
+			<td>Credits</td>
+			<td class="pipelist">
+				<ul>
+					<li>
+						<xp:link escape="true" text="Apache Commons Lang3" target="_blank" value="http://commons.apache.org/proper/commons-lang/">
+						</xp:link>
+					</li>
+					<li>
+						<xp:link escape="true" text="Apache Commons IO" target="_blank" value="http://commons.apache.org/proper/commons-io/">
+						</xp:link>
+					</li>
+					<li>
+						<xp:link escape="true" text="JQuery" target="_blank" value="http://jquery.com/">
+						</xp:link>
+					</li>
+					<li>
+						<xp:link escape="true" text="JUnit 4.11" target="_blank" value="http://junit.org/">
+						</xp:link>
+					</li>
+					<li>
+						<xp:link escape="true" text="Date4j" target="_blank" value="http://www.date4j.net/">
+						</xp:link>
+					</li>
+					<li>
+						<xp:link escape="true" text="Iconfinder" target="_blank" value="https://www.iconfinder.com/">
+						</xp:link>
+					</li>
+				</ul>
+			</td>
+		</tr>
+
+	</table>
 
 </xp:view>

@@ -2,6 +2,7 @@
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom" dojoParseOnLoad="true" dojoTheme="true">
 
 	<xc:layout><xp:this.facets>
+	<xc:panel_right xp:key="right_panel" ></xc:panel_right>
 	<xc:form_about xp:key="facet_1"></xc:form_about></xp:this.facets></xc:layout>
 
 </xp:view>
