@@ -2,7 +2,6 @@ package dk.majkilde.logreader.menu.actions;
 
 import java.io.Serializable;
 
-import dk.majkilde.logreader.menu.IAction;
 import dk.majkilde.logreader.menu.IMenu;
 import dk.xpages.utils.XSPUtils;
 

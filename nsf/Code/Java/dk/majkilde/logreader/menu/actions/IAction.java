@@ -1,5 +1,6 @@
-package dk.majkilde.logreader.menu;
+package dk.majkilde.logreader.menu.actions;
 
+import dk.majkilde.logreader.menu.IMenu;
 
 public interface IAction {
 

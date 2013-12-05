@@ -1,8 +1,9 @@
-package dk.majkilde.logreader.menu;
+package dk.majkilde.logreader.menu.actions;
 
 import java.io.IOException;
 import java.io.Serializable;
 
+import dk.majkilde.logreader.menu.IMenu;
 import dk.xpages.utils.XML;
 import dk.xpages.utils.XSPUtils;
 

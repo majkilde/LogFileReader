@@ -1,43 +1,51 @@
 package dk.majkilde.logreader.menu.actions;
 
+import java.io.Serializable;
+
 import dk.majkilde.logreader.menu.IMenu;
 import dk.majkilde.logreader.source.TextFileList;
+import dk.xpages.utils.XML;
 import dk.xpages.utils.XSPUtils;
 
-public class TextReaderAction extends Action {
+public class TextReaderAction implements IAction, Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String filename = "";
-	private final TextFileList filelist = null;
+	private final String filename = "";
+	private final IMenu parent;
 
-	public TextReaderAction(IMenu parent) {
-		super(parent);
+	private TextFileList filelist = null;
+
+	public TextReaderAction(XML config, IMenu parent) {
+		this.parent = parent;
+		filelist = new TextFileList(config);
+	}
+
+	public IMenu getParent() {
+		return parent;
 	}
 
 	public String getType() {
 		return "link";
 	}
 
-	public TextReaderAction setFilename(String filename) {
-		this.filename = filename;
-		return this;
-	}
-
 	public String getFilename() {
 		return filename;
 	}
 
-	@Override
-	protected void executeAction() {
+	public void execute() {
 		XSPUtils.getViewScope().put("filelist", filelist);
 		XSPUtils.getViewScope().put("currentFile", filelist.getCurrent());
+		XSPUtils.getViewScope().put("currentMenu", getParent());
 	}
 
 	public boolean isValid() {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			return filelist.getCount() > 0;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 }

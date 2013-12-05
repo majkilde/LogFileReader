@@ -6,6 +6,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import dk.majkilde.logreader.menu.actions.IAction;
+import dk.majkilde.logreader.menu.actions.NullAction;
 import dk.xpages.utils.NotesStrings;
 import dk.xpages.utils.XML;
 

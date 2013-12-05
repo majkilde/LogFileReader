@@ -2,6 +2,8 @@ package dk.majkilde.logreader.menu;
 
 import java.util.List;
 
+import dk.majkilde.logreader.menu.actions.IAction;
+
 public interface IMenu {
 	public String getName();
 

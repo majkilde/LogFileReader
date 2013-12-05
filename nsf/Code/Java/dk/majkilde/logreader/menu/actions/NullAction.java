@@ -1,21 +1,26 @@
 package dk.majkilde.logreader.menu.actions;
 
+import java.io.Serializable;
+
 import dk.majkilde.logreader.menu.IMenu;
 
-public class NullAction extends Action {
+public class NullAction implements IAction, Serializable {
 
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
-
-	public NullAction(IMenu parent) {
-		super(parent);
-	}
 
 	public String getType() {
 		return "null";
 	}
 
-	@Override
-	protected void executeAction() {
+	public void execute() {
+		//This is a null action -> dont do anything ...
+	}
+
+	public IMenu getParent() {
+		return null;
 	}
 
 	public boolean isValid() {

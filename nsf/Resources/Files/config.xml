@@ -9,7 +9,7 @@
 						<filter applyto="line" bold="true" background="yellow" name="warnings">(?i)warning</filter>
 						<filter applyto="line" color="darkblue" visible="true" name="jvm">(?i)JVM</filter>
 						<filter applyto="line" color="darkblue" visible="true" name="xsp">(?i)XSP</filter>						
-						<filter applyto="selection" color="silver" visible="false" name="tag">\[.*\]</filter>
+						<filter applyto="selection" color="silver" visible="false" name="tag">^\[\S*\]</filter>
 						<filter applyto="selection" color="gray" visible="true" name="datetime">[0-9]{2}-[0-9]{2}-[0-9]{4}( [0-9]{2}:[0-9]{2}:[0-9]{2})</filter>
 					</filters>
 				</action>

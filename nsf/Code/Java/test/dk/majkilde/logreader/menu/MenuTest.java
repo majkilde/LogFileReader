@@ -7,10 +7,10 @@ import java.io.UnsupportedEncodingException;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import dk.majkilde.logreader.menu.IAction;
 import dk.majkilde.logreader.menu.IMenu;
-import dk.majkilde.logreader.menu.LinkAction;
 import dk.majkilde.logreader.menu.MenuItem;
+import dk.majkilde.logreader.menu.actions.IAction;
+import dk.majkilde.logreader.menu.actions.LinkAction;
 import dk.xpages.utils.XML;
 
 public class MenuTest {
