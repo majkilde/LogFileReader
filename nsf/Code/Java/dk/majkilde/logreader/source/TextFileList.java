@@ -7,11 +7,14 @@ import java.util.Collections;
 import java.util.List;
 
 import dk.majkilde.logreader.files.Directory;
+import dk.majkilde.logreader.files.Filters;
 import dk.majkilde.logreader.files.IFile;
 import dk.majkilde.logreader.files.TextFile;
 import dk.xpages.log.LogManager;
 import dk.xpages.log.Logger;
 import dk.xpages.utils.NotesStrings;
+import dk.xpages.utils.XML;
+import dk.xpages.utils.XSPUtils;
 
 public class TextFileList implements Serializable, IFileList {
 
@@ -24,20 +27,21 @@ public class TextFileList implements Serializable, IFileList {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String pattern = "";
-	private String title = "";
 
 	private final List<IFile> files = new ArrayList<IFile>();
 
-	public TextFileList(final String title, final String pattern, final ArrayList<String> includes) {
-		this.title = title;
-		this.pattern = pattern;
+	public TextFileList(XML config) {
+		this.pattern = config.child("filename").content();
+
+		Filters filters = new Filters(config.child("filters"));
 
 		List<String> filenames = Directory.getFileNames(pattern);
 		for (String filename : filenames) {
-			files.add(new TextFile(filename, includes));
+			files.add(new TextFile(filename, filters));
 		}
 
 		Collections.sort(files);
+
 	}
 
 	/* (non-Javadoc)
@@ -76,13 +80,6 @@ public class TextFileList implements Serializable, IFileList {
 	}
 
 	/* (non-Javadoc)
-	 * @see dk.majkilde.logreader.files.IFileList#getTitle()
-	 */
-	public String getTitle() {
-		return title;
-	}
-
-	/* (non-Javadoc)
 	 * @see dk.majkilde.logreader.files.IFileList#getCount()
 	 */
 	public int getCount() {
@@ -94,6 +91,7 @@ public class TextFileList implements Serializable, IFileList {
 	 */
 	public void setCurrent(IFile current) {
 		this.current = current;
+		XSPUtils.getViewScope().put("currentFile", current);
 	}
 
 	/* (non-Javadoc)

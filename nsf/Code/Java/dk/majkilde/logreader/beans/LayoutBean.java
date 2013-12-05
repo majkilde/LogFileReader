@@ -8,16 +8,13 @@ import com.ibm.xsp.designer.context.XSPUrl;
 
 import dk.majkilde.logreader.menu.IMenu;
 import dk.majkilde.logreader.menu.MenuItem;
-import dk.xpages.log.LogManager;
-import dk.xpages.log.Logger;
+import dk.majkilde.logreader.source.IFileList;
 import dk.xpages.utils.NotesStrings;
 import dk.xpages.utils.XML;
 import dk.xpages.utils.XSPUtils;
 
 public class LayoutBean implements Serializable {
 	private static final long serialVersionUID = 1L;
-
-	private final Logger log = LogManager.getLogger();
 
 	private final IMenu menu;
 
@@ -44,11 +41,34 @@ public class LayoutBean implements Serializable {
 		return selectedId;
 	}
 
-	private String getSelectedMenuId() {
+	private IMenu getSelectedMenu() {
 		//Check the viewscope
 		IMenu currentMenu = (IMenu) XSPUtils.getViewScope().get("currentMenu");
 		if (currentMenu != null) {
-			return currentMenu.getId();
+			return currentMenu;
+		}
+
+		//Check the URL
+		//		XSPUrl url = XSPUtils.getUrl();
+		//		String urlId = url.getParameter("menu");
+		//		if (!NotesStrings.isBlank(urlId)) {
+		//			return urlId;
+		//
+		//		}
+
+		//defaults to the first menu
+		try {
+			return getSelectedTab().getChildren().get(0);
+		} catch (Exception e) {
+			return null;
+		}
+
+	}
+
+	private String getSelectedMenuId() {
+		IMenu selectedMenu = getSelectedMenu();
+		if (selectedMenu != null) {
+			return selectedMenu.getId();
 		}
 
 		//Check the URL
@@ -56,16 +76,9 @@ public class LayoutBean implements Serializable {
 		String urlId = url.getParameter("menu");
 		if (!NotesStrings.isBlank(urlId)) {
 			return urlId;
-
 		}
 
-		//defaults to the first menu
-		try {
-			return getSelectedTab().getChildren().get(0).getId();
-		} catch (Exception e) {
-			return "";
-		}
-
+		return "";
 	}
 
 	public boolean isTabSelected(String tabid) {
@@ -79,6 +92,11 @@ public class LayoutBean implements Serializable {
 
 	public IMenu getSelectedTab() {
 		return menu.getChild(getSelectedTabId());
+	}
+
+	public IFileList getCurrentFilelist() {
+		getSelectedMenu().executeAction();
+		return null;
 	}
 
 }

@@ -9,11 +9,11 @@ public class ActionFactory {
 			String actionType = actionXML.string("type").toLowerCase();
 
 			if ("link".equals(actionType)) {
-				return new LinkAction(parent).setUrl(actionXML.string("url"));
+				return new LinkAction(actionXML, parent);
 			}
 
 			if ("textreader".equals(actionType)) {
-				return new TextReaderAction(parent).setFilename(actionXML.child("filename").content());
+				return new TextReaderAction(actionXML, parent);
 			}
 		}
 

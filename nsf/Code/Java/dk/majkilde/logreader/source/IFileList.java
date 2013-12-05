@@ -14,8 +14,6 @@ public interface IFileList {
 
 	public abstract List<IFile> getFiles();
 
-	public abstract String getTitle();
-
 	public abstract int getCount();
 
 	public abstract void setCurrent(IFile current);

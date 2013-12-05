@@ -3,6 +3,7 @@ package dk.majkilde.logreader.menu;
 import java.io.IOException;
 import java.io.Serializable;
 
+import dk.xpages.utils.XML;
 import dk.xpages.utils.XSPUtils;
 
 public class LinkAction implements IAction, Serializable {
@@ -13,8 +14,9 @@ public class LinkAction implements IAction, Serializable {
 	private String url = "";
 	private final IMenu parent;
 
-	public LinkAction(IMenu parent) {
+	public LinkAction(XML config, IMenu parent) {
 		this.parent = parent;
+		setUrl(config.string("url"));
 	}
 
 	public IMenu getParent() {

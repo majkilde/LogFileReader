@@ -3,31 +3,7 @@
 
 	<xc:layout>
 		<xp:this.facets>
-
-			<xp:include id="include1" xp:key="facet_1">
-				<xp:this.pageName><![CDATA[${javascript:section = context.getUrlParameter("tab");
-switch (section) {
-	case "logs":
-	case "": 
-		return "form_logs.xsp";
-		break;
-	case "setup": 
-		form = context.getUrlParameter("form");
-		if( form=="") {
-			return "view_settings.xsp";
-		} else {
-			return "form_inputfile.xsp";
-		}
-	case "settings":
-		var menu = context.getUrlParameter("menu");
-		if (menu=="") menu="ini";
-		return  "form_"+menu+".xsp";
-	default:
-		return "form_"+section+".xsp"
-}
-//(section=="") ? "form_console.xsp" : "form_"+section+".xsp";}]]></xp:this.pageName>
-			</xp:include>
-
+			<xc:form_reader xp:key="facet_1"></xc:form_reader>
 		</xp:this.facets>
 	</xc:layout>
 </xp:view>

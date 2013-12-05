@@ -3,8 +3,7 @@
 
 
 	
-	<xp:this.beforePageLoad><![CDATA[#{javascript:viewScope.filelist = configFiles.getCurrentFilelist();
-viewScope.currentFile = filelist.getCurrent();}]]></xp:this.beforePageLoad>
+	<xp:this.beforePageLoad><![CDATA[#{javascript:layout.getCurrentFilelist();}]]></xp:this.beforePageLoad>
 	<h1>
 		<xp:text escape="true" id="computedField2" value="#{javascript:viewScope.currentFile.getFilename()}" disableTheme="true"></xp:text>
 	</h1>
@@ -24,12 +23,12 @@ viewScope.currentFile = filelist.getCurrent();}]]></xp:this.beforePageLoad>
 		</h2>
 		
 		<div class="lotusSectionBody">
-			<xc:form_config_fileinfo>
+			<xc:form_reader_fileinfo>
 				<xc:this.rendered><![CDATA[#{javascript:viewScope.filelist.getCount()<=1}]]></xc:this.rendered>
-			</xc:form_config_fileinfo>
-			<xc:form_config_filebrowser>
+			</xc:form_reader_fileinfo>
+			<xc:form_reader_filebrowser>
 				<xc:this.rendered><![CDATA[#{javascript:viewScope.filelist.getCount()>1}]]></xc:this.rendered>
-			</xc:form_config_filebrowser>
+			</xc:form_reader_filebrowser>
 		</div>
 	</div>
 

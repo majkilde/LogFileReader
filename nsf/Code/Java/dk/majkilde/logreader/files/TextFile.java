@@ -3,9 +3,7 @@ package dk.majkilde.logreader.files;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
@@ -19,19 +17,19 @@ public class TextFile implements IFile, Serializable {
 	private final String ENCODING = "utf-8";
 	private final Logger log = LogManager.getLogger();
 	protected final File file;
-	ArrayList<String> includes = new ArrayList<String>();
+	private Filters filters;
 
 	public TextFile(final File file) {
 		this.file = file;
 	}
 
 	protected TextFile(final String filename) {
-		this.file = new File(filename);
+		this(filename, new Filters(null));
 	}
 
-	public TextFile(final String filename, final ArrayList<String> includes) {
+	public TextFile(final String filename, final Filters filters) {
 		this.file = new File(filename);
-		this.includes = includes;
+		this.filters = filters;
 	}
 
 	/**
@@ -50,39 +48,15 @@ public class TextFile implements IFile, Serializable {
 	public String getHtml() {
 		List<String> content;
 		try {
-			content = getStringList(); // TextReader.read(file);
-			filterContent(content);
+			content = getStringList();
 		} catch (IOException e) {
 			log.error(e);
 			return NotesStrings.messageFormat("Error reading file '{1}': {0}", e.getMessage(), file.getName());
 		}
 
-		return NotesStrings.join("<br/>", content);
-	}
+		filters.apply(content);
 
-	private boolean isLineIncluded(String line) {
-		//check every entry in the filter
-		for (String entry : includes) {
-			if (NotesStrings.containsIgnoreCase(line, entry)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	private void filterContent(List<String> content) {
-		if (includes == null || includes.size() == 0) {
-			return; //no filters
-		}
-
-		//check every line in the file
-		for (Iterator<String> itr = content.iterator(); itr.hasNext();) {
-			String line = itr.next();
-
-			if (!isLineIncluded(line)) {
-				itr.remove();
-			}
-		}
+		return NotesStrings.join("\n", content);
 	}
 
 	public long getSize() {

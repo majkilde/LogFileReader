@@ -5,9 +5,9 @@
     <default-prefix>xc</default-prefix>
   </faces-config-extension>
   <composite-component>
-    <component-type>form_config_filebrowser</component-type>
-    <composite-name>form_config_filebrowser</composite-name>
-    <composite-file>/form_config_filebrowser.xsp</composite-file>
+    <component-type>form_reader_filebrowser</component-type>
+    <composite-name>form_reader_filebrowser</composite-name>
+    <composite-file>/form_reader_filebrowser.xsp</composite-file>
     <composite-extension>
       <designer-extension>
         <in-palette>true</in-palette>

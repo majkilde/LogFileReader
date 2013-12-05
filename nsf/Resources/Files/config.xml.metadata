@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="3.3" replicaid="C1257C0B001D3247" version="8.5" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="1ae" sequence="7" unid="5296D9B1B528E693C1257C0B001D3490">
-<created><datetime dst="true">20131021T071900,00+02</datetime></created>
-<modified><datetime>20131126T105200,33+01</datetime></modified>
-<revised><datetime>20131126T105200,32+01</datetime></revised>
-<lastaccessed><datetime>20131126T105200,33+01</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20131021T071900,52+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Jakob Majkilde/OU=NDK/O=GEAP</name></updatedby>
-<wassignedby><name>CN=Jakob Majkilde/OU=NDK/O=GEAP</name></wassignedby>
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="C1257B8B006B3B8D" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="20e" sequence="92" unid="77A8A8859BADB73DC1257C070025782F">
+<created><datetime dst="true">20131017T084915,99+02</datetime></created>
+<modified><datetime>20131205T104833,67+01</datetime></modified>
+<revised><datetime>20131205T104833,66+01</datetime></revised>
+<lastaccessed><datetime>20131205T104833,67+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20131017T084916,02+02</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
+<wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
 <item name="$Flags"><text>345CgQ</text></item>
 <item name="$TITLE" sign="true"><text>config.xml</text></item>
 <item name="$MimeCharSet"><text>UTF-8</text></item>

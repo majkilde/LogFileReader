@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="C1257B8B006B3B8D" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="4d2" sequence="23" unid="A39135179C203417C1257C38002BDEE9">
+<created><datetime>20131205T085911,13+01</datetime></created>
+<modified><datetime>20131205T104345,83+01</datetime></modified>
+<revised><datetime>20131205T104345,82+01</datetime></revised>
+<lastaccessed><datetime>20131205T104345,83+01</datetime></lastaccessed>
+<addedtofile><datetime>20131205T085911,14+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
+<wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
+<item name="$Flags"><text>34567Cg~[</text></item>
+<item name="$TITLE"><text>dk/majkilde/logreader/files/Filters.java</text></item>
+
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+<item name="$FileNames" sign="true"><text>dk/majkilde/logreader/files/Filters.java</text></item>
+
+</note>

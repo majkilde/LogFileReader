@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><note class="form" replicaid="C1257B8B006B3B8D" version="9.0" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="1aa" sequence="204" unid="6A3D15E3F75A1704C1257A0F004459D5">
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="C1257B8B006B3B8D" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="1aa" sequence="230" unid="6A3D15E3F75A1704C1257A0F004459D5">
 <created><datetime dst="true">20120531T142634,45+02</datetime></created>
-<modified><datetime>20131107T111031,44+01</datetime></modified>
-<revised><datetime>20131107T111031,43+01</datetime></revised>
-<lastaccessed><datetime>20131107T111031,44+01</datetime></lastaccessed>
+<modified><datetime>20131201T180951,93+01</datetime></modified>
+<revised><datetime>20131201T180951,92+01</datetime></revised>
+<lastaccessed><datetime>20131201T180951,93+01</datetime></lastaccessed>
 <addedtofile><datetime dst="true">20130615T213119,26+02</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
 <wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
@@ -12,12 +12,11 @@
 
 <item name="$TITLE" sign="true"><text>form_about.xsp</text></item>
 
-
-
 <item name="$DesignerVersion"><text>8.5</text></item>
 
 
-<item name="$FileNames" sign="true"><text>form_about.xsp</text></item>
 
 
-</note>
+
+
+<item name="$FileNames" sign="true"><text>form_about.xsp</text></item></note>
