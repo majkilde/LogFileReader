@@ -8,17 +8,18 @@ import java.util.List;
 import lotus.domino.Database;
 import lotus.domino.Document;
 import lotus.domino.View;
+import dk.majkilde.logreader.files.Filters;
 import dk.majkilde.logreader.files.IFile;
 import dk.majkilde.logreader.files.NSFFile;
 import dk.xpages.log.LogManager;
 import dk.xpages.log.Logger;
 import dk.xpages.utils.NotesObjects;
+import dk.xpages.utils.XML;
 
 public class NSFFileList implements IFileList, Serializable {
 
 	private final Logger log = LogManager.getLogger();
 	private IFile current = null;
-	private String title = null;
 
 	/**
 	 * 
@@ -26,8 +27,13 @@ public class NSFFileList implements IFileList, Serializable {
 	private static final long serialVersionUID = 1L;
 	private final List<IFile> files = new ArrayList<IFile>();
 
-	public NSFFileList(String title, String filename, String viewname, String dateFormula, String bodyField) {
-		this.title = title;
+	public NSFFileList(XML config) {
+		String filename = config.child("filename").content();
+		String viewname = config.child("viewname").content();
+		String dateFormula = config.child("date-formula").content();
+		String bodyField = config.child("body-field").content();
+
+		Filters filters = new Filters(config.child("filters"));
 
 		Database db = null;
 		View view = null;
@@ -42,7 +48,7 @@ public class NSFFileList implements IFileList, Serializable {
 			doc = view.getFirstDocument();
 			while (doc != null) {
 
-				IFile nsffile = new NSFFile(filename, doc);
+				IFile nsffile = new NSFFile(filename, doc, filters);
 				files.add(nsffile);
 
 				nextdoc = view.getNextDocument(doc);
@@ -56,6 +62,7 @@ public class NSFFileList implements IFileList, Serializable {
 		}
 
 		Collections.sort(files);
+
 	}
 
 	/* (non-Javadoc)
@@ -95,10 +102,6 @@ public class NSFFileList implements IFileList, Serializable {
 
 	public String getPattern() {
 		return "";
-	}
-
-	public String getTitle() {
-		return title;
 	}
 
 	public void setCurrent(IFile current) {

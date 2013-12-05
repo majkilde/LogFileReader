@@ -26,9 +26,12 @@ public class NSFFile implements IFile, Serializable {
 
 	ArrayList<String> includes = null;
 
-	public NSFFile(final String filename, final Document doc) throws NotesException {
+	private final Filters filters;
+
+	public NSFFile(final String filename, final Document doc, final Filters filters) throws NotesException {
 		this.noteid = doc.getNoteID();
 		this.filename = filename;
+		this.filters = filters;
 
 		if (doc != null) {
 			date = doc.getCreated().toJavaDate();
@@ -72,7 +75,11 @@ public class NSFFile implements IFile, Serializable {
 	}
 
 	public String getHtml() {
-		return NotesStrings.join("<br/>", getContent());
+		List<String> content = getContent();
+		filters.apply(content);
+
+		return NotesStrings.join("", content);
+
 	}
 
 	public long getSize() {
@@ -100,8 +107,7 @@ public class NSFFile implements IFile, Serializable {
 	}
 
 	public Filters getFilters() {
-		// TODO Auto-generated method stub
-		return null;
+		return filters;
 	}
 
 }

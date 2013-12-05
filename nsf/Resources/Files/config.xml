@@ -10,7 +10,7 @@
 						<filter applyto="line" color="darkblue" visible="true" name="jvm">(?i)JVM</filter>
 						<filter applyto="line" color="darkblue" visible="true" name="xsp">(?i)XSP</filter>						
 						<filter applyto="selection" color="silver" visible="false" name="tag">^\[\S*\]</filter>
-						<filter applyto="selection" color="gray" visible="true" name="datetime">[0-9]{2}-[0-9]{2}-[0-9]{4}( [0-9]{2}:[0-9]{2}:[0-9]{2})</filter>
+						<filter applyto="selection" color="gray" visible="true" name="datetime">[0-9]{2}-[0-9]{2}-[0-9]{4}( [0-9]{2}:[0-9]{2}:[0-9]{2}\s)</filter>
 					</filters>
 				</action>
 			</item>
@@ -31,6 +31,11 @@
 					<viewname>($SearchEventsView)</viewname>
 					<date-formula>StartTime</date-formula>
 					<body-field>body</body-field>
+					<filters>
+						<filter applyto="line" color="darkblue" visible="true" name="http">(?i)HTTP</filter>
+						<filter applyto="line" color="darkred" visible="true" name="jvm">(?i)JVM</filter>
+						<filter applyto="selection" color="gray" visible="true" name="datetime">[0-9]{2}-[0-9]{2}-[0-9]{4}( [0-9]{2}:[0-9]{2}:[0-9]{2}\s)</filter>
+					</filters>
 				</action>
 			</item>
 			<item name="Trace">
@@ -71,7 +76,6 @@
 					<filters>
 						<filter applyto="line" color="#49D164" bold="true" name="comments">\/\/</filter>
 					</filters>
-
 				</action>
 			</item>
 			<item name="rcpinstall.properties">
