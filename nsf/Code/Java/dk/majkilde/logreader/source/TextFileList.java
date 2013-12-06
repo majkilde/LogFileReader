@@ -44,23 +44,14 @@ public class TextFileList implements Serializable, IFileList {
 
 	}
 
-	/* (non-Javadoc)
-	 * @see dk.majkilde.logreader.files.IFileList#getPattern()
-	 */
 	public String getPattern() {
 		return Directory.getCleanPattern(pattern);
 	}
 
-	/* (non-Javadoc)
-	 * @see dk.majkilde.logreader.files.IFileList#getPath()
-	 */
 	public String getPath() {
 		return NotesStrings.strLeftBack(getPattern(), File.separator);
 	}
 
-	/* (non-Javadoc)
-	 * @see dk.majkilde.logreader.files.IFileList#getNewest()
-	 */
 	public IFile getNewest() {
 		if (files.size() > 0) {
 			return files.get(0);
@@ -69,9 +60,6 @@ public class TextFileList implements Serializable, IFileList {
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see dk.majkilde.logreader.files.IFileList#getFiles()
-	 */
 	public List<IFile> getFiles() {
 		log.trace("Trace: getFiles({0})", pattern);
 		if (files.size() == 0)
@@ -79,24 +67,15 @@ public class TextFileList implements Serializable, IFileList {
 		return files;
 	}
 
-	/* (non-Javadoc)
-	 * @see dk.majkilde.logreader.files.IFileList#getCount()
-	 */
 	public int getCount() {
 		return files.size();
 	}
 
-	/* (non-Javadoc)
-	 * @see dk.majkilde.logreader.files.IFileList#setCurrent(dk.majkilde.logreader.files.IFile)
-	 */
 	public void setCurrent(IFile current) {
 		this.current = current;
 		XSPUtils.getViewScope().put("currentFile", current);
 	}
 
-	/* (non-Javadoc)
-	 * @see dk.majkilde.logreader.files.IFileList#getCurrent()
-	 */
 	public IFile getCurrent() {
 		if (current == null) {
 			current = getNewest();

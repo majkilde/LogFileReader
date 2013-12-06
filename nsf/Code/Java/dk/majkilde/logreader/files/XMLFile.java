@@ -14,7 +14,6 @@ import dk.xpages.log.Logger;
 import dk.xpages.utils.XSPUtils;
 
 public class XMLFile extends TextFile implements Serializable {
-	private final String ENCODING = "utf-8";
 	private final Logger log = LogManager.getLogger();
 	private String xlsFilename = null;
 	private static final long serialVersionUID = 1L;
@@ -59,7 +58,7 @@ public class XMLFile extends TextFile implements Serializable {
 			// Do the transformation
 			transformer.transform(inputStream, result);
 
-			return output.toString(ENCODING);
+			return output.toString(encoding);
 		} catch (Exception e) {
 			log.error(e);
 		}

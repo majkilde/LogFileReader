@@ -26,10 +26,6 @@ public class NSFAction implements IAction, Serializable {
 		return parent;
 	}
 
-	public String getType() {
-		return "link";
-	}
-
 	public String getFilename() {
 		return filename;
 	}

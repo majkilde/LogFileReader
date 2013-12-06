@@ -1,11 +1,9 @@
 package dk.majkilde.logreader.menu;
 
+import dk.majkilde.logreader.menu.actions.FileAction;
 import dk.majkilde.logreader.menu.actions.IAction;
 import dk.majkilde.logreader.menu.actions.LinkAction;
-import dk.majkilde.logreader.menu.actions.NSFAction;
 import dk.majkilde.logreader.menu.actions.NullAction;
-import dk.majkilde.logreader.menu.actions.TextReaderAction;
-import dk.majkilde.logreader.menu.actions.XMLAction;
 import dk.xpages.utils.XML;
 
 public class ActionFactory {
@@ -18,16 +16,20 @@ public class ActionFactory {
 				return new LinkAction(actionXML, parent);
 			}
 
-			if ("textreader".equals(actionType)) {
-				return new TextReaderAction(actionXML, parent);
-			}
+			//			if ("textreader".equals(actionType)) {
+			//				return new TextReaderAction(actionXML, parent);
+			//			}
+			//
+			//			if ("nsfreader".equals(actionType)) {
+			//				return new NSFAction(actionXML, parent);
+			//			}
+			//
+			//			if ("xmlreader".equals(actionType)) {
+			//				return new XMLAction(actionXML, parent);
+			//			}
 
-			if ("nsfreader".equals(actionType)) {
-				return new NSFAction(actionXML, parent);
-			}
-
-			if ("xmlreader".equals(actionType)) {
-				return new XMLAction(actionXML, parent);
+			if ("filereader".equals(actionType)) {
+				return new FileAction(actionXML, parent);
 			}
 		}
 

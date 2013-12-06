@@ -1,5 +1,6 @@
 package dk.majkilde.logreader.source;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,7 +15,9 @@ import dk.majkilde.logreader.files.NSFFile;
 import dk.xpages.log.LogManager;
 import dk.xpages.log.Logger;
 import dk.xpages.utils.NotesObjects;
+import dk.xpages.utils.NotesStrings;
 import dk.xpages.utils.XML;
+import dk.xpages.utils.XSPUtils;
 
 public class NSFFileList implements IFileList, Serializable {
 
@@ -65,9 +68,14 @@ public class NSFFileList implements IFileList, Serializable {
 
 	}
 
-	/* (non-Javadoc)
-	 * @see dk.majkilde.logreader.files.IFileList#getNewest()
-	 */
+	public String getPattern() {
+		return "";
+	}
+
+	public String getPath() {
+		return NotesStrings.strLeftBack(getPattern(), File.separator);
+	}
+
 	public IFile getNewest() {
 		if (files.size() > 0) {
 			return files.get(0);
@@ -76,9 +84,6 @@ public class NSFFileList implements IFileList, Serializable {
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see dk.majkilde.logreader.files.IFileList#getFiles()
-	 */
 	public List<IFile> getFiles() {
 		if (files.size() == 0)
 			return null;
@@ -89,24 +94,16 @@ public class NSFFileList implements IFileList, Serializable {
 		return files.size();
 	}
 
+	public void setCurrent(IFile current) {
+		this.current = current;
+		XSPUtils.getViewScope().put("currentFile", current);
+	}
+
 	public IFile getCurrent() {
 		if (current == null) {
 			current = getNewest();
 		}
 		return current;
-	}
-
-	public String getPath() {
-		return "path";
-	}
-
-	public String getPattern() {
-		return "";
-	}
-
-	public void setCurrent(IFile current) {
-		this.current = current;
-
 	}
 
 }

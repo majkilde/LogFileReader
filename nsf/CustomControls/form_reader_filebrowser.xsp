@@ -5,7 +5,7 @@
 		<xp:dojoModule name="dijit.Tooltip"></xp:dojoModule>
 	</xp:this.resources>
 
-	<xp:text escape="true" id="computedField8" value="#{javascript:viewScope.filelist.getCount()}">
+	<xp:text escape="true"  value="#{javascript:viewScope.filelist.getCount()}">
 		<xp:this.converter>
 			<xp:convertNumber type="number" integerOnly="true"></xp:convertNumber>
 		</xp:this.converter>
@@ -13,7 +13,7 @@
 	&#160; files matches
 	<i>
 		"
-		<xp:text escape="true" id="computedField5" value="#{javascript:viewScope.filelist.getPattern()}"></xp:text>
+		<xp:text escape="true"  value="#{javascript:viewScope.filelist.getPattern()}"></xp:text>
 		"
 	</i>
 	:

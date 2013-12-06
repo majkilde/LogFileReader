@@ -2,29 +2,28 @@ package dk.majkilde.logreader.menu.actions;
 
 import java.io.Serializable;
 
+import dk.majkilde.logreader.files.FileList;
+import dk.majkilde.logreader.files.FileListFactory;
 import dk.majkilde.logreader.menu.IMenu;
-import dk.majkilde.logreader.source.XMLFileList;
 import dk.xpages.utils.XML;
 import dk.xpages.utils.XSPUtils;
 
-public class XMLAction implements IAction, Serializable {
+public class FileAction implements IAction, Serializable {
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
-	private final String filename = "";
 	private final IMenu parent;
 
-	private XMLFileList filelist = null;
+	private FileList filelist = null;
 
-	public XMLAction(XML config, IMenu parent) {
+	public FileAction(XML config, IMenu parent) {
 		this.parent = parent;
-		filelist = new XMLFileList(config);
+		filelist = FileListFactory.create(config);
 	}
 
 	public IMenu getParent() {
 		return parent;
-	}
-
-	public String getFilename() {
-		return filename;
 	}
 
 	public void execute() {

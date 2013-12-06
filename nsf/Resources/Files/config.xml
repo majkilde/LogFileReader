@@ -3,7 +3,7 @@
 		<item name="Logs" id="logs" page="Reader.xsp">
 			<action type="link" url="Reader.xsp?tab=logs" />
 			<item name="Console">
-				<action type="textreader">
+				<action type="filereader" filetype="text">
 					<filename>[data]\IBM_TECHNICAL_SUPPORT\console*.log</filename>
 					<filters>
 						<filter applyto="line" bold="true" background="yellow" name="warnings">(?i)warning</filter>									
@@ -16,37 +16,37 @@
 				</action>
 			</item>
 			<item name="System info">
-				<action type="textreader">
+				<action type="filereader" filetype="text">
 					<filename>[data]\IBM_TECHNICAL_SUPPORT\sysinfo*.log</filename>
 				</action>
 			</item>
 			<item name="XPages">
-				<action type="textreader">
+				<action type="filereader" filetype="text">
 					<filename encoding="UTF-8">[data]\IBM_TECHNICAL_SUPPORT\xpages*.log</filename>
 				</action>
 			</item>
 			
 			<item name="Log.nsf">
-				<action type="nsfreader">
+				<action type="filereader" filetype="log">
 					<filename>log.nsf</filename>
 					<viewname>($SearchEventsView)</viewname>
 					<date-formula>StartTime</date-formula>
 					<body-field>body</body-field>
 					<filters>
-						<filter applyto="line" color="darkblue" visible="true" name="http">(?i)HTTP</filter>
 						<filter applyto="line" color="darkred" visible="true" name="jvm">(?i)JVM</filter>
+						<filter applyto="line" color="darkblue" visible="true" name="http">(?i)HTTP</filter>
 						<filter applyto="selection" color="gray" visible="true" name="datetime">[0-9]{2}-[0-9]{2}-[0-9]{4}( [0-9]{2}:[0-9]{2}:[0-9]{2}\s)</filter>
 					</filters>
 				</action>
 			</item>
 			<item name="Trace">
-				<action type="xmlreader">
+				<action type="filereader" filetype="xml">
 					<filename>[data]\domino\workspace\logs\trace-log-*.xml</filename>
 					<transform>transform.xsl</transform>
 				</action>
 			</item>
 			<item name="Error files">
-				<action type="xmlreader">
+				<action type="filereader" filetype="xml">
 					<filename>[data]\domino\workspace\logs\error-log-*.xml</filename>
 					<transform>transform.xsl</transform>
 				</action>
@@ -55,16 +55,18 @@
 		</item>
 		<item name="Configuration" id="config" page="Reader.xsp">
 			<action type="link" url="Reader.xsp?tab=config" />
+
 			<item name="notes.ini">
-				<action type="textreader">
+				<action type="filereader" filetype="text">
 					<filename>[config]\notes.ini</filename>
 					<filters>
 						<filter applyto="line" color="blue" name="custom">^\$</filter>
 					</filters>
 				</action>
 			</item>
+
 			<item name="java.policy">
-				<action type="textreader">
+				<action type="filereader" filetype="text">
 					<filename>[program]\jvm\lib\security\java.policy</filename>
 					<filters>
 						<filter applyto="line" color="#49D164" bold="true" name="comments">\/\/</filter>
@@ -72,7 +74,7 @@
 				</action>
 			</item>
 			<item name="java.pol">
-				<action type="textreader">
+				<action type="filereader" filetype="text">
 					<filename>[program]\jvm\lib\security\java.pol</filename>
 					<filters>
 						<filter applyto="line" color="#49D164" bold="true" name="comments">\/\/</filter>
@@ -80,7 +82,7 @@
 				</action>
 			</item>
 			<item name="rcpinstall.properties">
-				<action type="textreader">
+				<action type="filereader" filetype="text">
 					<filename>[data]\domino\workspace\.config\rcpinstall.properties</filename>
 					<filters>
 						<filter applyto="line" color="#49D164" bold="true" name="comments">#</filter>

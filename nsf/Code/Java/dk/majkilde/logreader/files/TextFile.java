@@ -14,8 +14,8 @@ import dk.xpages.utils.Download;
 import dk.xpages.utils.NotesStrings;
 
 public class TextFile implements IFile, Serializable {
-	private static final String DEFAULT_ENCODING = "utf-8";
-	private String encoding = DEFAULT_ENCODING;
+	protected static final String DEFAULT_ENCODING = "utf-8";
+	protected String encoding = DEFAULT_ENCODING;
 	private final Logger log = LogManager.getLogger();
 	protected final File file;
 	private Filters filters;

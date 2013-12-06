@@ -1,46 +1,26 @@
-package dk.majkilde.logreader.source;
+package dk.majkilde.logreader.files;
 
 import java.io.File;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-import dk.majkilde.logreader.files.Directory;
-import dk.majkilde.logreader.files.IFile;
-import dk.majkilde.logreader.files.XMLFile;
 import dk.xpages.log.LogManager;
 import dk.xpages.log.Logger;
 import dk.xpages.utils.NotesStrings;
-import dk.xpages.utils.XML;
 import dk.xpages.utils.XSPUtils;
 
-public class XMLFileList implements Serializable, IFileList {
-
+public class FileList implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private final Logger log = LogManager.getLogger();
+
 	private IFile current = null;
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private String pattern = "";
-	private final String title = "";
+	private final List<IFile> files;
+	private final String pattern;
 
-	private final List<IFile> files = new ArrayList<IFile>();
-
-	public XMLFileList(XML config) {
-		this.pattern = config.child("filename").content();
-		String xlsFilename = config.child("transform").content();
-
-		List<String> filenames = Directory.getFileNames(pattern);
-		for (String filename : filenames) {
-
-			files.add(new XMLFile(filename, xlsFilename));
-		}
-
-		Collections.sort(files);
-
+	public FileList(List<IFile> files, String pattern) {
+		this.files = files;
+		this.pattern = pattern;
 	}
 
 	public String getPattern() {
