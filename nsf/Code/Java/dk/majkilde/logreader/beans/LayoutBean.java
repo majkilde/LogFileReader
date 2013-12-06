@@ -6,9 +6,9 @@ import java.util.List;
 
 import com.ibm.xsp.designer.context.XSPUrl;
 
+import dk.majkilde.logreader.files.FileList;
 import dk.majkilde.logreader.menu.IMenu;
 import dk.majkilde.logreader.menu.MenuItem;
-import dk.majkilde.logreader.source.IFileList;
 import dk.xpages.utils.NotesStrings;
 import dk.xpages.utils.XML;
 import dk.xpages.utils.XSPUtils;
@@ -86,7 +86,7 @@ public class LayoutBean implements Serializable {
 		return menu.getChild(getSelectedTabId());
 	}
 
-	public IFileList getCurrentFilelist() {
+	public FileList getCurrentFilelist() {
 		getSelectedMenu().executeAction();
 		return null;
 	}
