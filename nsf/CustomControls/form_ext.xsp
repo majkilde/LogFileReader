@@ -2,7 +2,7 @@
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
 	<xp:this.resources>
 		<xp:script src="/jquery-2.0.3.min.js" clientSide="true"></xp:script>
-		<xp:script src="/tablesorter//jquery.tablesorter.min.js" clientSide="true"></xp:script>
+		<xp:script src="/tablesorter/jquery.tablesorter.min.js" clientSide="true"></xp:script>
 		<xp:styleSheet href="/tablesorter/style.css"></xp:styleSheet>
 	</xp:this.resources>
 	<h1>Ext folder content</h1>
