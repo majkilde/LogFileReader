@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="C1257B8B006B3B8D" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="54e" sequence="13" unid="1E7DE48211CF374DC1257C3900400A64">
+<created><datetime>20131206T123929,64+01</datetime></created>
+<modified><datetime>20131206T134350,27+01</datetime></modified>
+<revised><datetime>20131206T134350,26+01</datetime></revised>
+<lastaccessed><datetime>20131206T134350,27+01</datetime></lastaccessed>
+<addedtofile><datetime>20131206T123929,65+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
+<wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
+<item name="$Flags"><text>34567Cg~[</text></item>
+<item name="$TITLE"><text>dk/majkilde/logreader/beans/ExtBean.java</text></item>
+
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+<item name="$FileNames" sign="true"><text>dk/majkilde/logreader/beans/ExtBean.java</text></item>
+
+</note>

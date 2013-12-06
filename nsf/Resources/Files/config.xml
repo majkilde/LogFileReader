@@ -30,8 +30,6 @@
 				<action type="filereader" filetype="log">
 					<filename>log.nsf</filename>
 					<viewname>($SearchEventsView)</viewname>
-					<date-formula>StartTime</date-formula>
-					<body-field>body</body-field>
 					<filters>
 						<filter applyto="line" color="darkred" visible="true" name="jvm">(?i)JVM</filter>
 						<filter applyto="line" color="darkblue" visible="true" name="http">(?i)HTTP</filter>
@@ -91,6 +89,7 @@
 			</item>
 		</item>
 		<item name="Ext" id="ext" link="#">
+			<action type="link" url="Ext.xsp?tab=ext" />
 		</item>
 		<item name="OpenLog" id="openlog" link="#">
 		</item>

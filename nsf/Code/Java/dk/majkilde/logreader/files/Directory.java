@@ -19,7 +19,10 @@ public class Directory implements Serializable {
 	public static final String NOTES_CONFIG = "[config]";
 
 	public static List<String> getFileNames(final String filePattern) {
+		return toFilenames(getFiles(filePattern));
+	}
 
+	public static List<File> getFiles(final String filePattern) {
 		String pattern = getCleanPattern(filePattern);
 		String folder = NotesStrings.strLeftBack(pattern, File.separator) + File.separator;
 		String filename = NotesStrings.strRightBack(pattern, File.separator);
@@ -45,14 +48,26 @@ public class Directory implements Serializable {
 		return pattern;
 	}
 
+	private static List<String> toFilenames(List<File> files) {
+		List<String> filenames = new ArrayList<String>();
+		for (File file : files) {
+			filenames.add(file.getAbsolutePath());
+		}
+
+		// sort the list
+		Collections.sort(filenames);
+
+		return filenames;
+	}
+
 	/**
 	 * 
 	 * @param folder
 	 * @param patterns 	null will return all files in the folder. Otherwise use a pattern, like *.txt to return all text files
 	 * @return
 	 */
-	private static ArrayList<String> getFiles(String folder, String pattern) {
-		ArrayList<String> files = new ArrayList<String>();
+	private static List<File> getFiles(String folder, String pattern) {
+		List<File> files = new ArrayList<File>();
 
 		File dir = new File(folder);
 		String[] entries = dir.list(); // get the folder content
@@ -60,26 +75,22 @@ public class Directory implements Serializable {
 			return files;
 		}
 		// convert to ArrayList and remove all directories from the list
-
 		for (int i = 0; i < entries.length; i++) {
 			File d = new File(folder + entries[i]);
 			if (d.isFile()) {
 				if (pattern == null) {
-					files.add(folder + entries[i]);
+					files.add(d);
 				} else if (pattern.contains("*")) {
 					if (wildCardMatch(entries[i], pattern)) {
-						files.add(folder + entries[i]);
+						files.add(d);
 					}
 				} else {
 					if (entries[i].equals(pattern)) {
-						files.add(folder + entries[i]);
+						files.add(d);
 					}
 				}
 			}
 		}
-
-		// sort the list
-		Collections.sort(files);
 
 		return files;
 	}

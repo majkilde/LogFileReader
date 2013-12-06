@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="C1257B8B006B3B8D" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="56e" sequence="3" unid="29889F64EF496861C1257C390044C05C">
+<created><datetime>20131206T133056,92+01</datetime></created>
+<modified><datetime>20131206T133117,02+01</datetime></modified>
+<revised><datetime>20131206T133117,01+01</datetime></revised>
+<lastaccessed><datetime>20131206T133117,02+01</datetime></lastaccessed>
+<addedtofile><datetime>20131206T133056,95+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
+<wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
+<item name="$Flags"><text>345CgQ</text></item>
+<item name="$FlagsExt" sign="true"><text>D</text></item>
+
+<item name="$MimeType" sign="true"><text>image/gif</text></item>
+<item name="$FileModDT" sign="true"><datetime dst="true">20101015T111820,00+02</datetime></item>
+
+<item name="$FileNames" sign="true"><text>desc.gif</text></item>
+<item name="$TITLE" sign="true"><text>tablesorter/desc.gif</text></item>
+<item name="$DesignerVersion" sign="true"><text>8.5.3</text></item></note>

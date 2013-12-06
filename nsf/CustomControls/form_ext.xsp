@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+	<xp:this.resources>
+		<xp:script src="/jquery-2.0.3.min.js" clientSide="true"></xp:script>
+		<xp:script src="/tablesorter//jquery.tablesorter.min.js" clientSide="true"></xp:script>
+		<xp:styleSheet href="/tablesorter/style.css"></xp:styleSheet>
+	</xp:this.resources>
+	<h1>Ext folder content</h1>
+	<div class="viewer">
+		<table id="extFiles" class="tablesorter">
+			<thead>
+				<tr>
+					<th>Filename</th>
+					<th>Size</th>
+					<th>Date</th>
+				</tr>
+			</thead>
+			<tbody>
+				<xp:repeat rows="1000" value="#{javascript:ext.getFileList()}" var="file" disableTheme="true" removeRepeat="true">
+					<tr>
+						<td>
+							<xp:link escape="true" text="#{javascript:file.name;}" id="download" styleClass="downloadLink">
+								<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
+									<xp:this.action><![CDATA[#{javascript:ext.download(file);}]]></xp:this.action>
+								</xp:eventHandler>
+							</xp:link>
+						</td>
+						<td>
+							<xp:text escape="true" value="#{javascript:dk.xpages.utils.NotesStrings.readableFileSize(file.length());}">
+								<xp:this.converter>
+									<xp:convertNumber type="number"></xp:convertNumber>
+								</xp:this.converter>
+							</xp:text>
+						</td>
+						<td>
+							<xp:text escape="true" value="#{javascript:java.text.DateFormat.getDateInstance().format( file.lastModified());}"></xp:text>
+						</td>
+					</tr>
+				</xp:repeat>
+			</tbody>
+		</table>
+	</div>
+
+	<script>
+		$(document).ready(function()
+		{
+		$("#extFiles").tablesorter();
+		}
+		); 
+	</script>
+</xp:view>

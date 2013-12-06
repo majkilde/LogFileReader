@@ -76,10 +76,7 @@ public class FileListFactory {
 
 	private static FileList getLogFiles(XML config) {
 		String filename = config.child("filename").content();
-
 		String viewname = config.child("viewname").content();
-		String dateFormula = config.child("date-formula").content();
-		String bodyField = config.child("body-field").content();
 
 		Filters filters = getFilters(config);
 
