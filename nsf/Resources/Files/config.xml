@@ -6,7 +6,8 @@
 				<action type="textreader">
 					<filename>[data]\IBM_TECHNICAL_SUPPORT\console*.log</filename>
 					<filters>
-						<filter applyto="line" bold="true" background="yellow" name="warnings">(?i)warning</filter>
+						<filter applyto="line" bold="true" background="yellow" name="warnings">(?i)warning</filter>									
+						<filter applyto="line" color="gray" visible="true" name="noteslog">(?i)NOTESLOG</filter>
 						<filter applyto="line" color="darkblue" visible="true" name="jvm">(?i)JVM</filter>
 						<filter applyto="line" color="darkblue" visible="true" name="xsp">(?i)XSP</filter>						
 						<filter applyto="selection" color="silver" visible="false" name="tag">^\[\S*\]</filter>
@@ -21,7 +22,7 @@
 			</item>
 			<item name="XPages">
 				<action type="textreader">
-					<filename>[data]\IBM_TECHNICAL_SUPPORT\xpages*.log</filename>
+					<filename encoding="UTF-8">[data]\IBM_TECHNICAL_SUPPORT\xpages*.log</filename>
 				</action>
 			</item>
 			

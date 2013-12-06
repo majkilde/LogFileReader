@@ -3,6 +3,7 @@ package dk.xpages.log;
 import static dk.xpages.utils.NotesStrings.messageFormat;
 
 import java.io.Serializable;
+import java.util.logging.Level;
 import java.util.logging.LogRecord;
 
 import com.ibm.xsp.model.domino.DominoUtils;
@@ -55,11 +56,11 @@ public class Logger implements Serializable {
 	}
 
 	public void trace(String message, Object... params) {
-		log(Level.TRACE, messageFormat(message, params), null);
+		log(Level.FINEST, messageFormat(message, params), null);
 	}
 
 	public void debug(String message, Object... params) {
-		log(Level.DEBUG, messageFormat(message, params), null);
+		log(Level.FINER, messageFormat(message, params), null);
 	}
 
 	public void info(String message) {
@@ -71,37 +72,15 @@ public class Logger implements Serializable {
 	}
 
 	public void warning(String message, Object... params) {
-		log(Level.WARN, messageFormat(message, params), null);
+		log(Level.WARNING, messageFormat(message, params), null);
 	}
 
 	public void error(String message, Object... params) {
-		log(Level.ERROR, messageFormat(message, params), null);
+		log(Level.SEVERE, messageFormat(message, params), null);
 	}
 
 	public void error(Throwable t) {
-		log(Level.ERROR, messageFormat("{0}", t.getMessage()), null);
-	}
-
-	private static java.util.logging.Level getJavaLevel(Level level) {
-		java.util.logging.Level logLevel = java.util.logging.Level.OFF;
-		if (level.equals(Level.DEBUG)) {
-			logLevel = java.util.logging.Level.FINE;
-		} else if (level.equals(Level.ERROR)) {
-			logLevel = java.util.logging.Level.SEVERE;
-		} else if (level.equals(Level.FATAL)) {
-			logLevel = java.util.logging.Level.SEVERE;
-		} else if (level.equals(Level.INFO)) {
-			logLevel = java.util.logging.Level.INFO;
-		} else if (level.equals(Level.TRACE)) {
-			logLevel = java.util.logging.Level.FINEST;
-		} else if (level.equals(Level.WARN)) {
-			logLevel = java.util.logging.Level.WARNING;
-		} else if (level.equals(Level.ALL)) {
-			logLevel = java.util.logging.Level.ALL;
-		}
-
-		return logLevel;
-
+		log(Level.SEVERE, messageFormat("{0}", t.getMessage()), null);
 	}
 
 	private static StackTraceElement getStackTraceElement(final int depth) {
@@ -111,11 +90,11 @@ public class Logger implements Serializable {
 	private void log(Level level, String msg, Throwable thrown) {
 		StackTraceElement stacktrace = getStackTraceElement(5);
 
-		LogRecord record = new LogRecord(getJavaLevel(level), msg);
+		LogRecord record = new LogRecord(level, msg);
 		record.setSourceClassName(stacktrace.getClassName());
 		record.setSourceMethodName(stacktrace.getMethodName());
 		record.setThrown(thrown);
-		NotesHandler handler = NotesHandler.getInstance();
+		ConsoleHandler handler = ConsoleHandler.getInstance();
 		handler.publish(record);
 
 		//Always log to the standard java.util.logging 

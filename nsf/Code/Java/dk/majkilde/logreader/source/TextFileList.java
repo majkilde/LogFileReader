@@ -37,7 +37,7 @@ public class TextFileList implements Serializable, IFileList {
 
 		List<String> filenames = Directory.getFileNames(pattern);
 		for (String filename : filenames) {
-			files.add(new TextFile(filename, filters));
+			files.add(new TextFile(filename, filters).setEncoding(config.child("filename").string("encoding")));
 		}
 
 		Collections.sort(files);

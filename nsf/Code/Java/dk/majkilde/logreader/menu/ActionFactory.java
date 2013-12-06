@@ -5,6 +5,7 @@ import dk.majkilde.logreader.menu.actions.LinkAction;
 import dk.majkilde.logreader.menu.actions.NSFAction;
 import dk.majkilde.logreader.menu.actions.NullAction;
 import dk.majkilde.logreader.menu.actions.TextReaderAction;
+import dk.majkilde.logreader.menu.actions.XMLAction;
 import dk.xpages.utils.XML;
 
 public class ActionFactory {
@@ -23,6 +24,10 @@ public class ActionFactory {
 
 			if ("nsfreader".equals(actionType)) {
 				return new NSFAction(actionXML, parent);
+			}
+
+			if ("xmlreader".equals(actionType)) {
+				return new XMLAction(actionXML, parent);
 			}
 		}
 

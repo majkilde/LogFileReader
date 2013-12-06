@@ -12,6 +12,7 @@ import dk.majkilde.logreader.files.XMLFile;
 import dk.xpages.log.LogManager;
 import dk.xpages.log.Logger;
 import dk.xpages.utils.NotesStrings;
+import dk.xpages.utils.XML;
 
 public class XMLFileList implements Serializable, IFileList {
 
@@ -23,20 +24,22 @@ public class XMLFileList implements Serializable, IFileList {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String pattern = "";
-	private String title = "";
+	private final String title = "";
 
 	private final List<IFile> files = new ArrayList<IFile>();
 
-	public XMLFileList(final String title, final String pattern, final String xlsFilename) {
-		this.title = title;
-		this.pattern = pattern;
+	public XMLFileList(XML config) {
+		this.pattern = config.child("filename").content();
+		String xlsFilename = config.child("transform").content();
 
 		List<String> filenames = Directory.getFileNames(pattern);
 		for (String filename : filenames) {
+
 			files.add(new XMLFile(filename, xlsFilename));
 		}
 
 		Collections.sort(files);
+
 	}
 
 	/* (non-Javadoc)

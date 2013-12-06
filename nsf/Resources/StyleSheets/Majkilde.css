@@ -38,6 +38,7 @@
 .fileViewer{
 	font-family:Consolas,"Courier New";
 	overflow:auto;
+	white-space:pre-wrap;
 }
 
 .tip th {

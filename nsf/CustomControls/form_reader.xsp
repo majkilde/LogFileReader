@@ -35,14 +35,12 @@
 		<h2>Content</h2>
 		<div class="lotusSectionBody">
 			<div class="fileViewer">
-			<pre>
 				<xp:text escape="false" id="fileContent" disableTheme="true">
 					<xp:this.value><![CDATA[#{javascript:file=viewScope.currentFile;
 if( file!=null){
 	file.getHtml();
 }}]]></xp:this.value>
 				</xp:text>
-				</pre>
 			</div>
 		</div>
 	</div>

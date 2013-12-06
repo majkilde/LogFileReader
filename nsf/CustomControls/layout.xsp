@@ -122,8 +122,6 @@ response.setHeader("X-UA-Compatible", "IE=edge");}]]></xp:this.afterRenderRespon
 		<!-- Footer -->
 		<xp:panel id="lotusFooter" styleClass="lotusFooter">
 			<!-- Place your footer here -->
-			<xc:pi></xc:pi>
-			&#160;
 		</xp:panel>
 		<!-- END Footer -->
 

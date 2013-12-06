@@ -14,7 +14,8 @@ import dk.xpages.utils.Download;
 import dk.xpages.utils.NotesStrings;
 
 public class TextFile implements IFile, Serializable {
-	private final String ENCODING = "utf-8";
+	private static final String DEFAULT_ENCODING = "utf-8";
+	private String encoding = DEFAULT_ENCODING;
 	private final Logger log = LogManager.getLogger();
 	protected final File file;
 	private Filters filters;
@@ -30,6 +31,16 @@ public class TextFile implements IFile, Serializable {
 	public TextFile(final String filename, final Filters filters) {
 		this.file = new File(filename);
 		this.filters = filters;
+	}
+
+	public TextFile setEncoding(String encoding) {
+		if (NotesStrings.isBlank(encoding)) {
+			this.encoding = DEFAULT_ENCODING;
+		} else {
+			this.encoding = encoding;
+		}
+
+		return this;
 	}
 
 	/**
@@ -76,12 +87,12 @@ public class TextFile implements IFile, Serializable {
 	}
 
 	private List<String> getStringList() throws IOException {
-		return FileUtils.readLines(file, ENCODING);
+		return FileUtils.readLines(file, encoding);
 	}
 
 	public void download() {
 		Download download = new Download();
-		download.setCharset(ENCODING);
+		download.setCharset(encoding);
 		try {
 			download.save(getByteArray(), getFilename());
 		} catch (IOException e) {

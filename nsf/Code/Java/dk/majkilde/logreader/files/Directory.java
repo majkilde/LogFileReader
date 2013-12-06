@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import dk.xpages.log.LogManager;
-import dk.xpages.log.Logger;
 import dk.xpages.utils.NotesEnvironment;
 import dk.xpages.utils.NotesStrings;
 
@@ -19,8 +17,6 @@ public class Directory implements Serializable {
 	public static final String NOTES_PROGRAM = "[program]";
 	public static final String NOTES_DATA = "[data]";
 	public static final String NOTES_CONFIG = "[config]";
-
-	private static final Logger log = LogManager.getLogger();
 
 	public static List<String> getFileNames(final String filePattern) {
 
@@ -61,7 +57,6 @@ public class Directory implements Serializable {
 		File dir = new File(folder);
 		String[] entries = dir.list(); // get the folder content
 		if (entries == null) {
-			log.warning("Not a folder: {0}", folder);
 			return files;
 		}
 		// convert to ArrayList and remove all directories from the list

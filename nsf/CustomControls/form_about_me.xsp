@@ -54,7 +54,7 @@ template.getDate();}]]></xp:this.value>
 			<td class="pipelist">
 				<ul>
 					<li>
-						<xp:link escape="true" text="Apache Commons Lang3" target="_blank" value="http://commons.apache.org/proper/commons-lang/">
+						<xp:link escape="true" text="Apache Commons Lang" target="_blank" value="http://commons.apache.org/proper/commons-lang/">
 						</xp:link>
 					</li>
 					<li>
@@ -65,18 +65,7 @@ template.getDate();}]]></xp:this.value>
 						<xp:link escape="true" text="JQuery" target="_blank" value="http://jquery.com/">
 						</xp:link>
 					</li>
-					<li>
-						<xp:link escape="true" text="JUnit 4.11" target="_blank" value="http://junit.org/">
-						</xp:link>
-					</li>
-					<li>
-						<xp:link escape="true" text="Date4j" target="_blank" value="http://www.date4j.net/">
-						</xp:link>
-					</li>
-					<li>
-						<xp:link escape="true" text="Iconfinder" target="_blank" value="https://www.iconfinder.com/">
-						</xp:link>
-					</li>
+					
 				</ul>
 			</td>
 		</tr>
