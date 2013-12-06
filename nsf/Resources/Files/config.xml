@@ -91,9 +91,6 @@
 		<item name="Ext" id="ext" link="#">
 			<action type="link" url="Ext.xsp?tab=ext" />
 		</item>
-		<item name="OpenLog" id="openlog" link="#">
-			<action type="link" url="Notes.xsp?tab=openlog" />
-		</item>
 		<item name="About" page="About.xsp">
 			<action type="link" url="About.xsp?tab=about" />
 		</item>
