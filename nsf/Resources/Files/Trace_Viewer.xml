@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+  Licensed Materials - Property of IBM
+  5724-R09
+  Â© Copyright IBM Corp. 2005, 2010 
+-->
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:template match="/">
+    <html>
+    <head>
+      <xsl:comment>Licensed Material - Property of IBM</xsl:comment>
+      <xsl:comment>© Copyright IBM Corp. 2005,2007 - All Rights Reserved.</xsl:comment>
+      <xsl:comment>US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.</xsl:comment>
+      
+        <title>Trace Viewer</title>      
+        <script language="JavaScript1.3">
+          &lt;!--            
+          var BROWSER_NAME = navigator.appName;
+          var BROWSER_VERSION = parseInt(navigator.appVersion);
+          var sortColumnIndex = 0;
+          var sortIncreasing = true;
+          var filters = new Array();
+          var filterTableRowCount = 0;
+          var current_locale = 'en_US';
+		  var localStrings = null;
+		  
+		  var en_US = new Array();
+		  en_US['Log Title'] = 'Log Viewer';
+		  en_US['Trace Title'] = 'Trace Viewer';
+		  en_US['Time']  = 'Time';
+	  	  en_US['Log Pref Title'] = 'Log Viewer Preferences';
+		  en_US['Trace Pref Title'] = 'Trace Viewer Preferences';
+		  en_US['Severity'] = 'Severity';
+		  en_US['Message'] = 'Message';
+		  en_US['SubSystem'] = 'Subsystem';
+		  en_US['Preferences'] = 'Viewer Preferences';
+		  en_US['Sorting Order'] = 'Sorting Order';
+		  en_US['Increasing'] = 'Increasing';
+		  en_US['Decreasing'] = 'Decreasing';
+		  en_US['Filtering Rules'] = 'Filtering Rules';
+		  en_US['any string'] = 'any string';
+		  en_US['Add'] = 'Add';
+		  en_US['Save'] = 'Save';
+		  en_US['Cancel'] = 'Cancel';
+		  en_US['Include'] = 'Include';
+		  en_US['Exclude'] = 'Exclude';
+		  en_US['Remove'] = 'Remove';
+		  en_US['Source Class.Method'] = 'Source Class.Method';
+		  en_US['Thread ID'] = 'Thread ID';
+		          
+		  function getLocale() {
+			var locale;
+			if (navigator.appName == 'Netscape')
+			  locale = navigator.language;
+			else
+			  locale = navigator.browserLanguage;
+			return locale;
+		  }
+					
+		  function getLocaleString(key){
+			if (undefined == localStrings[key]){
+			  return en_US[key];
+			}
+			  return localStrings[key];
+		  }
+				
+		  function getLocaleStrings(locale){
+			if(locale=='en-US' || locale=='en-us')
+			  return en_US;
+			else if(locale=='fr-FR' || locale=='fr-fr' || locale=='fr')
+			  return fr_FR;
+			else if(locale=='zh-CN' || locale=='zh-cn')
+			  return zh_CN;
+			else if(locale=='zh-TW' || locale=='zh-tw')
+			  return zh_TW;
+			else if(locale=='ja-JP' || locale=='ja-jp' || locale=='ja')
+			  return ja_JP;
+			else if(locale=='ko-KR' || locale=='ko-kr' || locale=='ko')
+			  return ko_KR;
+			else if(locale=='fr-FR' || locale=='fr-fr')
+			  return fr_FR;
+			else if(locale=='de-DE' || locale=='de-de' || locale=='de')
+			  return de_DE;
+			else if(locale=='it-IT' || locale=='it-it' || locale=='it')
+			  return it_IT;
+			else if(locale=='es-ES' || locale=='es-es' || locale=='es')
+			  return es_ES;
+			else if(locale=='pt-BR' || locale=='pt-br' || locale=='pt')
+			  return pt_BR;
+			else if(locale=='ar-SA' || locale=='ar-sa' || locale=='ar')
+			  return ar_SA;
+			else if(locale=='cs-CZ' || locale=='cs-cz' || locale=='cs')
+			  return cs_CZ;
+		    else if(locale=='da-DK' || locale=='da-dk' || locale=='da')
+			  return da_DK;
+			else if(locale=='nl-NL' || locale=='nl-nl' || locale=='nl')
+			  return nl_NL;
+			else if(locale=='fi-FI' || locale=='fi-fi' || locale=='fi')
+			  return fi_FI;
+			else if(locale=='el-GR' || locale=='el-gr' || locale=='el')
+			  return el_GR;
+			else if(locale=='he-IL' || locale=='he-il' || locale=='he')
+			  return he_IL;
+			else if(locale=='hu-HU' || locale=='hu-hu' || locale=='hu')
+			  return hu_HU;
+			else if(locale=='no-NO' || locale=='no-no' || locale=='no')
+			  return no_NO;
+			else if(locale=='no-NB' || locale=='no-nb')
+			  return no_NO;							
+			else if(locale=='pl-PL' || locale=='pl-pl' || locale=='pl')
+			  return pl_PL;
+			else if(locale=='pt-PT' || locale=='pt-pt' || locale=='pt')
+			  return pt_PT;
+			else if(locale=='ru-RU' || locale=='ru-ru' || locale=='ru')
+			  return ru_RU;
+			else if(locale=='sv-SE' || locale=='sv-se' || locale=='sv')
+			  return sv_SE;
+			else if(locale=='tr-TR' || locale=='tr-tr' || locale=='tr')
+			  return tr_TR;
+			else if(locale=='sl-SI' || locale=='sl-si' || locale=='sl')
+			  return sl_SI;
+			else if(locale=='ca-ES' || locale=='ca-es' || locale=='ca')
+			  return ca_ES;
+			else if(locale=='th-TH' || locale=='th-th' || locale=='th')
+			  return th_TH;
+			else if(locale=='ro-RO' || locale=='ro-ro' || locale=='ro')
+			  return ro_RO;
+			else if(locale=='sk-SK' || locale=='sk-sk' || locale=='sk')
+			  return sk_SK;
+			else if(locale=='uk-UA' || locale=='uk-ua' || locale=='uk')
+			  return uk_UA;
+			else if(locale=='kk-KK' || locale=='kk-kk' || locale=='kk' || locale=='kk-KZ' || locale=='kk-kz')
+			  return kk_KK;
+			else return en_US;
+		}
+
+		function validateLocaleArray(localeArray){
+			alert(localeArray.length);
+		}
+					
+        function initNlString(){
+//		  validateLocaleArray(en_US);
+  		  localStrings = getLocaleStrings(current_locale);
+  		  documentTitleNLUpdate('Trace Title');
+  		  documentNLUpdate('Preferences');
+		  documentNLUpdate('Trace Title');
+		  documentNLUpdate('Time');
+		  documentNLUpdate('Severity');
+		  documentNLUpdate('Message');
+		  documentNLUpdate('SubSystem');
+		  
+        }
+
+		function setDirection() {
+			String.prototype.startsWith = function(str) {return (this.match("^"+str)==str)};
+			if(current_locale.startsWith("he") || current_locale.startsWith("iw") || current_locale.startsWith("ar")) {
+  				document.dir = "rtl";
+			} 
+ 		}
+
+        function documentTitleNLUpdate(id){
+             		document.title = getLocaleString(id);
+        }
+        
+        function documentNLUpdate(id){
+          document.getElementById(id).innerHTML = getLocaleString(id);
+        }
+        
+          function initialize(){
+           current_locale = getLocale();
+           document.getElementById('locale').innerHTML = ' ' + current_locale;
+           initNlString();
+           setDirection();
+           
+            var eventTableRows = window.document.getElementById("eventTable").rows;
+            for (var counter = 0;counter &lt; eventTableRows.length;counter++){
+              var cellText = parseFloat(eventTableRows[counter].cells[2].innerHTML);
+              if((cellText &gt;= 0) &amp;&amp; (cellText &lt;= 70)){
+                var greenAndBlue = parseInt(Math.abs(225 - (parseFloat(cellText/70.0) * 225)));
+                eventTableRows[counter].cells[2].style.background = "rgb(255, " + greenAndBlue + ", " + greenAndBlue + ")"; 
+              }
+            }
+            configureEventTable();
+          }
+          function openPreferencesWindow(){          
+            if(((BROWSER_NAME != "Microsoft Internet Explorer") &amp;&amp; (BROWSER_NAME != "Netscape")) || (BROWSER_VERSION &lt; 4)){
+              alert("The Trace Viewer requires Netscape Navigator 4.x+ or Microsoft Internet Explorer 4.x+.");
+            }
+            else{
+              var newWindow = window.open("","newWindow","width=600,height=500,left=" + ((screen.availWidth - 600) / 2) + ",top=" + ((screen.availHeight - 500) / 2) + ",resizable=yes,scrollbars=yes,toolbar=no,location=no,directories=no,status=no,menubar=no,copyhistory=no");
+              newWindow.document.writeln("&lt;html&gt;");
+              newWindow.document.writeln("  &lt;head&gt;");
+              newWindow.document.writeln("    &lt;title&gt;"+localStrings['Trace Pref Title']+"&lt;/title&gt;");
+              newWindow.document.writeln("  &lt;/head&gt;");
+              newWindow.document.writeln("  &lt;body style='background:#DDDDDD;'&gt;");
+              newWindow.document.writeln("    &lt;center&gt;");
+              newWindow.document.writeln("      &lt;br/&gt;");
+              newWindow.document.writeln("      &lt;a style='font-weight:bold; font-size:140%;'&gt;"+localStrings['Trace Pref Title']+"&lt;/a&gt;");
+              newWindow.document.writeln("      &lt;br/&gt;");
+              newWindow.document.writeln("      &lt;br/&gt;");
+              newWindow.document.writeln("      &lt;br/&gt;");
+              newWindow.document.writeln("      &lt;a style='font-weight:bold; font-size:120%;'&gt;"+localStrings['Sorting Order']+"&lt;/a&gt;");
+              newWindow.document.writeln("      &lt;br/&gt;");
+              newWindow.document.writeln("      &lt;form&gt;");
+              newWindow.document.writeln("        &lt;table cellspacing='1' cellpadding='5'&gt;");
+              newWindow.document.writeln("          &lt;tr&gt;");
+              newWindow.document.writeln("            &lt;td&gt;&lt;select id='sortColumn'&gt;&lt;option&gt;"+localStrings['Time']+"&lt;/option&gt;&lt;option&gt;"+localStrings['Thread ID']+"&lt;/option&gt;&lt;option&gt;"+localStrings['Severity']+"&lt;/option&gt;&lt;option&gt;"+localStrings['Source Class.Method']+"&lt;/option&gt;&lt;option&gt;"+localStrings['Message']+"&lt;/option&gt;&lt;option&gt;"+localStrings['SubSystem']+"&lt;/option&gt;&lt;/select&gt;&lt;/td&gt;");
+              newWindow.document.writeln("            &lt;td&gt;&lt;input id='sortDirectionIncreasing' name='sortDirectionGroup' type='radio' &gt;"+localStrings['Increasing']+"&lt;/input&gt;&lt;br/&gt;&lt;input id='sortDirectionDecreasing' name='sortDirectionGroup' type='radio' value='down'&gt;"+localStrings['Decreasing']+"&lt;/input&gt;&lt;/td&gt;");
+              newWindow.document.writeln("          &lt;/tr&gt;");
+              newWindow.document.writeln("        &lt;/table&gt;");
+              newWindow.document.writeln("      &lt;/form&gt;");
+              newWindow.document.writeln("      &lt;br/&gt;");
+              newWindow.document.writeln("      &lt;a style='font-weight:bold; font-size:120%;'&gt;"+localStrings['Filtering Rules']+"&lt;/a&gt;");
+              newWindow.document.writeln("      &lt;br/&gt;");
+              newWindow.document.writeln("      &lt;a style='font-size:75%;'&gt;(* = "+localStrings['any string']+")&lt;/a&gt;");
+              newWindow.document.writeln("      &lt;br/&gt;");
+              newWindow.document.writeln("      &lt;a style='font-size:75%; color:#0000FF; text-decoration:none;' href='#' onClick='window.opener.addFilter(window);return false;'&gt;("+localStrings['Add']+")&lt;/a&gt;");
+              newWindow.document.writeln("      &lt;form&gt;");
+              newWindow.document.writeln("        &lt;table id='filterTable' cellspacing='1' cellpadding='5'&gt;");
+              newWindow.document.writeln("        &lt;/table&gt;");
+              newWindow.document.writeln("      &lt;/form&gt;");
+              newWindow.document.writeln("      &lt;br/&gt;");
+              newWindow.document.writeln("      &lt;form&gt;");
+              newWindow.document.writeln("        &lt;input type='button' style='width:5em;' value='"+localStrings['Save']+"' onClick='window.opener.savePreferences(window);window.close();return false;'/&gt;&amp;#xA0;&amp;#xA0;&lt;input type='button' style='width:5em;' value='"+localStrings['Cancel']+"' onClick='window.close();return false;'/&gt;");
+              newWindow.document.writeln("      &lt;/form&gt;");
+              newWindow.document.writeln("    &lt;/center&gt;");
+              newWindow.document.writeln("  &lt;/body&gt;");
+              newWindow.document.writeln("&lt;/html&gt;");
+              newWindow.document.close();              
+              newWindow.document.getElementById("sortColumn").options[sortColumnIndex].selected = "true"; 
+              newWindow.document.getElementById("sortDirection" + (sortIncreasing?"In":"De") + "creasing").checked = true; 
+              filterTableRowCount = 0;
+              for(var counter = 0;counter &lt; filters.length;counter++){
+                addFilter(newWindow);
+                newWindow.document.getElementById("filterColumn_" + counter).selectedIndex = filters[counter][0];
+                newWindow.document.getElementById("filterRule_" + counter).value = filters[counter][1];
+                newWindow.document.getElementById("filterRule" + (filters[counter][2]?"In":"Ex") + "clude_" + counter).checked = true;              
+              }      
+            }
+          }              
+          function addFilter(preferenceWindow){
+            var filterTable = preferenceWindow.document.getElementById("filterTable");   
+            var rowIndex = filterTable.rows.length;
+            var newRow = filterTable.insertRow(rowIndex);
+            filterTableRowCount += 1;
+            newRow.insertCell(0).innerHTML = filterTableRowCount + ".&#xA0;";
+            newRow.insertCell(1).innerHTML = "&lt;select id='filterColumn_" + rowIndex + "'&gt;&lt;option&gt;"+localStrings['Time']+"&lt;/option&gt;&lt;option&gt;"+localStrings['Thread ID']+"&lt;/option&gt;&lt;option&gt;"+localStrings['Severity']+"&lt;/option&gt;&lt;option&gt;"+localStrings['Source Class.Method']+"&lt;/option&gt;&lt;option&gt;"+localStrings['Message']+"&lt;/option&gt;&lt;option&gt;"+localStrings['SubSystem']+"&lt;/option&gt;&lt;/select&gt;";
+            newRow.insertCell(2).innerHTML = "&lt;input id='filterRule_" + rowIndex + "' type='text' value='*'/&gt;";
+            newRow.insertCell(3).innerHTML = "&lt;input id='filterRuleInclude_" + rowIndex + "' name='filterRuleGroup_" + rowIndex + "' type='radio' checked='true' &gt;"+localStrings['Include']+"&lt;/input&gt;&lt;br/&gt;&lt;input id='filterRuleExclude_" + rowIndex + "' name='filterRuleGroup_" + rowIndex + "' type='radio' value='down'&gt;"+localStrings['Exclude']+"&lt;/input&gt;";
+            newRow.insertCell(4).innerHTML = "&lt;a style='font-size:75%; color:#0000FF; text-decoration:none;' href='#' onClick='window.opener.removeFilter(window," + rowIndex + ");return false;'&gt;("+localStrings['Remove']+")&lt;/a&gt;";
+          }
+          function removeFilter(preferenceWindow,selectedRowIndex){
+            var filterTable = preferenceWindow.document.getElementById("filterTable");  
+            filterTable.rows[selectedRowIndex].style.display = "none";
+            filterTableRowCount -= 1;
+            var numberCount = 1;
+            for(var counter = 0;counter &lt; filterTable.rows.length;counter++){
+              if(filterTable.rows[counter].style.display == ""){
+                filterTable.rows[counter].cells[0].innerHTML = (numberCount + ".&#xA0;");
+                numberCount += 1;
+              }
+            }
+          }
+          function savePreferences(preferenceWindow){
+            sortColumnIndex = preferenceWindow.document.getElementById("sortColumn").selectedIndex;
+            sortIncreasing = preferenceWindow.document.getElementById("sortDirectionIncreasing").checked;
+            filters = new Array();            
+            var filterTable = preferenceWindow.document.getElementById("filterTable");  
+            for(var counter = 0;counter &lt; filterTable.rows.length;counter++){
+              if(filterTable.rows[counter].style.display != "none"){
+                filters[filters.length] = new Array(preferenceWindow.document.getElementById("filterColumn_" + counter).selectedIndex,preferenceWindow.document.getElementById("filterRule_" + counter).value,preferenceWindow.document.getElementById("filterRuleInclude_" + counter).checked);
+                var filter = "^" + filters[filters.length - 1][1].replace(/\\/g,"\\\\");
+                filter = filter.replace(/\?/g,"\\?");
+                filter = filter.replace(/\//g,"\\/");
+                filter = filter.replace(/\./g,"\\.");
+                filter = filter.replace(/\[/g,"\\[");
+                filter = filter.replace(/\]/g,"\\]");
+                filter = filter.replace(/\{/g,"\\{");
+                filter = filter.replace(/\}/g,"\\}");
+                filter = filter.replace(/\(/g,"\\(");
+                filter = filter.replace(/\)/g,"\\)");
+                filter = filter.replace(/\+/g,"\\+");
+                filter = filter.replace(/\|/g,"\\|");
+                filter = filter.replace(/\*/g,"(.|\s)+");
+                filters[filters.length - 1][3] = filter + "$";
+              }
+            }  
+            initNlString();          
+            configureEventTable();
+          }          
+          function configureEventTable(){
+            var eventTable = window.document.getElementById("eventTable");
+            var sortableRows = new Array(eventTable.rows.length - 1);
+            for(var counter = 1;counter &lt; eventTable.rows.length;counter++){      
+              sortableRows[counter - 1] = eventTable.rows[counter]; 
+              sortableRows[counter - 1].style.display = "";
+            }
+            for (var counter = 1; counter &lt; sortableRows.length; counter++){              
+              var index = counter;
+              var currentRow = sortableRows[counter];
+              var currentCellText = parseInt(currentRow.cells[0].innerHTML.toLowerCase());
+              while ((index &gt; 0) &amp;&amp; (parseInt(sortableRows[index - 1].cells[0].innerHTML.toLowerCase()) &gt; currentCellText)){
+                sortableRows[index] = sortableRows[index - 1];
+                index -= 1;
+              }
+              sortableRows[index] = currentRow;
+            }
+            if(sortColumnIndex != 0){
+              for (var counter = 1; counter &lt; sortableRows.length; counter++){
+                var index = counter;
+                var currentRow = sortableRows[counter];
+                var currentCellText = currentRow.cells[sortColumnIndex].innerHTML.toLowerCase();
+                if (!isNaN(parseInt(currentCellText))){
+                  currentCellText = parseInt(currentCellText);
+                }
+                while (index &gt; 0){
+                  var sortedPreviousCellText = sortableRows[index - 1].cells[sortColumnIndex].innerHTML.toLowerCase();
+                  if (!isNaN(parseInt(sortedPreviousCellText))){
+                    sortedPreviousCellText = parseInt(sortedPreviousCellText);
+                  }
+                  if(sortedPreviousCellText &lt;= currentCellText){
+                    break;
+                  }
+                  sortableRows[index] = sortableRows[index - 1];
+                  index -= 1;
+                }
+                sortableRows[index] = currentRow;
+              } 
+            }   
+            if(!sortIncreasing){
+              sortableRows.reverse();
+            }             
+            var rowCount = 0;
+            for (var counter = 0;counter &lt; sortableRows.length;counter++){
+              eventTable.tBodies[0].appendChild(sortableRows[counter]);      
+              if(filterRow(sortableRows[counter])){
+                sortableRows[counter].style.display = "none";
+              }
+              else{
+                if(rowCount % 2 == 0){
+                  sortableRows[counter].style.background = "#FFFFC1"; 
+                }
+                else{
+                  sortableRows[counter].style.background = "#FFFFE1"; 
+                }
+                rowCount += 1;
+              }             
+            }       
+          }
+          function filterRow(row){
+            for(var counter = 0;counter &lt; row.cells.length;counter++){
+              for(var filterCounter = 0;filterCounter &lt; filters.length;filterCounter++){
+                if(filters[filterCounter][0] == counter){                  
+              	  if(row.cells[counter].innerHTML.match(new RegExp(filters[filterCounter][3]))){
+              	    if(!filters[filterCounter][2]){
+              	      return true;
+              	    }
+              	  }
+              	  else if(filters[filterCounter][2]){
+              	    return true;
+              	  }            	  
+                }
+              }
+            }            
+            return false;
+          }
+          // --&gt;
+        </script>
+      </head>      
+      <body onLoad="initialize();document.focus();return false;">
+      <script src="./Viewer_Translations.js"></script>
+        <center>
+          <br/>
+          <br/>
+          <noscript>
+            <a style="font-weight:bold; color:#FF0000; font-size:140%;">This viewer requires JavaScript to be enabled in your BROWSER_NAME's preferences.</a>
+            <br/>
+            <br/>
+          </noscript>  
+          <a id="Trace Title" style="font-weight:bold; font-size:140%;">Trace Viewer</a>
+	      <br/> 
+	      <a id="locale" style="font-size:75%; text-decoration:none;"></a>          
+          <br/>
+          <br/>
+          <table width="95%">
+            <tr>
+              <td ><a id="Preferences" style="font-size:75%; color:#0000FF; text-decoration:none;" href="#" onClick="openPreferencesWindow();return false;">Viewer Preferences</a> </td>
+            </tr>
+          </table>
+          
+          <table id="eventTable" border="1" cellspacing="1" cellpadding="1" width="100%">
+            <tr style="background:#ACD6FF;font-size:75%;">
+              <th width="15%" ><a id="Time" style="color:#0000FF; text-decoration:none;">Time</a></th>
+              <th width="3%" ><a id="Thread ID" style="color:#0000FF; text-decoration:none;">Thr Id</a></th>
+              <th width="5%" ><a id="Severity" style="color:#0000FF; text-decoration:none;">Severity</a></th>
+              <th width="10%" ><a id="Source Class.Method" style="color:#0000FF; text-decoration:none;">Source Class.Method</a></th>
+
+              <th width="52%" ><a id="Message" style="color:#0000FF; text-decoration:none;">Message</a></th>
+              <th width="15%" ><a id="SubSystem" style="color:#0000FF; text-decoration:none;">SubSystem</a></th>
+            </tr>
+                  
+            <xsl:for-each select="CommonBaseEvents/CommonBaseEvent">
+              <tr style="font-size:75%;">                            
+                <xsl:choose>
+                  <xsl:when test="string(@creationTime)">
+                    <td><xsl:value-of select="substring(@creationTime,12,12)"/></td>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <td>&#xA0;</td>
+                  </xsl:otherwise>
+                </xsl:choose>
+
+              <xsl:choose>
+                  <xsl:when test="string(sourceComponentId/@threadId)">
+                    <td align="center"><xsl:value-of select="sourceComponentId/@threadId"/></td>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <td>&#xA0;</td>
+                  </xsl:otherwise>
+              </xsl:choose>        
+                 
+                
+                <xsl:choose>
+                  <xsl:when test="string(extendedDataElements[@name='Logging_Level']/values)">
+                    <td><xsl:value-of select="extendedDataElements[@name='Logging_Level']/values"/></td>
+                  </xsl:when>
+                  <xsl:when test="string(extendedDataElements[@name='CommonBaseEventLogRecord:level']/children[@name='CommonBaseEventLogRecord:name']/values)">
+                    <td><xsl:value-of select="extendedDataElements[@name='CommonBaseEventLogRecord:level']/children[@name='CommonBaseEventLogRecord:name']/values"/></td>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <td>&#xA0;</td>
+                  </xsl:otherwise>
+                </xsl:choose>
+
+              <xsl:choose>
+                   <xsl:when test="string(extendedDataElements[@name='CommonBaseEventLogRecord:sourceClassName']/values)">
+                     <td><xsl:value-of select="extendedDataElements[@name='CommonBaseEventLogRecord:sourceClassName']/values"/><br/><xsl:value-of select="extendedDataElements[@name='CommonBaseEventLogRecord:sourceMethodName']/values"/>
+                     </td>
+                   </xsl:when>
+                   <xsl:otherwise>
+                    <td>&#xA0;</td>
+                  </xsl:otherwise>
+              </xsl:choose>
+             
+             <xsl:choose>
+                  <xsl:when test="string(@msg)">
+                    <td>
+                    <pre><xsl:value-of select="@msg"/>
+                    <xsl:if test="string(extendedDataElements[@name='CommonBaseEventLogRecord:multipleMessageValues'])"> 
+                       <xsl:for-each select="extendedDataElements[@name='CommonBaseEventLogRecord:multipleMessageValues']/values">
+			     	     <xsl:value-of select="."/> 
+	                   </xsl:for-each>
+                       
+                    </xsl:if>
+                     </pre>
+			         <xsl:if test="string(extendedDataElements[@name='CommonBaseEventLogRecord:Exception'])"> 
+			           <pre><i>
+                       <xsl:for-each select="extendedDataElements[@name='CommonBaseEventLogRecord:Exception']/values">
+			     	     <xsl:value-of select="."/> 
+	                   </xsl:for-each>
+                       </i></pre>
+			      </xsl:if></td>
+		        </xsl:when>
+		        <xsl:otherwise>
+                    <td>&#xA0;</td>
+                  </xsl:otherwise>
+              </xsl:choose>
+
+              <xsl:choose>
+                  <xsl:when test="string(sourceComponentId/@subComponent)">
+                    <td><xsl:value-of select="sourceComponentId/@subComponent"/></td>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <td>&#xA0;</td>
+                  </xsl:otherwise>
+              </xsl:choose>
+                
+                
+              </tr>
+            </xsl:for-each>
+          </table>
+        </center>
+      </body>
+    </html>
+  </xsl:template>
+</xsl:stylesheet>

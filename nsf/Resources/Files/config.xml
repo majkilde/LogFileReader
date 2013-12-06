@@ -40,7 +40,7 @@
 			<item name="Trace">
 				<action type="filereader" filetype="xml">
 					<filename>[data]\domino\workspace\logs\trace-log-*.xml</filename>
-					<transform>transform.xsl</transform>
+					<transform>Trace_Viewer.xml</transform>
 				</action>
 			</item>
 			<item name="Error files">
