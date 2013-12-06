@@ -6,7 +6,7 @@
 
 	<xe:dynamicViewPanel id="dynamicViewPanel1">
 		<xe:this.data>
-			<xp:dominoView var="view1" databaseName="openlog.nsf" viewName="Events\by Date"></xp:dominoView>
+			<xp:dominoView var="view1" databaseName="names.nsf" viewName="People"></xp:dominoView>
 		</xe:this.data>
 	</xe:dynamicViewPanel>
 
