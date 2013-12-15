@@ -1,7 +1,7 @@
 <config>
 	<default encoding="UTF-8"/>
 	<menu>
-		<item name="Logs" id="logs" page="Reader.xsp">
+		<item name="Logs">
 			<action type="link" url="Reader.xsp?tab=logs" />
 			<item name="Console" restricted="true">
 				<action type="filereader" filetype="text">
