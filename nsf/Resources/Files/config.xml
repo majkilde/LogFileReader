@@ -1,8 +1,9 @@
 <config>
+	<default encoding="UTF-8"/>
 	<menu>
 		<item name="Logs" id="logs" page="Reader.xsp">
 			<action type="link" url="Reader.xsp?tab=logs" />
-			<item name="Console">
+			<item name="Console" restricted="true">
 				<action type="filereader" filetype="text">
 					<filename>[data]\IBM_TECHNICAL_SUPPORT\console*.log</filename>
 					<filters>
@@ -20,13 +21,18 @@
 					<filename>[data]\IBM_TECHNICAL_SUPPORT\sysinfo*.log</filename>
 				</action>
 			</item>
-			<item name="XPages">
+			<item name="XPages" restricted="true">
 				<action type="filereader" filetype="text">
 					<filename encoding="UTF-8">[data]\IBM_TECHNICAL_SUPPORT\xpages*.log</filename>
 				</action>
 			</item>
+			<item name="Domino API" restricted="true">
+				<action type="filereader" filetype="text">
+					<filename>[data]\IBM_TECHNICAL_SUPPORT\org.openntf.*.log</filename>
+				</action>
+			</item>
 			
-			<item name="Log.nsf">
+			<item name="Log.nsf" restricted="true">
 				<action type="filereader" filetype="log">
 					<filename>log.nsf</filename>
 					<viewname>($SearchEventsView)</viewname>
@@ -37,23 +43,21 @@
 					</filters>
 				</action>
 			</item>
-			<item name="Trace">
+			<item name="Trace" restricted="true">
 				<action type="filereader" filetype="xml">
 					<filename>[data]\domino\workspace\logs\trace-log-*.xml</filename>
 					<transform>Trace_Viewer.xml</transform>
 				</action>
 			</item>
-			<item name="Error files">
+			<item name="Error files" restricted="true">
 				<action type="filereader" filetype="xml">
 					<filename>[data]\domino\workspace\logs\error-log-*.xml</filename>
 					<transform>transform.xsl</transform>
 				</action>
 			</item>
-			
 		</item>
 		<item name="Configuration" id="config" page="Reader.xsp">
 			<action type="link" url="Reader.xsp?tab=config" />
-
 			<item name="notes.ini">
 				<action type="filereader" filetype="text">
 					<filename>[config]\notes.ini</filename>
@@ -62,8 +66,7 @@
 					</filters>
 				</action>
 			</item>
-
-			<item name="java.policy">
+			<item name="java.policy" restricted="true">
 				<action type="filereader" filetype="text">
 					<filename>[program]\jvm\lib\security\java.policy</filename>
 					<filters>
@@ -71,7 +74,7 @@
 					</filters>
 				</action>
 			</item>
-			<item name="java.pol">
+			<item name="java.pol" restricted="true">
 				<action type="filereader" filetype="text">
 					<filename>[program]\jvm\lib\security\java.pol</filename>
 					<filters>
@@ -79,7 +82,7 @@
 					</filters>
 				</action>
 			</item>
-			<item name="rcpinstall.properties">
+			<item name="rcpinstall.properties" restricted="true">
 				<action type="filereader" filetype="text">
 					<filename>[data]\domino\workspace\.config\rcpinstall.properties</filename>
 					<filters>

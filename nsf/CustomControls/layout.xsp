@@ -29,7 +29,8 @@ response.setHeader("X-UA-Compatible", "IE=edge");}]]></xp:this.afterRenderRespon
 						</xp:tabPanel>
 						<xp:tabPanel label="Log out" id="logout">
 							<xp:this.rendered><![CDATA[${javascript:@ClientType()=="Web" && session.getEffectiveUserName()!="Anonymous"}]]></xp:this.rendered>
-							<xp:this.href><![CDATA[${javascript:"/names.nsf?logout&RedirectTo="+context.getUrl().toString()}]]></xp:this.href>
+
+							<xp:this.href><![CDATA[#{javascript:facesContext.getExternalContext().getRequest().getContextPath() + "?Logout&redirectTo=" + facesContext.getExternalContext().getRequest().getContextPath()}]]></xp:this.href>
 						</xp:tabPanel>
 					</xp:tabbedPanel>
 					<!-- END Utility menu -->

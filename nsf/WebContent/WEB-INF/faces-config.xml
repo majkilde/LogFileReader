@@ -5,7 +5,7 @@
   <managed-bean>
     <managed-bean-name>layout</managed-bean-name>
     <managed-bean-class>dk.majkilde.logreader.beans.LayoutBean</managed-bean-class>
-    <managed-bean-scope>application</managed-bean-scope>
+    <managed-bean-scope>view</managed-bean-scope>
   </managed-bean>
   <managed-bean>
     <managed-bean-name>ext</managed-bean-name>
