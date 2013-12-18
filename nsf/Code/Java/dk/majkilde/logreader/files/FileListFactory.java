@@ -58,7 +58,11 @@ public class FileListFactory {
 
 	private static FileList getXMLFiles(XML config) {
 		String pattern = config.child("filename").content();
-		String xlsFilename = config.child("transform").content();
+		String xlsFilename = null;
+		XML transform = config.child("transform");
+		if (transform != null) {
+			xlsFilename = transform.content();
+		}
 
 		List<String> filenames = Directory.getFileNames(pattern);
 
@@ -76,7 +80,7 @@ public class FileListFactory {
 
 	private static FileList getLogFiles(XML config) {
 		String filename = config.child("filename").content();
-		String viewname = config.child("viewname").content();
+		String viewname = "($SearchEventsView)";
 
 		Filters filters = getFilters(config);
 
@@ -96,7 +100,7 @@ public class FileListFactory {
 			doc = view.getFirstDocument();
 			while (doc != null) {
 
-				IFile nsffile = new NSFFile(filename, doc, filters);
+				IFile nsffile = new LognsfDoc(filename, doc, filters);
 				files.add(nsffile);
 
 				nextdoc = view.getNextDocument(doc);

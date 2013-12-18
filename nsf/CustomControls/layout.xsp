@@ -107,6 +107,7 @@ response.setHeader("X-UA-Compatible", "IE=edge");}]]></xp:this.afterRenderRespon
 
 				<xp:panel id="menu" styleClass="lotusMenu">
 					<xc:menu></xc:menu>
+					
 				</xp:panel>
 				<!-- END Menu -->
 
@@ -115,7 +116,8 @@ response.setHeader("X-UA-Compatible", "IE=edge");}]]></xp:this.afterRenderRespon
 
 			<!--  Contemt -->
 			<xp:panel id="lotusContent" styleClass="lotusContent">
-				<xp:callback facetName="facet_1" id="callback1"></xp:callback>
+			<xc:messages></xc:messages>
+			<xp:callback facetName="facet_1" id="callback1"></xp:callback>
 			</xp:panel>
 			<!-- END Content -->
 

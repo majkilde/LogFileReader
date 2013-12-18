@@ -4,8 +4,11 @@ import java.io.InputStream;
 import java.io.Serializable;
 import java.util.Map;
 
+import javax.faces.application.Application;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.faces.el.ValueBinding;
 import javax.servlet.http.HttpServletRequest;
 
 import lotus.domino.Database;
@@ -107,4 +110,39 @@ public class XSPUtils implements Serializable {
 		return (HttpServletRequest) getContext().getExternalContext().getRequest();
 
 	}
+
+	public static Object getBean(String expr) {
+		Application app = getContext().getApplication();
+		ValueBinding binding = app.createValueBinding("#{" + expr + "}");
+		Object value = binding.getValue(getContext());
+		return value;
+	}
+
+	public static void addWarning(String message) {
+		getContext().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, message, ""));
+	}
+
+	public static void addInfo(String message) {
+		getContext().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, ""));
+	}
+
+	public static void addError(String message) {
+		getContext().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, message, ""));
+	}
+
+	public static void addFatal(String message) {
+		getContext().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, ""));
+	}
+
+	public static String getReadableErrorMessage(Throwable t) {
+		StackTraceElement e = t.getStackTrace()[0];
+		String msg = NotesStrings.messageFormat("{0} in {1}.{2}, line: {3}", t.getMessage(), e.getClassName(), e.getMethodName(), e
+				.getLineNumber());
+		return msg;
+	}
+
+	public static void addFatal(Throwable t) {
+		addFatal(getReadableErrorMessage(t));
+	}
+
 }

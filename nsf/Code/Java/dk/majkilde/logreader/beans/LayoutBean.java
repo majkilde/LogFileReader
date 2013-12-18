@@ -52,6 +52,7 @@ public class LayoutBean implements Serializable {
 		try {
 			return getSelectedTab().getChildren().get(0);
 		} catch (Exception e) {
+			XSPUtils.addFatal(e);
 			return null;
 		}
 
@@ -87,7 +88,12 @@ public class LayoutBean implements Serializable {
 	}
 
 	public FileList getCurrentFilelist() {
-		getSelectedMenu().executeAction();
+		try {
+			getSelectedMenu().executeAction();
+		} catch (Exception e) {
+			XSPUtils.addFatal(e);
+		}
+
 		return null;
 	}
 
