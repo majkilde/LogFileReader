@@ -8,7 +8,7 @@ import dk.majkilde.logreader.menu.actions.NullAction;
 import dk.xpages.utils.XML;
 
 public class ActionFactory {
-	public static IAction createAction(XML menuXML, IMenu parent) {
+	public static IAction createAction(XML menuXML, IMenu parent) throws Exception {
 		XML actionXML = menuXML.child("action");
 		if (actionXML != null) {
 			String actionType = actionXML.string("type").toLowerCase();

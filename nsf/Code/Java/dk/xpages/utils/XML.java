@@ -113,6 +113,10 @@ public class XML implements Serializable {
 		return content;
 	}
 
+	public boolean hasContent() {
+		return NotesStrings.isBlank(content);
+	}
+
 	public void addChild(XML xml) {
 		addChild(xml.name(), xml);
 	}
@@ -144,12 +148,20 @@ public class XML implements Serializable {
 		return children == null ? new ArrayList<XML>() : children;
 	}
 
+	public boolean hasChild(String name) {
+		return nameChildren.containsKey(name);
+	}
+
 	public String string(String name) {
 		String value = optString(name);
 		if (value == null) {
 			return "";
 		}
 		return value;
+	}
+
+	public boolean hasAttribute(String name) {
+		return nameAttributes.containsKey(name);
 	}
 
 	public String optString(String name) {

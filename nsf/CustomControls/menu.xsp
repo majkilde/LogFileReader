@@ -6,13 +6,17 @@
 		<div id="inner" class="lotusInner">
 
 			<ul>
-				<xp:repeat rows="30" var="menuitem" value="#{javascript:layout.getSelectedTab().getChildren()}" disableTheme="true"
-					removeRepeat="true"
-				>
+				<xp:repeat rows="30" var="menuitem" disableTheme="true" removeRepeat="true">
+					<xp:this.value><![CDATA[#{javascript:tab = layout.getSelectedTab()
+if( tab!=null) {
+	tab.getChildren();
+} else {
+	null;
+}}]]></xp:this.value>
 					<xp:panel tagName="li">
-					<xp:this.styleClass><![CDATA[#{javascript:if(layout.isMenuSelected(menuitem.getId())) "lotusSelected"}]]></xp:this.styleClass>
+						<xp:this.styleClass><![CDATA[#{javascript:if(layout.isMenuSelected(menuitem.getId())) "lotusSelected"}]]></xp:this.styleClass>
 						<xp:link escape="true" text="#{javascript:menuitem.getName();}">
-							
+
 							<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
 								<xp:this.action><![CDATA[#{javascript:menuitem.executeAction()}]]></xp:this.action>
 							</xp:eventHandler>
@@ -20,10 +24,6 @@
 					</xp:panel>
 				</xp:repeat>
 			</ul>
-
-
-
 		</div>
 	</div>
-
 </xp:view>

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="C1257B8B006B3B8D" version="9.0" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="20e" sequence="151" unid="77A8A8859BADB73DC1257C070025782F">
+<noteinfo noteid="20e" sequence="160" unid="77A8A8859BADB73DC1257C070025782F">
 <created><datetime dst="true">20131017T084915,99+02</datetime></created>
-<modified><datetime>20131218T224824,99+01</datetime></modified>
-<revised><datetime>20131218T224824,98+01</datetime></revised>
-<lastaccessed><datetime>20131218T224824,99+01</datetime></lastaccessed>
+<modified><datetime>20131219T085602,99+01</datetime></modified>
+<revised><datetime>20131219T085602,98+01</datetime></revised>
+<lastaccessed><datetime>20131219T085602,99+01</datetime></lastaccessed>
 <addedtofile><datetime dst="true">20131017T084916,02+02</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
 <wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
-<item name="$TITLE" sign="true"><text>config.xml</text></item>
-<item name="$MimeCharSet"><text>UTF-8</text></item>
+<item name="$MimeCharSet" sign="true"><text>UTF-8</text></item>
 <item name="$Flags"><text>345CgQ</text></item>
+<item name="$TITLE" sign="true"><text>config.xml</text></item>
 <item name="$DesignerVersion"><text>8.5.3</text></item>
 
 

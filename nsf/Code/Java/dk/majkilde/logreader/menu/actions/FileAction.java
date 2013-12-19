@@ -17,7 +17,7 @@ public class FileAction implements IAction, Serializable {
 
 	private FileList filelist = null;
 
-	public FileAction(XML config, IMenu parent) {
+	public FileAction(XML config, IMenu parent) throws Exception {
 		this.parent = parent;
 		filelist = FileListFactory.create(config);
 	}

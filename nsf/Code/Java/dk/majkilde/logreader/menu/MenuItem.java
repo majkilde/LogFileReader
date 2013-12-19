@@ -47,7 +47,7 @@ public class MenuItem implements IMenu, Serializable {
 		return name.replaceAll("\\s+", "").toLowerCase();
 	}
 
-	public static IMenu createFromXML(XML menuXML) {
+	public static IMenu createFromXML(XML menuXML) throws Exception {
 		MenuItem menu = null;
 		if (NotesStrings.equalsIgnoreCase(menuXML.name(), "menu")) {
 			//new root element
