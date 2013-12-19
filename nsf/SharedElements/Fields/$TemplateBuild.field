@@ -1,13 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note class='sharedfield' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.0'
  replicaid='C1257B8B006B3B8D'>
-<noteinfo noteid='1c6' unid='C12579F2003CFDCBC12572A7002AC3BF' sequence='65'>
+<noteinfo noteid='1c6' unid='C12579F2003CFDCBC12572A7002AC3BF' sequence='67'>
 <created><datetime>20070323T084706,23+01</datetime></created>
-<modified><datetime>20131215T185027,58+01</datetime></modified>
-<revised><datetime>20131215T185027,57+01</datetime></revised>
-<lastaccessed><datetime>20131215T185027,58+01</datetime></lastaccessed>
+<modified><datetime>20131219T103212,44+01</datetime></modified>
+<revised><datetime>20131219T103212,43+01</datetime></revised>
+<lastaccessed><datetime>20131219T103212,44+01</datetime></lastaccessed>
 <addedtofile><datetime dst='true'>20130615T213119,59+02</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></updatedby>
+<wassignedby><name>CN=Jakob Majkilde/O=MAJKILDE</name></wassignedby>
 <item name='$TITLE'><text>$TemplateBuild</text></item>
 <item name='$Fields'><text>$TemplateBuild</text></item>
 <item name='$Flags'><text/></item>
@@ -19,8 +20,8 @@ AAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAgwQBAIX/CAAAAAAA3QYAAIr/iv8yAIoAAAUAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAADgAAAAAAJFRlbXBsYXRlQnVpbGTeBgAAiv+F/wgAAAAAAA==
 </rawitemdata></item>
 <item name='$Language' sign='true'><text>en</text></item>
-<item name='$TemplateBuild' sign='true'><text>2.0</text></item>
+<item name='$TemplateBuild' sign='true'><text>2.0.1</text></item>
 <item name='$TemplateBuildName' sign='true'><text>Log File Reader</text></item>
-<item name='$TemplateBuildDate' sign='true'><datetime>20131215T185027,00+01</datetime></item>
+<item name='$TemplateBuildDate' sign='true'><datetime>20131219T103100,00+01</datetime></item>
 <item name='$comment'><text>Rev 6.5</text></item></note>
 
