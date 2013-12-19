@@ -28,6 +28,7 @@ import dk.xpages.log.Logger;
 /*
  * @link http://argonrain.wordpress.com/2009/10/27/000/
  * Quote: "All you need is this class, which you can of course customise however you like."
+ * Permissions given on the blog to include in OpenNTF projects, quote: "Yes, you are free to use the code in any way that you like. Credits would be very much appreciated."
  */
 public class XML implements Serializable {
 	/**
@@ -112,6 +113,10 @@ public class XML implements Serializable {
 		return content;
 	}
 
+	public boolean hasContent() {
+		return NotesStrings.isBlank(content);
+	}
+
 	public void addChild(XML xml) {
 		addChild(xml.name(), xml);
 	}
@@ -143,12 +148,20 @@ public class XML implements Serializable {
 		return children == null ? new ArrayList<XML>() : children;
 	}
 
+	public boolean hasChild(String name) {
+		return nameChildren.containsKey(name);
+	}
+
 	public String string(String name) {
 		String value = optString(name);
 		if (value == null) {
 			return "";
 		}
 		return value;
+	}
+
+	public boolean hasAttribute(String name) {
+		return nameAttributes.containsKey(name);
 	}
 
 	public String optString(String name) {

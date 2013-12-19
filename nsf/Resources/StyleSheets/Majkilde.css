@@ -130,11 +130,8 @@ background-repeat: no-repeat;
 padding-right:13px;
 }
 
-/* Fun stuff */
-.pi, .pi:hover {
-	float:right;
-    margin-right:4px;
-    text-decoration:none;
-    cursor:default;
-
-   }
+/* Error messages */
+.messages .xspMessage {
+	margin:4px;
+	padding:3px;
+}

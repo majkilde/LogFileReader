@@ -16,7 +16,7 @@ import dk.xpages.utils.Download;
 import dk.xpages.utils.NotesObjects;
 import dk.xpages.utils.NotesStrings;
 
-public class NSFFile implements IFile, Serializable {
+public class LognsfDoc implements IFile, Serializable {
 
 	private final Logger log = LogManager.getLogger();
 	private final String noteid;
@@ -28,7 +28,7 @@ public class NSFFile implements IFile, Serializable {
 
 	private final Filters filters;
 
-	public NSFFile(final String filename, final Document doc, final Filters filters) throws NotesException {
+	public LognsfDoc(final String filename, final Document doc, final Filters filters) throws NotesException {
 		this.noteid = doc.getNoteID();
 		this.filename = filename;
 		this.filters = filters;

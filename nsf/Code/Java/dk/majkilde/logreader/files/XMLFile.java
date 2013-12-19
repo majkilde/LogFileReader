@@ -11,6 +11,7 @@ import javax.xml.transform.stream.StreamSource;
 
 import dk.xpages.log.LogManager;
 import dk.xpages.log.Logger;
+import dk.xpages.utils.NotesStrings;
 import dk.xpages.utils.XSPUtils;
 
 public class XMLFile extends TextFile implements Serializable {
@@ -30,14 +31,13 @@ public class XMLFile extends TextFile implements Serializable {
 
 	@Override
 	public String getHtml() {
-
-		if (xlsFilename == null) {
-			//no XSL file specified - just return the content as a plain text file
-			return super.getHtml();
-		}
-
 		if (file.length() == 0) {
 			return "Empty file (size=0)";
+		}
+
+		if (NotesStrings.isBlank(xlsFilename)) {
+			//no XSL file specified - just return the content as a plain text file
+			return super.getHtml();
 		}
 
 		// XSL transform

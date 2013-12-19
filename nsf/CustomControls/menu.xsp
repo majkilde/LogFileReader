@@ -4,7 +4,7 @@
 
 	<div id="bottomcorner" class="lotusBottomCorner">
 		<div id="inner" class="lotusInner">
-
+			<xp:panel disableTheme="true" loaded="${javascript:layout.getSelectedTab()!=null}">
 			<ul>
 				<xp:repeat rows="30" var="menuitem" value="#{javascript:layout.getSelectedTab().getChildren()}" disableTheme="true"
 					removeRepeat="true"
@@ -22,7 +22,7 @@
 			</ul>
 
 
-
+</xp:panel>
 		</div>
 	</div>
 

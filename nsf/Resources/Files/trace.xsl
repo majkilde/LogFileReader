@@ -6,14 +6,17 @@
 				<th width="15%">
 					<a id="Time" style="color:white; text-decoration:none;">Time</a>
 				</th>
-				<th width="10%">
+				<th width="5%">
+					<a id="TraceId" style="color:white; text-decoration:none;">Thread id</a>
+				</th>
+				<th width="5%">
 					<a id="Severity" style="color:white; text-decoration:none;">Severity</a>
 				</th>
-				<th width="45%">
+				<th width="50%">
 					<a id="Message" style="color:white; text-decoration:none;">Message</a>
 				</th>
-				<th width="15%">
-					<a id="SubSystem" style="color:white; text-decoration:none;">Exception</a>
+				<th width="10%">
+					<a id="Source" style="color:white; text-decoration:none;">Source Classs.Method</a>
 				</th>
 				<th width="15%">
 					<a id="SubSystem" style="color:white; text-decoration:none;">SubSystem</a>
@@ -31,7 +34,24 @@
 							<td>&#xA0;</td>
 						</xsl:otherwise>
 					</xsl:choose>
+
 					<xsl:choose>
+						<xsl:when test="string(sourceComponentId/@threadId)">
+							<td>
+								<xsl:value-of select="sourceComponentId/@threadId" />
+							</td>
+						</xsl:when>
+						<xsl:otherwise>
+							<td>&#xA0;</td>
+						</xsl:otherwise>
+					</xsl:choose>
+
+					<xsl:choose>
+						<xsl:when test="string(extendedDataElements[@name='Logging_Level']/values)">
+							<td>
+								<xsl:value-of select="extendedDataElements[@name='Logging_Level']/values" />
+							</td>
+						</xsl:when>
 						<xsl:when
 							test="string(extendedDataElements[@name='CommonBaseEventLogRecord:level']/children[@name='CommonBaseEventLogRecord:name']/values)"
 						>
@@ -43,26 +63,46 @@
 							<td>&#xA0;</td>
 						</xsl:otherwise>
 					</xsl:choose>
+
 					<xsl:choose>
 						<xsl:when test="string(@msg)">
 							<td>
 								<xsl:value-of select="@msg" />
+								<xsl:if test="string(extendedDataElements[@name='CommonBaseEventLogRecord:multipleMessageValues'])">
+									<xsl:for-each select="extendedDataElements[@name='CommonBaseEventLogRecord:multipleMessageValues']/values">
+										<xsl:value-of select="." />
+									</xsl:for-each>
+
+								</xsl:if>
+								<xsl:if test="string(extendedDataElements[@name='CommonBaseEventLogRecord:Exception'])">
+									<i>
+										<xsl:for-each select="extendedDataElements[@name='CommonBaseEventLogRecord:Exception']/values">
+											<xsl:value-of select="." />
+										</xsl:for-each>
+									</i>
+								</xsl:if>
 							</td>
 						</xsl:when>
 						<xsl:otherwise>
 							<td>&#xA0;</td>
 						</xsl:otherwise>
 					</xsl:choose>
+
 					<xsl:choose>
-						<xsl:when test="string(extendedDataElements[@name='CommonBaseEventLogRecord:Exception']/values)">
+						<xsl:when test="string(extendedDataElements[@name='CommonBaseEventLogRecord:sourceClassName']/values)">
 							<td>
-								<xsl:value-of select="extendedDataElements[@name='CommonBaseEventLogRecord:Exception']/values" />
+								<xsl:value-of select="extendedDataElements[@name='CommonBaseEventLogRecord:sourceClassName']/values" />
+								<br />
+								<xsl:value-of select="extendedDataElements[@name='CommonBaseEventLogRecord:sourceMethodName']/values" />
 							</td>
 						</xsl:when>
 						<xsl:otherwise>
 							<td>&#xA0;</td>
 						</xsl:otherwise>
 					</xsl:choose>
+
+
+
 					<xsl:choose>
 						<xsl:when test="string(sourceComponentId/@subComponent)">
 							<td>

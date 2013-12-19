@@ -69,6 +69,10 @@ template.getDate();}]]></xp:this.value>
 						<xp:link escape="true" text="TableSorter" target="_blank" value="http://tablesorter.com/docs/">
 						</xp:link>
 					</li>
+					<li>
+						<xp:link escape="true" text="A simple XML Parser" target="_blank" value="http://argonrain.wordpress.com/2009/10/27/000/">
+						</xp:link>
+					</li>
 				</ul>
 			</td>
 		</tr>
