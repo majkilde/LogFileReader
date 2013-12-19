@@ -30,7 +30,7 @@ public class NotesObjects extends DominoUtils {
 	}
 
 	private static String getServer(String server) {
-		if (NotesStrings.isBlank(server) || server.equals('*')) {
+		if (NotesStrings.isBlank(server) || server.equals("*")) {
 			return getCurrentServer();
 		} else {
 			return server;

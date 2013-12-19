@@ -1,0 +1,31 @@
+OpenNTF XPages Log File Reader
+(C)Copyright 2013 Jakob Majkilde
+
+This product includes software contributed to
+OpenNTF Alliance (http://www.OpenNTF.org/)
+
+This product is licensed under the terms of the Apache 2.0 license.
+
+The project contains the following 3rd party code:
+
+Product: Apache Commons Lang
+Link:    http://commons.apache.org/proper/commons-lang/
+License: Apache 2.0 (http://www.apache.org/licenses/LICENSE-2.0)
+
+Product: Apache Commons IO
+Link:    http://commons.apache.org/proper/commons-io/
+License: Apache 2.0 (http://www.apache.org/licenses/LICENSE-2.0)
+
+Product: JQuery
+Link:    http://jquery.com/
+License: MIT License (https://github.com/jquery/jquery/blob/master/MIT-LICENSE.txt)
+
+Product: TableSorter
+Link:    http://tablesorter.com
+License: MIT License (http://opensource.org/licenses/mit-license.php)
+
+Product: A simple XML Parser
+Link:    http://argonrain.wordpress.com/2009/10/27/000/
+License: Quote from blog "Yes, you are free to use the code in any way that you like." and "All you need is this class, which you can of course customise however you like"
+
+The icons used in this application comes from http://findicons.com and is licensed under "Creative Commons Attribution (by)"

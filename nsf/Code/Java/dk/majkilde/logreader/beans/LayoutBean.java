@@ -16,12 +16,24 @@ import dk.xpages.utils.XSPUtils;
 public class LayoutBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private final IMenu menu;
+	private IMenu menu = null;
 
 	public LayoutBean() {
-		InputStream input = XSPUtils.getResourceAsStream("config.xml");
-		XML configXML = new XML(input, "config");
-		menu = MenuItem.createFromXML(configXML.child("menu"));
+		try {
+			InputStream input = XSPUtils.getResourceAsStream("config.xml");
+			if (input == null) {
+				XSPUtils.addFatal("File nor found: config.xml");
+			} else {
+				XML configXML = new XML(input, "config");
+				if (configXML.hasChild("menu")) {
+					menu = MenuItem.createFromXML(configXML.child("menu"));
+				} else {
+					XSPUtils.addFatal("config.xml: No <menu>");
+				}
+			}
+		} catch (Exception e) {
+			XSPUtils.addFatal(e);
+		}
 	}
 
 	public IMenu getMenu() {
@@ -29,14 +41,24 @@ public class LayoutBean implements Serializable {
 	}
 
 	public List<IMenu> getTabs() {
-		return menu.getChildren();
+		try {
+			return menu.getChildren();
+		} catch (Exception e) {
+			XSPUtils.addFatal(e);
+			return null;
+		}
 	}
 
 	private String getSelectedTabId() {
-		XSPUrl url = XSPUtils.getUrl();
-		String selectedId = url.getParameter("tab");
-		if (NotesStrings.isBlank(selectedId)) {
-			selectedId = getTabs().get(0).getId();
+		String selectedId = "";
+		try {
+			XSPUrl url = XSPUtils.getUrl();
+			selectedId = url.getParameter("tab");
+			if (NotesStrings.isBlank(selectedId)) {
+				selectedId = getTabs().get(0).getId();
+			}
+		} catch (Exception e) {
+			XSPUtils.addFatal(e);
 		}
 		return selectedId;
 	}
@@ -52,6 +74,7 @@ public class LayoutBean implements Serializable {
 		try {
 			return getSelectedTab().getChildren().get(0);
 		} catch (Exception e) {
+			XSPUtils.addFatal(e);
 			return null;
 		}
 
@@ -83,11 +106,21 @@ public class LayoutBean implements Serializable {
 	}
 
 	public IMenu getSelectedTab() {
-		return menu.getChild(getSelectedTabId());
+		try {
+			return menu.getChild(getSelectedTabId());
+		} catch (Exception e) {
+			XSPUtils.addFatal(e);
+			return null;
+		}
 	}
 
 	public FileList getCurrentFilelist() {
-		getSelectedMenu().executeAction();
+		try {
+			getSelectedMenu().executeAction();
+		} catch (Exception e) {
+			XSPUtils.addFatal(e);
+		}
+
 		return null;
 	}
 

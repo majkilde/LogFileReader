@@ -11,12 +11,13 @@ import dk.xpages.log.LogManager;
 import dk.xpages.log.Logger;
 import dk.xpages.utils.NotesObjects;
 import dk.xpages.utils.XML;
+import dk.xpages.utils.XMLException;
 
 public class FileListFactory {
 
 	private static Logger log = LogManager.getLogger();
 
-	static public FileList create(XML config) {
+	static public FileList create(XML config) throws Exception {
 
 		String filetype = config.string("filetype");
 
@@ -32,14 +33,18 @@ public class FileListFactory {
 			return getLogFiles(config);
 		}
 
-		return null;
+		throw new XMLException("config.xml: required filetype attribute is missing");
 	}
 
 	private static Filters getFilters(XML config) {
 		return new Filters(config.child("filters"));
 	}
 
-	private static FileList getTextFiles(XML config) {
+	private static FileList getTextFiles(XML config) throws XMLException {
+		if (!config.hasChild("filename")) {
+			throw new XMLException("config.xml: Required <filename> is missing");
+		}
+
 		String pattern = config.child("filename").content();
 		List<String> filenames = Directory.getFileNames(pattern);
 
@@ -56,9 +61,18 @@ public class FileListFactory {
 		return new FileList(files, pattern);
 	}
 
-	private static FileList getXMLFiles(XML config) {
+	private static FileList getXMLFiles(XML config) throws XMLException {
+		if (!config.hasChild("filename")) {
+			throw new XMLException("config.xml: Required <filename> is missing");
+		}
+
 		String pattern = config.child("filename").content();
-		String xlsFilename = config.child("transform").content();
+		String xlsFilename = null;
+
+		XML transform = config.child("transform");
+		if (transform != null) {
+			xlsFilename = transform.content();
+		}
 
 		List<String> filenames = Directory.getFileNames(pattern);
 
@@ -74,9 +88,13 @@ public class FileListFactory {
 		return new FileList(files, pattern);
 	}
 
-	private static FileList getLogFiles(XML config) {
+	private static FileList getLogFiles(XML config) throws XMLException {
+		if (!config.hasChild("filename")) {
+			throw new XMLException("config.xml: Required <filename> is missing");
+		}
+
 		String filename = config.child("filename").content();
-		String viewname = config.child("viewname").content();
+		String viewname = "($SearchEventsView)";
 
 		Filters filters = getFilters(config);
 
@@ -89,19 +107,20 @@ public class FileListFactory {
 
 		try {
 			db = NotesObjects.getDatabaseAsSigner(filename);
+			if (db.isOpen()) {
+				view = NotesObjects.getView(db, viewname);
+				view.setAutoUpdate(false);
 
-			view = NotesObjects.getView(db, viewname);
-			view.setAutoUpdate(false);
+				doc = view.getFirstDocument();
+				while (doc != null) {
 
-			doc = view.getFirstDocument();
-			while (doc != null) {
+					IFile nsffile = new LognsfDoc(filename, doc, filters);
+					files.add(nsffile);
 
-				IFile nsffile = new NSFFile(filename, doc, filters);
-				files.add(nsffile);
-
-				nextdoc = view.getNextDocument(doc);
-				NotesObjects.incinerate(doc);
-				doc = nextdoc;
+					nextdoc = view.getNextDocument(doc);
+					NotesObjects.incinerate(doc);
+					doc = nextdoc;
+				}
 			}
 		} catch (Exception e) {
 			log.error(e);
