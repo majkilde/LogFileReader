@@ -43,7 +43,7 @@ public class NSFAction implements IAction, Serializable {
 			db.open();
 			isopen = db.isOpen();
 		} catch (Exception e) {
-			log.error(e);
+			//log.error(e);
 		}
 
 		return isopen;
