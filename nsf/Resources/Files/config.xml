@@ -3,6 +3,11 @@
 	<menu>
 		<item name="Logs">
 			<action type="link" url="Reader.xsp?tab=logs" />
+			<item name="XPages" restricted="true">
+				<action type="filereader" filetype="text">
+					<filename encoding="UTF-8">[data]\IBM_TECHNICAL_SUPPORT\xpages*.log</filename>
+				</action>
+			</item>
 			<item name="Console" restricted="true">
 				<action type="filereader" filetype="text">
 					<filename>[data]\IBM_TECHNICAL_SUPPORT\console*.log</filename>
@@ -21,11 +26,7 @@
 					<filename>[data]\IBM_TECHNICAL_SUPPORT\sysinfo*.log</filename>
 				</action>
 			</item>
-			<item name="XPages" restricted="true">
-				<action type="filereader" filetype="text">
-					<filename encoding="UTF-8">[data]\IBM_TECHNICAL_SUPPORT\xpages*.log</filename>
-				</action>
-			</item>
+
 			<item name="Domino API" restricted="true">
 				<action type="filereader" filetype="text">
 					<filename>[data]\IBM_TECHNICAL_SUPPORT\org.openntf.*.log</filename>
