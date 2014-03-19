@@ -5,7 +5,7 @@
 			<action type="link" url="Reader.xsp?tab=logs" />
 			<item name="XPages" restricted="true">
 				<action type="filereader" filetype="text">
-					<filename encoding="UTF-8">[data]\IBM_TECHNICAL_SUPPORT\xpages*.log</filename>
+					<filename encoding="UTF-8">[data]\IBM_TECHNICAL_SUPPORT\xpages_*.log</filename>
 				</action>
 			</item>
 			<item name="Console" restricted="true">
@@ -30,6 +30,21 @@
 			<item name="Domino API" restricted="true">
 				<action type="filereader" filetype="text">
 					<filename>[data]\IBM_TECHNICAL_SUPPORT\org.openntf.*.log</filename>
+				</action>
+			</item>
+			
+			<item name="XPages.dk" restricted="true">
+				<action type="filereader" filetype="text">
+					<filename>[data]\IBM_TECHNICAL_SUPPORT\dk.xpages.*.log</filename>
+					<filters>
+						<filter applyto="selection" color="silver" visible="false" name="tag">^\[\S*\]</filter>
+						<filter applyto="selection" color="silver" visible="true" name="coderef">\{.*\}</filter>
+						<filter applyto="selection" color="gray" visible="true" name="datetime">[0-9]{4}-[0-9]{2}-[0-9]{2}( [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}\s)</filter>
+						<filter applyto="line" color="darkred" visible="true" name="Fatal">(?i)FATAL</filter>
+						<filter applyto="line" color="red" visible="true" name="Error">(?i)FATAL</filter>
+						<filter applyto="line" color="darkblue" visible="true" name="Warning">(?i)ERROR</filter>
+						
+					</filters>
 				</action>
 			</item>
 			
