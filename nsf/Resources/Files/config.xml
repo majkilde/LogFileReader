@@ -1,23 +1,18 @@
 <config>
 	<default encoding="UTF-8"/>
 	<menu>
-		<item name="Logs">
+		<item name="Logs" id="logs" page="Reader.xsp">
 			<action type="link" url="Reader.xsp?tab=logs" />
-			<item name="XPages" restricted="true">
-				<action type="filereader" filetype="text">
-					<filename encoding="UTF-8">[data]\IBM_TECHNICAL_SUPPORT\xpages*.log</filename>
-				</action>
-			</item>
 			<item name="Console" restricted="true">
 				<action type="filereader" filetype="text">
 					<filename>[data]\IBM_TECHNICAL_SUPPORT\console*.log</filename>
 					<filters>
-						<filter applyto="selection" color="silver" visible="false" name="tag">^\[\S*\]</filter>
-						<filter applyto="selection" color="gray" visible="true" name="datetime">[0-9]{2}-[0-9]{2}-[0-9]{4}( [0-9]{2}:[0-9]{2}:[0-9]{2}\s)</filter>
 						<filter applyto="line" bold="true" background="yellow" name="warnings">(?i)warning</filter>									
 						<filter applyto="line" color="gray" visible="true" name="noteslog">(?i)NOTESLOG</filter>
 						<filter applyto="line" color="darkblue" visible="true" name="jvm">(?i)JVM</filter>
 						<filter applyto="line" color="darkblue" visible="true" name="xsp">(?i)XSP</filter>						
+						<filter applyto="selection" color="silver" visible="false" name="tag">^\[\S*\]</filter>
+						<filter applyto="selection" color="gray" visible="true" name="datetime">[0-9]{2}-[0-9]{2}-[0-9]{4}( [0-9]{2}:[0-9]{2}:[0-9]{2}\s)</filter>
 					</filters>
 				</action>
 			</item>
@@ -26,7 +21,11 @@
 					<filename>[data]\IBM_TECHNICAL_SUPPORT\sysinfo*.log</filename>
 				</action>
 			</item>
-
+			<item name="XPages" restricted="true">
+				<action type="filereader" filetype="text">
+					<filename encoding="UTF-8">[data]\IBM_TECHNICAL_SUPPORT\xpages*.log</filename>
+				</action>
+			</item>
 			<item name="Domino API" restricted="true">
 				<action type="filereader" filetype="text">
 					<filename>[data]\IBM_TECHNICAL_SUPPORT\org.openntf.*.log</filename>
@@ -36,6 +35,7 @@
 			<item name="Log.nsf" restricted="true">
 				<action type="filereader" filetype="log">
 					<filename>log.nsf</filename>
+					<viewname>($SearchEventsView)</viewname>
 					<filters>
 						<filter applyto="line" color="darkred" visible="true" name="jvm">(?i)JVM</filter>
 						<filter applyto="line" color="darkblue" visible="true" name="http">(?i)HTTP</filter>
@@ -46,7 +46,7 @@
 			<item name="Trace" restricted="true">
 				<action type="filereader" filetype="xml">
 					<filename>[data]\domino\workspace\logs\trace-log-*.xml</filename>
-					<transform>trace.xsl</transform>
+					<transform>Trace_Viewer.xml</transform>
 				</action>
 			</item>
 			<item name="Error files" restricted="true">
@@ -54,19 +54,6 @@
 					<filename>[data]\domino\workspace\logs\error-log-*.xml</filename>
 					<transform>transform.xsl</transform>
 				</action>
-			</item>
-			<item name="OpenLog" >
-					<action type="nsf">
-						<filename>openlog.nsf</filename>
-						<viewname>Events\by Date</viewname>
-						<form>
-							<formula tag="h1">"Logged Event"</formula>
-							<field label="Event type">LogEventType</field>
-							<field label="Event time">LogEventTime</field>
-							<field label="Log message">LogMessage</field>
-							<field label="Stack trace">LogStackTrace</field>
-						</form>
-					</action>
 			</item>
 		</item>
 		<item name="Configuration" id="config" page="Reader.xsp">
