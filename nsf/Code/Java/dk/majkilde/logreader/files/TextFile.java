@@ -4,9 +4,11 @@ import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import dk.xpages.log.LogManager;
 import dk.xpages.log.Logger;
@@ -87,7 +89,15 @@ public class TextFile implements IFile, Serializable {
 	}
 
 	private List<String> getStringList() throws IOException {
-		return FileUtils.readLines(file, encoding);
+		List<String> list = new LinkedList<String>();
+
+		List<String> lines = FileUtils.readLines(file, encoding);
+
+		for (String line : lines) {
+			list.add(StringEscapeUtils.escapeHtml4(line));
+		}
+
+		return list;
 	}
 
 	public void download() {
